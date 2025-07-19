@@ -2,11 +2,13 @@ from __future__ import annotations
 import typing
 from instaui.components.element import Element
 from instaui.event.event_mixin import EventMixin
-from typing_extensions import TypedDict, Unpack
+from typing_extensions import TypedDict, Unpack, Self
+from instaui.vars.web_computed import WebComputed
 from ._utils import handle_props, handle_event_from_props
 
 if typing.TYPE_CHECKING:
     from instaui.vars.types import TMaybeRef
+    import pandas as pd  # type: ignore
 
 
 class BaseTable(Element):
@@ -18,7 +20,9 @@ class BaseTable(Element):
         **kwargs: Unpack[TBaseTableProps],
     ):
         super().__init__("t-base-table")
+        _common_table_props_update(kwargs)  # type: ignore
         self.props({"data": data, "columns": columns, "row-key": row_key})
+
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
@@ -227,6 +231,7 @@ class Table(Element):
         **kwargs: Unpack[TPrimaryTableProps],
     ):
         super().__init__("t-table")
+        _common_table_props_update(kwargs)  # type: ignore
         self.props({"data": data, "columns": columns, "row-key": row_key})
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
@@ -243,6 +248,23 @@ class Table(Element):
             extends=extends,
         )
         return self
+
+    @classmethod
+    def from_pandas(
+        cls,
+        data: typing.Union["pd.DataFrame", WebComputed],
+        **kwargs: Unpack[TPrimaryTableProps],
+    ) -> Self:
+        import pandas as pd  # type: ignore
+
+        if isinstance(data, pd.DataFrame):
+            columns = [{"colKey": col, "title": col} for col in data.columns]
+            return cls(data=data.to_dict(orient="records"), columns=columns, **kwargs)  # type: ignore
+
+        if isinstance(data, WebComputed):
+            return cls(data=data["data"], columns=data["columns"], **kwargs)
+
+        raise ValueError("Unsupported data type")
 
     def on_cell_click(
         self,
@@ -475,7 +497,7 @@ class TBaseTableProps(TypedDict, total=False):
     loading_props: TMaybeRef[typing.Dict]
     locale: TMaybeRef[typing.Dict]
     max_height: TMaybeRef[typing.Union[TMaybeRef[float], TMaybeRef[str]]]
-    pagination: TMaybeRef[typing.Dict]
+    pagination: typing.Union[TMaybeRef[typing.Dict], bool]
     pagination_affixed_bottom: TMaybeRef[typing.Union[bool, typing.Dict]]
     resizable: TMaybeRef[bool]
     row_attributes: TMaybeRef[typing.Union[str, typing.Dict, typing.List]]
@@ -587,12 +609,12 @@ class TPrimaryTableCol(TBaseTableCol):
     cell: str
     check_props: typing.Union[str, typing.Dict]
     children: typing.List
-    col_key: str
+    colKey: str
     disabled: str
     edit: typing.Dict
     filter: typing.Dict
     render: str
-    sort_type: typing.Literal["desc", "asc", "all"]
+    sortType: typing.Literal["desc", "asc", "all"]
     sorter: typing.Union[bool, str]
     title: str
     type: typing.Literal["single", "multiple"]
@@ -607,3 +629,9 @@ class TEnhancedTableProps(TPrimaryTableCol):
     on_abnormal_drag_sort: EventMixin
     on_expanded_tree_nodes_change: EventMixin
     on_tree_expand_change: EventMixin
+
+
+def _common_table_props_update(props: typing.Dict):
+    pass
+    # if props.get("pagination") is True:
+    #     props.update({"pagination": {"defaultCurrent": 1, "defaultPageSize": 10}})

@@ -18,6 +18,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "instaui[all]",
+    "pandas>=2.0.3",
     "playwright<1.52.0",
     "pytest>=8.3.5",
     "pytest-asyncio>=0.24.0",
