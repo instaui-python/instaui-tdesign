@@ -1,6 +1,6 @@
 import { type App } from "vue";
 import TDesign from "tdesign-vue-next";
-import "tdesign-vue-next/es/style/index.css";
+import "./style.css";
 import Table from "@/components/Table.vue";
 
 function install(app: App) {
