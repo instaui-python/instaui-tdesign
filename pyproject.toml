@@ -11,13 +11,13 @@ authors = [
 requires-python = ">=3.8,<3.14"
 
 dependencies = [
-    "instaui >=0.4.0",
+    "instaui~=0.4.1",
 ]
 
 
 [dependency-groups]
 dev = [
-    "instaui[all]",
+    "instaui[web]",
     "pandas>=2.0.3",
     "playwright<1.52.0",
     "pytest>=8.3.5",
@@ -52,5 +52,3 @@ include = [
 [tool.hatch.build.force-include]
 "src/instaui_tdesign/static" = "src/instaui_tdesign/static"
 
-[tool.uv.sources]
-instaui = { path = "../instaui", editable = true }
