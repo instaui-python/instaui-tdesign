@@ -1,7 +1,7 @@
 from typing import Callable, Optional
 from instaui import ui, html
 from dataclasses import dataclass
-from __tests.testing_web.context import Context
+from __tests.screen import BaseContext
 
 
 @dataclass
@@ -32,5 +32,5 @@ def use_computed_style(style_name: str, *, target_selector: Optional[str] = None
     return ComputedStyleResult(style_value, create_button, el)
 
 
-def update_style(context: Context):
+def update_style(context: BaseContext):
     context.find_by_text("update style").click()
