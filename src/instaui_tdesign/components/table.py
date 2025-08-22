@@ -625,7 +625,7 @@ class TPrimaryTableCol(TBaseTableCol):
     disabled: str
     edit: typing.Dict
     filter: typing.Dict
-    render: str
+    # render: str
     sortType: typing.Literal["desc", "asc", "all"]
     sorter: typing.Union[bool, str]
     title: str
