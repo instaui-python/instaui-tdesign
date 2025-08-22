@@ -2,6 +2,7 @@ import pytest
 from playwright.sync_api import Browser
 from __tests.testing_web.context import Context
 from __tests.testing_web.server import TestServer
+import instaui_tdesign as td
 
 PAGE_TIMEOUT = 3000
 
@@ -24,3 +25,8 @@ def start_server():
     server = TestServer()
     yield server
     server.stop()
+
+
+@pytest.fixture(scope="session", autouse=True)
+def use_tdesign():
+    td.use()

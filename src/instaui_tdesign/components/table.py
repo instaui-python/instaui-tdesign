@@ -1,5 +1,6 @@
 from __future__ import annotations
 import typing
+from instaui.components.slot import Slot
 from instaui.components.element import Element
 from instaui.event.event_mixin import EventMixin
 from typing_extensions import TypedDict, Unpack, Self
@@ -237,6 +238,15 @@ class Table(Element):
         self.props({"data": data, "columns": columns, "row-key": row_key})
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
+
+    def add_cell_slot(self, cell: str):
+        """
+        Add a cell slot to the table.
+
+        Args:
+            cell (str): The cell key to add the slot to.
+        """
+        return TableCellSlot(self.add_slot(cell))
 
     def on_async_loading_click(
         self,
@@ -631,6 +641,27 @@ class TEnhancedTableProps(TPrimaryTableCol):
     on_abnormal_drag_sort: EventMixin
     on_expanded_tree_nodes_change: EventMixin
     on_tree_expand_change: EventMixin
+
+
+class TableCellSlot:
+    def __init__(self, slot: Slot) -> None:
+        self.__slot = slot
+
+    def __enter__(self):
+        self.__slot.__enter__()
+        return self
+
+    def __exit__(self, *exc_info):
+        self.__slot.__exit__(*exc_info)
+
+    def param(self, name: typing.Literal["col", "colIndex", "row", "rowIndex"]):
+        """
+        Get slot parameter by name.
+
+        Args:
+            name (typing.Literal[&quot;col&quot;, &quot;colIndex&quot;, &quot;row&quot;, &quot;rowIndex&quot;]): Slot parameter name.
+        """
+        return typing.cast(typing.Any, self.__slot.slot_props(name))
 
 
 def _common_table_props_update(props: typing.Dict):
