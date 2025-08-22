@@ -1,7 +1,7 @@
 from __tests.testing_zero.context import ZeroContext as Context
 from instaui import ui, html, zero
 import instaui_tdesign as td
-from __tests.style_testing_utils import update_style, use_computed_style
+from __tests.utils.style_testing_utils import update_style, use_computed_style
 
 
 def target_box():

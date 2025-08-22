@@ -4,37 +4,33 @@ import { computed } from "vue";
 
 export function usePagination(attrs: SetupContext["attrs"]) {
   return computed(() => {
-    const { pagination } = attrs as { pagination: PaginationProps };
+    const { pagination, data = [] } = attrs as {
+      pagination: PaginationProps;
+      data: any[];
+    };
 
-    if (typeof pagination === "boolean") {
-      if (!pagination) {
-        return undefined;
-      }
+    let realPagination = undefined;
 
-      const { data = [] } = attrs as { data: any[] };
-
-      const newPagination = {
-        defaultCurrent: 1,
+    if (typeof pagination === "boolean" && pagination) {
+      realPagination = {
         defaultPageSize: 10,
-        total: data.length,
-      };
-
-      return newPagination;
-    }
-
-    if (
-      typeof pagination === "object" &&
-      pagination !== null &&
-      !("total" in pagination)
-    ) {
-      const { data = [] } = attrs as { data: any[] };
-      return {
-        defaultCurrent: 1,
-        ...pagination,
-        total: data.length,
       };
     }
 
-    return pagination;
+    if (typeof pagination === "number" && pagination > 0) {
+      realPagination = {
+        defaultPageSize: pagination,
+      };
+    }
+
+    if (typeof pagination === "object" && pagination !== null) {
+      realPagination = pagination;
+    }
+
+    return {
+      defaultCurrent: 1,
+      total: data.length,
+      ...realPagination,
+    };
   });
 }

@@ -509,7 +509,7 @@ class TBaseTableProps(TypedDict, total=False):
     loading_props: TMaybeRef[typing.Dict]
     locale: TMaybeRef[typing.Dict]
     max_height: TMaybeRef[typing.Union[TMaybeRef[float], TMaybeRef[str]]]
-    pagination: typing.Union[TMaybeRef[typing.Dict], bool]
+    pagination: typing.Union[TMaybeRef[typing.Dict], bool, int]
     pagination_affixed_bottom: TMaybeRef[typing.Union[bool, typing.Dict]]
     resizable: TMaybeRef[bool]
     row_attributes: TMaybeRef[typing.Union[str, typing.Dict, typing.List]]
