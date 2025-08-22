@@ -1,5 +1,5 @@
 import type { SetupContext } from "vue";
-import type { PaginationProps } from "tdesign-vue-next";
+import type { PaginationProps, TableProps } from "tdesign-vue-next";
 import { computed } from "vue";
 
 export function usePagination(attrs: SetupContext["attrs"]) {
@@ -33,4 +33,16 @@ export function usePagination(attrs: SetupContext["attrs"]) {
       ...realPagination,
     };
   });
+}
+
+export function withDefaultAttrs(attrs: SetupContext["attrs"]) {
+  return computed(
+    () =>
+      ({
+        hover: true,
+        bordered: true,
+        tableLayout: "auto",
+        ...attrs,
+      } as TableProps)
+  );
 }
