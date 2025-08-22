@@ -226,7 +226,9 @@ class Table(Element):
     def __init__(
         self,
         data: typing.Optional[TMaybeRef[typing.List]] = None,
-        columns: typing.Optional[TMaybeRef[typing.Sequence[TPrimaryTableCol]]] = None,
+        columns: typing.Optional[
+            TMaybeRef[typing.Union[typing.Sequence[TPrimaryTableCol], typing.Sequence]]
+        ] = None,
         row_key: typing.Optional[TMaybeRef[str]] = None,
         **kwargs: Unpack[TPrimaryTableProps],
     ):
