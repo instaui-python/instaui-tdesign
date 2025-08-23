@@ -18,6 +18,7 @@ __all__ = [
     "affix",
     "alert",
     "anchor",
+    "anchor_item",
     "auto_complete",
     "avatar",
     "avatar_group",
@@ -122,7 +123,7 @@ __all__ = [
 from .setup import use
 from .components.affix import Affix as affix
 from .components.alert import Alert as alert
-from .components.anchor import Anchor as anchor
+from .components.anchor import Anchor as anchor, AnchorItem as anchor_item
 from .components.auto_complete import AutoComplete as auto_complete
 from .components.avatar import Avatar as avatar, AvatarGroup as avatar_group
 from .components.back_top import BackTop as back_top
