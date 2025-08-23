@@ -601,7 +601,7 @@ wheels = [
 
 [[package]]
 name = "instaui"
-version = "0.4.2"
+version = "0.5.0"
 source = { registry = "https://mirrors.aliyun.com/pypi/simple" }
 dependencies = [
     { name = "jinja2" },
@@ -612,9 +612,9 @@ dependencies = [
     { name = "typing-extensions", version = "4.13.2", source = { registry = "https://mirrors.aliyun.com/pypi/simple" }, marker = "python_full_version < '3.9'" },
     { name = "typing-extensions", version = "4.14.1", source = { registry = "https://mirrors.aliyun.com/pypi/simple" }, marker = "python_full_version >= '3.9'" },
 ]
-sdist = { url = "https://mirrors.aliyun.com/pypi/packages/47/55/3f0fa3ece818075082fd474a2cb46ad0bb377e83024115a9b2dd85b5d4af/instaui-0.4.2.tar.gz", hash = "sha256:d85bc5127017ab21daf2684cc57d85672de388f6039f8444b87a731b6d11bc32" }
+sdist = { url = "https://mirrors.aliyun.com/pypi/packages/12/60/41a01f7e44b9f58223d23e7eb206e83bb32f53d79b006bbdce844ecb31e0/instaui-0.5.0.tar.gz", hash = "sha256:281fde99af5bd6a17b8c263cf74012a7386d9060f9c5c758df42ff9ed3be52fa" }
 wheels = [
-    { url = "https://mirrors.aliyun.com/pypi/packages/c0/5d/f5d4fced486c9f4484ee51f32bb75c41d3f8d09be17db807e95a6a9899b7/instaui-0.4.2-py3-none-any.whl", hash = "sha256:5a1e66e7948ee3c3102e86f3fbf7c4fb853152f50790702c6a73f9df4f76b4f0" },
+    { url = "https://mirrors.aliyun.com/pypi/packages/04/2d/da5010f620b3f30f659f3ea25d9534c67f9d83c4bb2ae4d07d6384040117/instaui-0.5.0-py3-none-any.whl", hash = "sha256:f96a8a80abd555903898253fa00eda910819209024d0c9e039a5c812a38c4382" },
 ]
 
 [package.optional-dependencies]
@@ -674,7 +674,7 @@ lint = [
 
 [package.metadata]
 requires-dist = [
-    { name = "instaui", specifier = "~=0.4.2" },
+    { name = "instaui", specifier = "~=0.5.0" },
     { name = "instaui", extras = ["all"], marker = "extra == 'all'" },
     { name = "instaui", extras = ["web"], marker = "extra == 'web'" },
     { name = "instaui", extras = ["webview"], marker = "extra == 'webview'" },
