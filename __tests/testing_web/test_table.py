@@ -58,7 +58,7 @@ def test_update_data_with_cell_slot(context: Context):
             ]
         )
 
-        table = td.table(data, columns=cols)
+        table = td.table(data, columns=cols, pagination=False)
 
         with table.add_cell_slot("c_new_value") as slot:
             ui.text(

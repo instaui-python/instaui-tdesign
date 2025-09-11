@@ -5,13 +5,17 @@ import { computed } from "vue";
 export function usePagination(attrs: SetupContext["attrs"]) {
   return computed(() => {
     const { pagination, data = [] } = attrs as {
-      pagination: PaginationProps;
+      pagination: PaginationProps | boolean | number;
       data: any[];
     };
 
     let realPagination = undefined;
 
-    if (typeof pagination === "boolean" && pagination) {
+    if (typeof pagination === "boolean") {
+      if (!pagination) {
+        return undefined;
+      }
+
       realPagination = {
         defaultPageSize: 10,
       };
