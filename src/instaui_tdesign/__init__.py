@@ -49,6 +49,7 @@ __all__ = [
     "empty",
     "form",
     "form_item",
+    "icon",
     "input_adornment",
     "input_number",
     "input",
@@ -159,6 +160,7 @@ from .components.drawer import Drawer as drawer
 from .components.dropdown import Dropdown as dropdown
 from .components.empty import Empty as empty
 from .components.form import Form as form, FormItem as form_item
+from .components.icon import Icon as icon
 from .components.input_adornment import InputAdornment as input_adornment
 from .components.input_number import InputNumber as input_number
 from .components.input import Input as input
