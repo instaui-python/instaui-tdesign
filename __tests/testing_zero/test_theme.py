@@ -11,21 +11,22 @@ def target_box():
 
 
 def test_base(context: Context):
-    with zero() as z:
+    def index():
         td.use(theme="violet")
         info = use_computed_style("background-color", target_selector=".target")
         info.create_button()
 
         ui.text(info.value)
         target_box()
-        context.open(z.to_html_str())
+
+    context.open(zero().to_html_str(index))
 
     update_style(context)
     context.should_see("rgb(142, 81, 255)")
 
 
 def test_dark(context: Context):
-    with zero() as z:
+    def index():
         td.use(theme="violet")
         info = use_computed_style("background-color", target_selector=".target")
         info.create_button()
@@ -34,7 +35,8 @@ def test_dark(context: Context):
         td.checkbox(dark)
         ui.text(info.value)
         target_box()
-        context.open(z.to_html_str())
+
+    context.open(zero().to_html_str(index))
 
     checkbox = context.find("checkbox")
     checkbox.set_checked(True, force=True)

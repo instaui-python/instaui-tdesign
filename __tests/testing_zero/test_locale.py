@@ -14,18 +14,18 @@ def page_init_lifespan_setup():
 def test_default_locale(context: Context):
     td.use()
 
-    with zero() as z:
+    def index():
         td.pagination(total=6)
-        context.open(z.to_html_str())
 
+    context.open(zero().to_html_str(index))
     context.should_see("6 items")
 
 
 def test_zh_locale(context: Context):
     td.use(locale="zh-CN")
 
-    with zero() as z:
+    def index():
         td.pagination(total=6)
-        context.open(z.to_html_str())
 
+    context.open(zero().to_html_str(index))
     context.should_see("共 6 条数据")
