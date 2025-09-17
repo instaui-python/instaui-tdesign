@@ -491,13 +491,17 @@ wheels = [
 
 [[package]]
 name = "instaui"
-version = "0.5.0"
-source = { editable = "../instaui" }
+version = "0.6.0"
+source = { registry = "https://pypi.tuna.tsinghua.edu.cn/simple" }
 dependencies = [
     { name = "jinja2" },
     { name = "orjson" },
     { name = "pydantic" },
     { name = "typing-extensions" },
+]
+sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/d4/8c/eafc55973a097e9e645a59287c23e202d45ea70a03a9d04dc290fc257976/instaui-0.6.0.tar.gz", hash = "sha256:810a75f1c7fda06f7725431581f325582c792fba87c71f904d299df7d20e4c1c", size = 561237, upload-time = "2025-09-17T10:34:35.087Z" }
+wheels = [
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/fb/29/5df6baf459325ccc19035bd73be5b1d7e55285caa9d231362814b9dbb9c6/instaui-0.6.0-py3-none-any.whl", hash = "sha256:b0a6b2da849d3c18fb508e181355f876613fe7a0ed0067ecf58fc373bba8b28c", size = 638879, upload-time = "2025-09-17T10:34:32.42Z" },
 ]
 
 [package.optional-dependencies]
@@ -513,35 +517,6 @@ web = [
 webview = [
     { name = "pywebview" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "fastapi", extras = ["standard"], marker = "extra == 'all'" },
-    { name = "fastapi", extras = ["standard"], marker = "extra == 'web'" },
-    { name = "jinja2", specifier = ">=3.1.6" },
-    { name = "orjson", specifier = ">=3.10.15" },
-    { name = "pydantic", specifier = ">=2.10.6" },
-    { name = "pywebview", marker = "extra == 'all'" },
-    { name = "pywebview", marker = "extra == 'webview'" },
-    { name = "typing-extensions", specifier = ">=4.13.2" },
-    { name = "uvicorn", marker = "extra == 'all'" },
-    { name = "uvicorn", marker = "extra == 'web'" },
-]
-provides-extras = ["web", "webview", "all"]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "fastapi", extras = ["standard"], specifier = ">=0.115.12" },
-    { name = "playwright", specifier = "==1.48.0" },
-    { name = "pytest", specifier = ">=8.3.5" },
-    { name = "pytest-asyncio", specifier = ">=0.24.0" },
-    { name = "pytest-html", specifier = ">=4.1.1" },
-    { name = "pytest-playwright", specifier = ">=0.7.1" },
-    { name = "pywebview", specifier = ">=5.4" },
-    { name = "uvicorn", specifier = ">=0.33.0" },
-]
-git = [{ name = "pre-commit", specifier = ">=3.5.0" }]
-lint = [{ name = "ruff", specifier = "==0.12.2" }]
 
 [[package]]
 name = "instaui-tdesign"
@@ -580,16 +555,16 @@ lint = [
 
 [package.metadata]
 requires-dist = [
-    { name = "instaui", editable = "../instaui" },
-    { name = "instaui", extras = ["all"], marker = "extra == 'all'", editable = "../instaui" },
-    { name = "instaui", extras = ["web"], marker = "extra == 'web'", editable = "../instaui" },
-    { name = "instaui", extras = ["webview"], marker = "extra == 'webview'", editable = "../instaui" },
+    { name = "instaui", specifier = ">=0.6.0" },
+    { name = "instaui", extras = ["all"], marker = "extra == 'all'" },
+    { name = "instaui", extras = ["web"], marker = "extra == 'web'" },
+    { name = "instaui", extras = ["webview"], marker = "extra == 'webview'" },
 ]
 provides-extras = ["web", "webview", "all"]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "instaui", extras = ["web"], editable = "../instaui" },
+    { name = "instaui", extras = ["web"] },
     { name = "pandas", specifier = ">=2.0.3" },
     { name = "playwright", specifier = "==1.48.0" },
     { name = "pytest", specifier = ">=8.3.5" },
