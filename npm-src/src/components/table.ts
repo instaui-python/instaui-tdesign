@@ -178,7 +178,6 @@ function useTableSort(options: {
     }
     sort.value = nextSort;
     tableData.value = options.currentDataSource;
-    console.log("onSortChange", tableData.value);
   };
 
   const onDataChange: TableProps["onDataChange"] = (newData) => {
