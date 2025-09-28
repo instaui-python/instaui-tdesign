@@ -49,12 +49,12 @@ export function usePagination(attrs: SetupContext["attrs"]) {
 
 export function withDefaultAttrs(attrs: SetupContext["attrs"]) {
   let sort = ref(attrs.sort as TableProps["sort"]);
-  const tableData = ref((attrs.data ?? []) as any[]);
+  const tableData = ref([...((attrs.data as TableProps["data"]) ?? [])]);
 
   watch(
     () => attrs.data,
     (data) => {
-      tableData.value = data as any[];
+      tableData.value = [...(data as any[])];
     }
   );
 
@@ -177,7 +177,7 @@ function useTableSort(options: {
       return;
     }
     sort.value = nextSort;
-    tableData.value = options.currentDataSource;
+    tableData.value = [...(options.currentDataSource ?? [])];
   };
 
   const onDataChange: TableProps["onDataChange"] = (newData) => {
