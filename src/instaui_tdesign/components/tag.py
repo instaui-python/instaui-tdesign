@@ -12,7 +12,7 @@ if typing.TYPE_CHECKING:
 class Tag(BaseElement):
     def __init__(
         self,
-        content: typing.Optional[TMaybeRef[typing.Literal["TNode"]]] = None,
+        content: typing.Optional[str] = None,
         **kwargs: Unpack[TTagProps],
     ):
         super().__init__("t-tag")
