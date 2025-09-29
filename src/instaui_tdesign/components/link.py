@@ -12,8 +12,8 @@ if typing.TYPE_CHECKING:
 class Link(BaseElement):
     def __init__(
         self,
-        *,
         href: typing.Optional[TMaybeRef[str]] = None,
+        *,
         content: typing.Optional[TMaybeRef[str]] = None,
         **kwargs: Unpack[TLinkProps],
     ):

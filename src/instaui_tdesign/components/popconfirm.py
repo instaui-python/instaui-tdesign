@@ -12,7 +12,7 @@ if typing.TYPE_CHECKING:
 class Popconfirm(BaseElement):
     def __init__(
         self,
-        content: typing.Optional[TMaybeRef[str]],
+        content: typing.Optional[TMaybeRef[str]] = None,
         *,
         theme: typing.Optional[
             TMaybeRef[typing.Literal["default", "warning", "danger"]]
