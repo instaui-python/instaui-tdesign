@@ -1,7 +1,7 @@
 from __future__ import annotations
 import typing
 
-from instaui_tdesign.components.icon import Icon
+from instaui_tdesign.components._icon_param_utils import make_icon_for_str
 from ._base_element import BaseElement
 from instaui.event.event_mixin import EventMixin
 from typing_extensions import TypedDict, Unpack
@@ -22,9 +22,7 @@ class Tag(BaseElement):
         super().__init__("t-tag")
         self.props({"content": content})
 
-        if icon is not None:
-            with self.add_slot("icon"):
-                Icon(icon)
+        make_icon_for_str(self, icon)
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
