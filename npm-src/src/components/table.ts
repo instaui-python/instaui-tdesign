@@ -1,6 +1,7 @@
 import type { ComputedRef, Ref, SetupContext } from "vue";
 import type { PaginationProps, TableProps } from "tdesign-vue-next";
 import { computed, ref, watch } from "vue";
+import { orderBy as _orderBy } from "lodash-es";
 
 type TRequiredTableColumns = NonNullable<TableProps["columns"]>;
 const m_defaultTableAttrs = {
@@ -152,18 +153,9 @@ function useTableSort(options: {
 } {
   const { tableData, sort, columns } = options;
 
-  const enhancedColumns = computed(() => {
-    return columns.value.map((col) => {
-      col = normalizeTableColumnRecord(col);
-      if (col.sorter === true) {
-        return {
-          ...col,
-          sorter: makeDefaultSorter(col as { colKey: string }),
-        };
-      }
-      return col;
-    });
-  });
+  const enhancedColumns = computed(() =>
+    columns.value.map(normalizeTableColumnRecord)
+  );
 
   const needSort = computed(() =>
     enhancedColumns.value?.some((col) => col.sorter)
@@ -173,12 +165,28 @@ function useTableSort(options: {
     () => enhancedColumns.value.filter((col) => col.sorter).length > 1
   );
 
-  const onSortChange: TableProps["onSortChange"] = (nextSort, options) => {
+  const onSortChange: TableProps["onSortChange"] = (newSort, options) => {
     if (!needSort.value) {
       return;
     }
-    sort.value = nextSort;
-    tableData.value = [...(options.currentDataSource ?? [])];
+    sort.value = newSort;
+    if (newSort === undefined) {
+      return;
+    }
+
+    const sortInfos = Array.isArray(sort.value)
+      ? sort.value
+      : ([sort.value] as {
+          sortBy: string;
+          descending: boolean;
+        }[]);
+
+    const sortFields = sortInfos.map((item) => item.sortBy);
+    const sortOrders = sortInfos.map((item) =>
+      item.descending ? "desc" : "asc"
+    );
+
+    tableData.value = _orderBy(tableData.value, sortFields, sortOrders);
   };
 
   const onDataChange: TableProps["onDataChange"] = (newData) => {
