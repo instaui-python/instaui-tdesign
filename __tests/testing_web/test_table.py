@@ -413,6 +413,34 @@ class TestFilterBase:
         table.should_rows_count(2)
         table.should_row_values(0, ["foo", "a", "name is foo, class is a"])
 
+    def test_predicate(self, context: Context):
+        @context.register_page
+        def index():
+            data = [
+                {"name": "foo", "desc": "this is foo"},
+                {"name": "bar", "desc": "this is bar"},
+            ]
+            cols = [
+                {
+                    "colKey": "name",
+                    "filter": {
+                        "type": "input",
+                        "predicate": "(value, row) => row.desc===value",
+                    },
+                }
+            ]
+            td.table(data, columns=cols)
+
+        context.open()
+        table = use_table_controls(context)
+
+        table.click_filter_icon_for_column("name").fill_input_filter_popup(
+            "this is foo"
+        ).click_confirm_filter_popup()
+
+        table.should_rows_count(2)
+        table.should_row_values(1, ["foo"])
+
 
 @pytest.mark.skip(reason="not implemented yet")
 def test_test_server_side_sorting(context: Context):

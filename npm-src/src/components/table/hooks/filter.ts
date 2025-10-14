@@ -9,6 +9,7 @@ import type {
   TTableColumnHandler,
   TFilterType,
 } from "../types";
+import { functionFromString } from "@/systems/function-systems";
 
 export function useTableFilter(options: {
   tableData: TTableData;
@@ -45,6 +46,9 @@ export function useTableFilter(options: {
       const value = (filterValue.value as any)[key] as any;
       const filter = colKey2Info.get(key)!.filter!;
       const type = filter.type!;
+      const predicate = filter.predicate
+        ? functionFromString(filter.predicate)
+        : undefined;
 
       const realType = type ?? ((filter as any)._type as TFilterType);
 
@@ -52,29 +56,37 @@ export function useTableFilter(options: {
         key,
         value,
         type: realType,
+        predicate,
       };
     });
 
     return rows.filter((row) => {
       return filterInfos.every((info) => {
-        const filterType = info.type ?? (info._type as TFilterType);
+        const filterType = info.type as TFilterType;
+        const filterPredicate = info.predicate;
 
         if (filterType === "multiple") {
           const filterValues = info.value as string[];
           if (filterValues.length === 0) return true;
-          return filterValues.includes(row[info.key]);
+          return filterPredicate
+            ? filterPredicate(filterValue, row)
+            : filterValues.includes(row[info.key]);
         }
 
         if (filterType === "single") {
           const filterValue = info.value as any;
           if (!filterValue) return true;
-          return row[info.key] === filterValue;
+          return filterPredicate
+            ? filterPredicate(filterValue, row)
+            : row[info.key] === filterValue;
         }
 
         if (filterType === "input") {
           const filterValue = info.value as string;
           if (!filterValue) return true;
-          return row[info.key].toString().includes(filterValue);
+          return filterPredicate
+            ? filterPredicate(filterValue, row)
+            : row[info.key].toString().includes(filterValue);
         }
 
         if (filterType === "date") {
@@ -82,7 +94,9 @@ export function useTableFilter(options: {
           if (!filterValue || filterValue === "") return true;
           const [start, end] = filterValue;
           const date = new Date(row[info.key]);
-          return new Date(start) <= date && date <= new Date(end);
+          return filterPredicate
+            ? filterPredicate(filterValue, row)
+            : new Date(start) <= date && date <= new Date(end);
         }
 
         const _: never = filterType;

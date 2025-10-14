@@ -13,6 +13,9 @@ export type TTableRowsHandler = (data: any[]) => any[];
 export type TTableColumns = (PrimaryTableCol<TableRowData> & {
   label: string;
   name: string;
+  filter: PrimaryTableCol<TableRowData>["filter"] & {
+    predicate?: string;
+  };
 })[];
 
 export type TFilterType = "single" | "multiple" | "input" | "date";
