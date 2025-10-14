@@ -1,4 +1,4 @@
-import type { TableProps } from "tdesign-vue-next";
+import { type TableProps, DateRangePickerPanel } from "tdesign-vue-next";
 import { ref, type SetupContext } from "vue";
 import { orderBy as _orderBy, uniqBy as _uniqBy } from "lodash-es";
 import type {
@@ -7,6 +7,7 @@ import type {
   TTableColumns,
   TTableColumnsWithInfer,
   TTableColumnHandler,
+  TFilterType,
 } from "../types";
 
 export function useTableFilter(options: {
@@ -42,36 +43,51 @@ export function useTableFilter(options: {
 
     const filterInfos = Object.keys(filterValue.value).map((key) => {
       const value = (filterValue.value as any)[key] as any;
-      const type = colKey2Info.get(key)!.filter!.type!;
+      const filter = colKey2Info.get(key)!.filter!;
+      const type = filter.type!;
+
+      const realType = type ?? ((filter as any)._type as TFilterType);
 
       return {
         key,
         value,
-        type,
+        type: realType,
       };
     });
 
     return rows.filter((row) => {
       return filterInfos.every((info) => {
-        if (info.type === "multiple") {
+        const filterType = info.type ?? (info._type as TFilterType);
+
+        if (filterType === "multiple") {
           const filterValues = info.value as string[];
           if (filterValues.length === 0) return true;
           return filterValues.includes(row[info.key]);
         }
 
-        if (info.type === "single") {
+        if (filterType === "single") {
           const filterValue = info.value as any;
           if (!filterValue) return true;
           return row[info.key] === filterValue;
         }
 
-        if (info.type === "input") {
+        if (filterType === "input") {
           const filterValue = info.value as string;
           if (!filterValue) return true;
           return row[info.key].toString().includes(filterValue);
         }
 
-        throw new Error("not support filter type");
+        if (filterType === "date") {
+          const filterValue = info.value as [Date, Date] | string;
+          if (!filterValue || filterValue === "") return true;
+          const [start, end] = filterValue;
+          const date = new Date(row[info.key]);
+          return new Date(start) <= date && date <= new Date(end);
+        }
+
+        const _: never = filterType;
+
+        throw new Error(`not support filter type ${filterType}`);
       });
     });
   });
@@ -127,9 +143,9 @@ function normalizeTableFilterRecord(
   if (!("type" in column.filter)) throw new Error("filter type is required");
 
   const { colKey } = column;
-  const { type } = column.filter as { type: "multiple" | "single" | "input" };
+  const filterType = column.filter.type as TFilterType;
 
-  if (type === "multiple") {
+  if (filterType === "multiple") {
     const list = _uniqBy(tableData.value, colKey).map((item) => {
       return {
         label: item[colKey],
@@ -152,7 +168,7 @@ function normalizeTableFilterRecord(
     };
   }
 
-  if (type === "single") {
+  if (filterType === "single") {
     const list = _uniqBy(tableData.value, colKey).map((item) => {
       return {
         label: item[colKey],
@@ -173,7 +189,7 @@ function normalizeTableFilterRecord(
     };
   }
 
-  if (type === "input") {
+  if (filterType === "input") {
     const newFilter = {
       resetValue: "",
       confirmEvents: ["onEnter"],
@@ -190,5 +206,34 @@ function normalizeTableFilterRecord(
     };
   }
 
-  throw new Error("not support filter type");
+  if (filterType === "date") {
+    const newFilter = {
+      resetValue: "",
+      showConfirmAndReset: true,
+      props: {
+        firstDayOfWeek: 7,
+        ...column.filter?.props,
+      },
+      style: {
+        fontSize: "14px",
+      },
+      classNames: "custom-class-name",
+      attrs: {
+        "data-type": "date-range-picker",
+      },
+      ...column.filter,
+      component: DateRangePickerPanel,
+      _type: "date",
+    };
+
+    delete newFilter.type;
+
+    return {
+      ...column,
+      filter: newFilter,
+    };
+  }
+
+  const _: never = filterType;
+  throw new Error(`not support filter type ${filterType}`);
 }
