@@ -9,7 +9,7 @@ class LazyLocaleDict:
         self._locale_map = {}
 
     def get(self, key: str):
-        key = key.lower().replace("-", "_")
+        key = key.lower()
 
         if key not in self._locale_map:
             self._locale_map[key] = self._load_locale(key)
@@ -62,13 +62,13 @@ def use_locale_dict(
     .. code-block:: python
         locale_dict, lang = use_locale_dict(pre_load_locales=["en-US", "zh-CN"])
 
-        td.select(["en-US", "zh-CN"], lang)
+        td.select(["en_US", "zh_CN"], lang)
 
         with td.config_provider(global_config=locale_dict):
             td.input()
     """
 
-    pre_load_locales = pre_load_locales or ["en-US", "zh-CN"]
+    pre_load_locales = pre_load_locales or ["en_US", "zh_CN"]
 
     lang = ui.use_language()
 
@@ -76,13 +76,13 @@ def use_locale_dict(
 
         @ui.computed(inputs=[get_locales(pre_load_locales), lang])
         def locale_dict(locales: dict, lang: str) -> dict:
-            return locales[lang.replace("_", "-")]
+            return locales[lang]
 
         return locale_dict, lang
 
     locale_dict = ui.js_computed(
         inputs=[get_locales(pre_load_locales), lang],
-        code=r"(locales,lang) =>  locales[lang.replace('_','-')]",
+        code=r"(locales,lang) =>  locales[lang]",
     )
 
     return locale_dict, lang

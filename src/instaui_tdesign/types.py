@@ -2,8 +2,8 @@ from typing import Any, Dict, Literal
 
 
 TLocale = Literal[
-    "zh-CN",
-    "en-US",
+    "zh_CN",
+    "en_US",
 ]
 
 TCustomizeLocale = Dict[str, Any]
