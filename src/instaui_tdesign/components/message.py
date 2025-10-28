@@ -9,18 +9,39 @@ from instaui.event.event_mixin import EventMixin
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props, handle_event_from_props
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class Message(BaseElement):
     def __init__(
         self,
-        content: typing.Optional[TMaybeRef[str]] = None,
+        content: str | None = None,
         *,
         icon: str | bool | None = None,
         **kwargs: Unpack[TMessageProps],
     ):
+        """
+        Creates a TDesign message component for displaying notifications.
+
+        Args:
+            content (Optional[TMaybeRef[str]]): The text content to display in the message.
+            icon (str | bool | None): Icon configuration. Can be string for icon name,
+                                     boolean to show/hide default icon, or None for no icon.
+            close_btn (str | bool): Close button configuration. Can be boolean or custom HTML string.
+            duration (float): How long the message stays visible in milliseconds.
+            theme (Literal): Visual theme of the message. Options include:
+                            "info", "success", "warning", "error", "question", "loading".
+            on_close (EventMixin): Event handler triggered when message closes.
+            on_close_btn_click (EventMixin): Event handler triggered when close button is clicked.
+            on_duration_end (EventMixin): Event handler triggered when display duration ends.
+
+        Example:
+        .. code-block:: python
+            show = ui.state(False)
+            td.switch(show)
+            with ui.vif(show):
+                td.message("foo", duration=800).on_duration_end(
+                    ui.js_event(outputs=[show], code=r"()=> false")
+                )
+        """
         super().__init__("t-message")
         self.props({"content": content})
         make_icon_for_bool_or_str(self, "icon", icon)
@@ -261,9 +282,7 @@ class MessagePlugin:
 class TMessageProps(TypedDict, total=False):
     close_btn: str | bool
     duration: float
-    theme: TMaybeRef[
-        typing.Literal["info", "success", "warning", "error", "question", "loading"]
-    ]
+    theme: typing.Literal["info", "success", "warning", "error", "question", "loading"]
     on_close: EventMixin
     on_close_btn_click: EventMixin
     on_duration_end: EventMixin
