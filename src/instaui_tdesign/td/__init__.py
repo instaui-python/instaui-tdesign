@@ -46,6 +46,8 @@ __all__ = [
     "divider",
     "drawer",
     "dropdown",
+    "dropdown_item",
+    "dropdown_menu",
     "empty",
     "form",
     "form_item",
@@ -160,7 +162,11 @@ from ..components.descriptions import (
 from ..components.dialog import Dialog as dialog
 from ..components.divider import Divider as divider
 from ..components.drawer import Drawer as drawer
-from ..components.dropdown import Dropdown as dropdown
+from ..components.dropdown import (
+    Dropdown as dropdown,
+    DropdownItem as dropdown_item,
+    DropdownMenu as dropdown_menu,
+)
 from ..components.empty import Empty as empty
 from ..components.form import Form as form, FormItem as form_item
 from ..components.icon import Icon as icon
