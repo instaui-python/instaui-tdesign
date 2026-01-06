@@ -1,8 +1,9 @@
 from typing import Optional, Union, Literal
-from instaui import ui
+from instaui import ui, custom
 from instaui_tdesign.types import TLocale, TCustomizeLocale
+from instaui_tdesign import symbol
 from instaui_tdesign._settings import configure
-from instaui_tdesign import consts
+from instaui_tdesign import resources
 from instaui_tdesign.components.icon import _reset_prefix
 
 
@@ -36,6 +37,10 @@ def use(
     if locale:
         configure(locale=locale)
     if theme:
-        ui.add_css_link(consts.THEME_CSS_DIR / f"theme-{theme}.css")
+        ui.add_css_link(
+            resources.THEME_CSS_DIR / f"theme-{theme}.css",
+            namespace=symbol.THEME_CSS_SYMBOL,
+            role=custom.CssRole.THEME,
+        )
     if icon_prefix:
         _reset_prefix(icon_prefix)

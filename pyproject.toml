@@ -8,17 +8,18 @@ readme = "README.md"
 authors = [
     { name = "CrystalWindSnake", email = "568166495@qq.com" }
 ]
-requires-python = ">=3.9,<3.14"
+requires-python = ">=3.10,<3.14"
 
 dependencies = [
-    "instaui>=0.7.14",
+    "instaui[web]>=0.7.19",
 ]
 
 [dependency-groups]
 dev = [
+    "fastexcel>=0.16.0",
     "instaui[web]",
     "pandas>=2.0.3",
-    "playwright==1.48.0",
+    "playwright==1.57.0",
     "polars>=1.34.0",
     "pytest>=8.3.5",
     "pytest-asyncio>=0.24.0",
@@ -51,3 +52,7 @@ include = [
 
 [tool.hatch.build.force-include]
 "src/instaui_tdesign/static" = "src/instaui_tdesign/static"
+
+[tool.uv.sources]
+instaui = { path = "../../code/python/anything/instaui", editable = true }
+

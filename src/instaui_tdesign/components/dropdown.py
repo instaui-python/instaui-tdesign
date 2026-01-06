@@ -1,10 +1,9 @@
 from __future__ import annotations
 from typing import Literal, Optional, Sequence, Union
 
-from instaui import custom
 from instaui_tdesign.components._icon_param_utils import make_prefix_icon
 from ._base_element import BaseElement
-from instaui.event.event_mixin import EventMixin
+from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack, Required
 from ._utils import handle_props, handle_event_from_props
 
@@ -61,7 +60,6 @@ class Dropdown(BaseElement):
             ui.text("selected:" + selected)
         """
         super().__init__("t-dropdown")
-        custom.configure_slot_without_slot_prop(self)
         prefix_icon = kwargs.pop("prefix_icon", None)
         self.props({"options": options})
         make_prefix_icon(self, prefix_icon)
@@ -85,7 +83,6 @@ class Dropdown(BaseElement):
 class DropdownMenu(BaseElement):
     def __init__(self):
         super().__init__("t-dropdown-menu")
-        custom.configure_slot_without_slot_prop(self)
 
 
 class DropdownItem(BaseElement):
@@ -95,7 +92,6 @@ class DropdownItem(BaseElement):
         **kwargs: Unpack[TDropdownItemProps],
     ):
         super().__init__("t-dropdown-item")
-        custom.configure_slot_without_slot_prop(self)
         prefix_icon = kwargs.pop("prefix_icon", None)
 
         self.props({"content": content})

@@ -6,8 +6,8 @@ from instaui_tdesign.components._icon_param_utils import (
     make_suffix_icon,
 )
 from ._base_element import BaseElement
-from instaui.components.content import Content
-from instaui.event.event_mixin import EventMixin
+from instaui.internal.ui.components.content import Content
+from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
 
@@ -166,7 +166,7 @@ class Select(BaseElement):
 class Option(BaseElement):
     def __init__(
         self,
-        content: typing.Optional[str],
+        content: typing.Optional[str] = None,
         **kwargs: Unpack[TOptionProps],
     ):
         super().__init__("t-option")

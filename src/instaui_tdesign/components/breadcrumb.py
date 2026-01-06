@@ -1,10 +1,9 @@
 from __future__ import annotations
-import typing
-
+from typing import Literal, Optional
+from instaui.internal.ui.event import EventMixin
 from instaui_tdesign.components._icon_param_utils import make_icon_for_str
-from ._base_element import BaseElement
-from instaui.event.event_mixin import EventMixin
 from typing_extensions import TypedDict, Unpack
+from ._base_element import BaseElement
 from ._utils import handle_props, handle_event_from_props
 
 
@@ -22,12 +21,11 @@ class Breadcrumb(BaseElement):
 class BreadcrumbItem(BaseElement):
     def __init__(
         self,
-        content: typing.Optional[str] = None,
-        *,
-        icon: typing.Optional[str] = None,
+        content: Optional[str] = None,
         **kwargs: Unpack[TBreadcrumbItemProps],
     ):
         super().__init__("t-breadcrumb-item")
+        icon = kwargs.pop("icon", None)
         self.props({"content": content})
         make_icon_for_str(self, icon)
         self.props(handle_props(kwargs))  # type: ignore
@@ -37,7 +35,7 @@ class BreadcrumbItem(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        extends: Optional[list] = None,
     ):
         self.on(
             "click",
@@ -53,17 +51,18 @@ class TBreadcrumbProps(TypedDict, total=False):
     items_before_collapse: float
     max_item_width: str
     max_items: float
-    options: typing.List
+    options: list
     separator: str
-    theme: typing.Literal["light"]
+    theme: Literal["light"]
 
 
 class TBreadcrumbItemProps(TypedDict, total=False):
+    icon: str
     disabled: bool
     href: str
     max_width: str
     replace: bool
-    router: typing.Dict
-    target: typing.Literal["_blank", "_self", "_parent", "_top"]
-    to: typing.Literal["Route"]
+    router: dict
+    target: Literal["_blank", "_self", "_parent", "_top"]
+    to: Literal["Route"]
     on_click: EventMixin

@@ -61,6 +61,7 @@ __all__ = [
     "list_item_meta",
     "loading",
     "select",
+    "option",
     "skeleton",
     "slider",
     "space",
@@ -184,7 +185,7 @@ from ..components.list import (
     ListItemMeta as list_item_meta,
 )
 from ..components.loadding import Loading as loading
-from ..components.select import Select as select
+from ..components.select import Select as select, Option as option
 from ..components.skeleton import Skeleton as skeleton
 from ..components.slider import Slider as slider
 from ..components.space import Space as space

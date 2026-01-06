@@ -1,11 +1,15 @@
 from typing import Dict
-from instaui.components.element import Element
-from instaui.vars.mixin_types.element_binding import ElementBindingMixin
-from instaui.event.event_mixin import EventMixin
+from instaui.internal.ui.element import Element
+from instaui.internal.ui.event import EventMixin
+from instaui.internal.ui.bindable import is_bindable
 
 
 def handle_props(props: Dict, *, model_value=None):
-    props = {k.replace("_", "-"): v for k, v in props.items()}
+    props = {
+        k.replace("_", "-"): v
+        for k, v in props.items()
+        if not isinstance(v, EventMixin)
+    }
     if model_value is not None:
         props["modelValue"] = model_value
     return props
@@ -26,7 +30,7 @@ def try_setup_vmodel(
 ):
     if value is None:
         return
-    if isinstance(value, ElementBindingMixin):
+    if is_bindable(value):
         element.vmodel(value, prop_name=prop_name)
         return
 

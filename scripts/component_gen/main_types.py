@@ -110,7 +110,7 @@ def process_json(json_path: Path, output_path: Path):
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("import typing\n")
         f.write("from typing_extensions import TypedDict\n")
-        f.write("from instaui.event.event_mixin import EventMixin\n")
+        f.write("from instaui.internal.ui.event import EventMixin\n")
         f.write("if typing.TYPE_CHECKING:\n")
         f.write("    from instaui.vars.types import TMaybeRef\n\n")
         f.write("\n\n".join(classes))
