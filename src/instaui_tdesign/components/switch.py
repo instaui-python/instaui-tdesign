@@ -1,8 +1,8 @@
 from __future__ import annotations
 import typing
 from ._base_element import BaseElement
-from instaui.event.event_mixin import EventMixin
-from instaui.components.slot import Slot
+from instaui.internal.ui.event import EventMixin
+from instaui.internal.ui.slot import Slot
 from typing_extensions import TypedDict, Unpack
 
 from ._utils import handle_props, handle_event_from_props, try_setup_vmodel

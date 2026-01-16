@@ -8,25 +8,44 @@ readme = "README.md"
 authors = [
     { name = "CrystalWindSnake", email = "568166495@qq.com" }
 ]
-requires-python = ">=3.9,<3.14"
+requires-python = ">=3.10,<3.14"
 
 dependencies = [
-    "instaui>=0.7.14",
+    "instaui>=0.8.1",
 ]
 
 [dependency-groups]
 dev = [
+    {include-group = "test"},
+    {include-group = "web"},
+    {include-group = "playwright"},
+    {include-group = "lint"},
+]
+
+playwright = [
+    "playwright==1.57.0",
+    "pytest-playwright>=0.7.1",
+]
+
+test = [
+    "fastexcel>=0.16.0",
     "instaui[web]",
     "pandas>=2.0.3",
-    "playwright==1.48.0",
     "polars>=1.34.0",
     "pytest>=8.3.5",
     "pytest-asyncio>=0.24.0",
-    "pytest-playwright>=0.7.1",
+    "pytest-html>=4.1.1",
 ]
+
+web = [
+    "fastapi[standard]>=0.115.12",
+    "uvicorn>=0.33.0",
+]
+
 git = [
     "pre-commit>=3.5.0",
 ]
+
 lint = [
     "ruff==0.12.2",
 ]

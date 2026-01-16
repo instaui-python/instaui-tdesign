@@ -24,15 +24,14 @@ def test_duration(context: Context):
     @context.register_page
     def index():
         show = ui.state(False)
+        duration_end = ui.js_event(
+            outputs=[show],
+            code=r"()=> false",
+        )
 
         td.switch(show)
         with ui.vif(show):
-            td.message("foo", duration=800).on_duration_end(
-                ui.js_event(
-                    outputs=[show],
-                    code=r"()=> false",
-                )
-            )
+            td.message("foo", duration=800).on_duration_end(duration_end)
 
     context.open()
     switch = use_switch_controls(context)
@@ -46,7 +45,8 @@ class TestMessagePlugin:
     def test_base(self, context: Context):
         @context.register_page
         def index():
-            td.button("show").on_click(td.message_plugin.info(content="foo"))
+            click = td.message_plugin.info(content="foo")
+            td.button("show").on_click(click)
 
         context.open()
         context.find("button").click()
@@ -55,9 +55,8 @@ class TestMessagePlugin:
     def test_open_multiple(self, context: Context):
         @context.register_page
         def index():
-            td.button("show").on_click(
-                td.message_plugin.info(content="foo", duration=0, close_btn=True)
-            )
+            click = td.message_plugin.info(content="foo", duration=0, close_btn=True)
+            td.button("show").on_click(click)
 
         context.open()
         np = use_message_plugin_controls(context)
@@ -67,9 +66,8 @@ class TestMessagePlugin:
     def test_close_btn(self, context: Context):
         @context.register_page
         def index():
-            td.button("show").on_click(
-                td.message_plugin.info(content="foo", duration=0, close_btn=True)
-            )
+            click = td.message_plugin.info(content="foo", duration=0, close_btn=True)
+            td.button("show").on_click(click)
 
         context.open()
         np = use_message_plugin_controls(context)
@@ -81,11 +79,11 @@ class TestMessagePlugin:
     def test_close_all(self, context: Context):
         @context.register_page
         def index():
-            td.button("show").on_click(
-                td.message_plugin.info(content="foo", duration=0, close_btn=True)
-            )
+            show = td.message_plugin.info(content="foo", duration=0, close_btn=True)
+            close_all = td.message_plugin.close_all()
 
-            td.button("close all").on_click(td.message_plugin.close_all())
+            td.button("show").on_click(show)
+            td.button("close all").on_click(close_all)
 
         context.open()
         np = use_message_plugin_controls(context)

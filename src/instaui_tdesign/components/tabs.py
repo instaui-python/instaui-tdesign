@@ -1,20 +1,18 @@
 from __future__ import annotations
 import typing
-from instaui import custom
-from instaui.event.event_mixin import EventMixin
+from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
-
+from ._base_element import BaseElement
 from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
 
 
-class Tabs(custom.element):
+class Tabs(BaseElement):
     def __init__(
         self,
         value: typing.Optional[str] = None,
         **kwargs: Unpack[TTabsProps],
     ):
         super().__init__("t-tabs")
-        custom.configure_slot_without_slot_prop(self, slot_names=["default"])
         try_setup_vmodel(self, value)
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
@@ -72,13 +70,12 @@ class Tabs(custom.element):
         return self
 
 
-class TabPanel(custom.element):
+class TabPanel(BaseElement):
     def __init__(
         self,
         **kwargs: Unpack[TTabPanelProps],
     ):
         super().__init__("t-tab-panel")
-        custom.configure_slot_without_slot_prop(self, slot_names=["default"])
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 

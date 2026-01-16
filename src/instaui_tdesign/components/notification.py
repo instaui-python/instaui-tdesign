@@ -5,7 +5,7 @@ import copy
 from instaui import ui
 from instaui_tdesign.components._icon_param_utils import make_icon_for_bool_or_str
 from ._base_element import BaseElement
-from instaui.event.event_mixin import EventMixin
+from instaui.internal.ui.event import EventMixin
 from ._utils import handle_props, handle_event_from_props
 
 

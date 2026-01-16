@@ -46,6 +46,8 @@ __all__ = [
     "divider",
     "drawer",
     "dropdown",
+    "dropdown_item",
+    "dropdown_menu",
     "empty",
     "form",
     "form_item",
@@ -59,6 +61,7 @@ __all__ = [
     "list_item_meta",
     "loading",
     "select",
+    "option",
     "skeleton",
     "slider",
     "space",
@@ -160,7 +163,11 @@ from ..components.descriptions import (
 from ..components.dialog import Dialog as dialog
 from ..components.divider import Divider as divider
 from ..components.drawer import Drawer as drawer
-from ..components.dropdown import Dropdown as dropdown
+from ..components.dropdown import (
+    Dropdown as dropdown,
+    DropdownItem as dropdown_item,
+    DropdownMenu as dropdown_menu,
+)
 from ..components.empty import Empty as empty
 from ..components.form import Form as form, FormItem as form_item
 from ..components.icon import Icon as icon
@@ -178,7 +185,7 @@ from ..components.list import (
     ListItemMeta as list_item_meta,
 )
 from ..components.loadding import Loading as loading
-from ..components.select import Select as select
+from ..components.select import Select as select, Option as option
 from ..components.skeleton import Skeleton as skeleton
 from ..components.slider import Slider as slider
 from ..components.space import Space as space

@@ -46,4 +46,4 @@ def test_value(context: Context):
 
     context.find_by_text("foo2").click()
     context.should_see("bar2")
-    context.should_see("value: 0,1")
+    context.should_see("value: [0,1]")

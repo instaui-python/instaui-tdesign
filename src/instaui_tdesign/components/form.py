@@ -1,9 +1,8 @@
 from __future__ import annotations
 import typing
-from instaui import custom
 from instaui_tdesign.components._icon_param_utils import make_icon_for_bool_or_str
 from ._base_element import BaseElement
-from instaui.event.event_mixin import EventMixin
+from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 
 from ._utils import handle_props, handle_event_from_props
@@ -17,7 +16,6 @@ class Form(BaseElement):
         **kwargs: Unpack[TFormProps],
     ):
         super().__init__("t-form")
-        custom.configure_slot_without_slot_prop(self)
         make_icon_for_bool_or_str(self, "statusIcon", status_icon)
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
@@ -70,7 +68,6 @@ class FormItem(BaseElement):
         **kwargs: Unpack[TFormItemProps],
     ):
         super().__init__("t-form-item")
-        custom.configure_slot_without_slot_prop(self)
         make_icon_for_bool_or_str(self, "statusIcon", status_icon)
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore

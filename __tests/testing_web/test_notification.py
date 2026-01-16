@@ -24,15 +24,14 @@ def test_duration(context: Context):
     @context.register_page
     def index():
         show = ui.state(False)
+        switch_show = ui.js_event(
+            outputs=[show],
+            code=r"s=> false",
+        )
 
         td.switch(show)
         with ui.vif(show):
-            td.notification("foo", duration=800).on_duration_end(
-                ui.js_event(
-                    outputs=[show],
-                    code=r"s=> false",
-                )
-            )
+            td.notification("foo", duration=800).on_duration_end(switch_show)
 
     context.open()
     switch = use_switch_controls(context)
@@ -46,7 +45,8 @@ class TestNotifyPlugin:
     def test_base(self, context: Context):
         @context.register_page
         def index():
-            td.button("show").on_click(td.notify_plugin.info(content="foo"))
+            info = td.notify_plugin.info(content="foo")
+            td.button("show").on_click(info)
 
         context.open()
         context.find("button").click()
@@ -55,9 +55,8 @@ class TestNotifyPlugin:
     def test_open_multiple(self, context: Context):
         @context.register_page
         def index():
-            td.button("show").on_click(
-                td.notify_plugin.info(content="foo", duration=0, close_btn=True)
-            )
+            info = td.notify_plugin.info(content="foo", duration=0, close_btn=True)
+            td.button("show").on_click(info)
 
         context.open()
         np = use_notify_plugin_controls(context)
@@ -67,9 +66,8 @@ class TestNotifyPlugin:
     def test_close_btn(self, context: Context):
         @context.register_page
         def index():
-            td.button("show").on_click(
-                td.notify_plugin.info(content="foo", duration=0, close_btn=True)
-            )
+            info = td.notify_plugin.info(content="foo", duration=0, close_btn=True)
+            td.button("show").on_click(info)
 
         context.open()
         np = use_notify_plugin_controls(context)
@@ -81,11 +79,10 @@ class TestNotifyPlugin:
     def test_close_all(self, context: Context):
         @context.register_page
         def index():
-            td.button("show").on_click(
-                td.notify_plugin.info(content="foo", duration=0, close_btn=True)
-            )
-
-            td.button("close all").on_click(td.notify_plugin.close_all())
+            info = td.notify_plugin.info(content="foo", duration=0, close_btn=True)
+            close_all = td.notify_plugin.close_all()
+            td.button("show").on_click(info)
+            td.button("close all").on_click(close_all)
 
         context.open()
         np = use_notify_plugin_controls(context)

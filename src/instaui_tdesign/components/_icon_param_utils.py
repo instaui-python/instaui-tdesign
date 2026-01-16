@@ -1,6 +1,6 @@
 from typing import Union
 from instaui import custom
-from instaui.runtime import get_app_slot
+from instaui.internal.ui.app_context import get_app
 
 from instaui_tdesign.components.icon import Icon
 
@@ -42,4 +42,4 @@ def make_suffix_icon(element: custom.element, value: Union[str, None]):
 
 def _collect_icon(icon: str):
     if isinstance(icon, str):
-        get_app_slot().collect_icon(icon)
+        get_app().collect_icon(icon)

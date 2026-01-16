@@ -21,7 +21,7 @@ EVENT_METHOD_TEMPLATE = """    def on_{event_name}(
 """
 
 CLASS_TEMPLATE = """import typing
-from instaui.event.event_mixin import EventMixin
+from instaui.internal.ui.event import EventMixin
 from instaui.element.element import Element
 
 

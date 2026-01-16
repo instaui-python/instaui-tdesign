@@ -1,19 +1,17 @@
 from __future__ import annotations
 import typing
-from instaui.components.slot import Slot
+from instaui.internal.ui.slot import Slot
 
 from instaui_tdesign.components._icon_param_utils import (
     make_icon_for_bool_or_str,
     make_icon_for_str,
 )
 from ._base_element import BaseElement
-from instaui.event.event_mixin import EventMixin
+from instaui.internal.ui.event import EventMixin
+from instaui.internal.ui.bindable import is_bindable
 from typing_extensions import TypedDict, Unpack, Self
-from instaui.common.binding_track_mixin import is_binding_tracker
 from ._utils import handle_props, handle_event_from_props
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
 
 # region pandas protocol
 
@@ -402,7 +400,7 @@ class Table(BaseElement):
 
             return cls(data=data.to_dict(orient="records"), columns=columns, **kwargs)  # type: ignore
 
-        if is_binding_tracker(data) or isinstance(data, dict):
+        if is_bindable(data) or isinstance(data, dict):
             return cls(data=data["data"], columns=data["columns"], **kwargs)
 
         raise ValueError("Unsupported data type")
@@ -429,7 +427,7 @@ class Table(BaseElement):
 
             return cls(data=data.to_dicts(), columns=columns, **kwargs)  # type: ignore
 
-        if is_binding_tracker(data) or isinstance(data, dict):
+        if is_bindable(data) or isinstance(data, dict):
             return cls(data=data["data"], columns=data["columns"], **kwargs)
 
         raise ValueError("Unsupported data type")
@@ -652,12 +650,12 @@ class TBaseTableProps(TypedDict, total=False):
     fixed_rows: list
     foot_data: list
     footer_affix_props: dict
-    footer_affixed_bottom: TMaybeRef[typing.Union[bool, dict]]
+    footer_affixed_bottom: typing.Union[bool, dict]
     footer_summary: typing.Literal["TNode"]
     header_affix_props: dict
     header_affixed_top: typing.Union[bool, dict]
     height: typing.Union[float, str]
-    horizontal_scroll_affixed_bottom: TMaybeRef[typing.Union[bool, dict]]
+    horizontal_scroll_affixed_bottom: typing.Union[bool, dict]
     hover: bool
     keyboard_row_hover: bool
     last_full_row: typing.Literal["TNode"]
@@ -729,8 +727,8 @@ class TPrimaryTableProps(TBaseTableProps, total=False):
     column_controller_visible: bool
     display_columns: list
     default_display_columns: list
-    drag_sort: TMaybeRef[
-        typing.Literal["row", "row-handler", "col", "row-handler-col", "drag-col"]
+    drag_sort: typing.Literal[
+        "row", "row-handler", "col", "row-handler-col", "drag-col"
     ]
     drag_sort_options: dict
     editable_cell_state: str
@@ -753,7 +751,7 @@ class TPrimaryTableProps(TBaseTableProps, total=False):
     default_selected_row_keys: list
     show_sort_column_bg_color: bool
     sort: typing.Union[dict, list]
-    default_sort: TMaybeRef[typing.Union[dict, list]]
+    default_sort: typing.Union[dict, list]
     sort_on_row_draggable: bool
     on_async_loading_click: EventMixin
     on_cell_click: EventMixin

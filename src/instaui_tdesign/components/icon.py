@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import List, Optional
 from instaui import custom
-from instaui.event.event_mixin import EventMixin
+from instaui.internal.ui.event import EventMixin
 
 _prefix: Optional[str] = None
 
