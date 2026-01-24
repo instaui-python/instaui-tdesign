@@ -24,12 +24,12 @@ class Form(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "reset",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -37,12 +37,12 @@ class Form(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "submit",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -50,12 +50,12 @@ class Form(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "validate",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -75,9 +75,9 @@ class FormItem(BaseElement):
 
 class TFormProps(TypedDict, total=False):
     colon: bool
-    data: typing.Dict
+    data: dict
     disabled: bool
-    error_message: typing.Dict
+    error_message: dict
     id: str
     label_align: typing.Literal["left", "right", "top"]
     label_width: typing.Union[float, str]
@@ -87,7 +87,7 @@ class TFormProps(TypedDict, total=False):
     required_mark: bool
     required_mark_position: typing.Literal["left", "right"]
     reset_type: typing.Literal["empty", "initial"]
-    rules: typing.Dict
+    rules: dict
     scroll_to_first_error: str
     show_error_message: bool
     submit_with_warning_message: bool
@@ -104,7 +104,7 @@ class TFormItemProps(TypedDict, total=False):
     label_width: typing.Union[float, str]
     name: str
     required_mark: bool
-    rules: typing.List
+    rules: list
     show_error_message: bool
     status: str
     success_border: bool

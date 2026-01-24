@@ -5,9 +5,6 @@ from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props, handle_event_from_props
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class Popup(BaseElement):
     def __init__(
@@ -24,12 +21,12 @@ class Popup(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "overlay-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -37,12 +34,12 @@ class Popup(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "scroll",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -50,12 +47,12 @@ class Popup(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "scroll-to-bottom",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -63,32 +60,30 @@ class Popup(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "visible-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
 
 class TPopupProps(TypedDict, total=False):
     attach: str
-    delay: typing.Union[float, typing.List]
+    delay: typing.Union[float, list]
     destroy_on_close: bool
     disabled: bool
     hide_empty_popup: bool
-    overlay_class_name: typing.Union[str, typing.Dict, typing.List]
-    overlay_inner_class_name: typing.Union[str, typing.Dict, typing.List]
-    overlay_inner_style: typing.Union[str, typing.Dict, typing.List]
-    overlay_style: typing.Union[str, typing.Dict, typing.List]
+    overlay_class_name: typing.Union[str, dict, list]
+    overlay_inner_class_name: typing.Union[str, dict, list]
+    overlay_inner_style: typing.Union[str, dict, list]
+    overlay_style: typing.Union[str, dict, list]
     placement: str
-    popper_options: typing.Dict
+    popper_options: dict
     show_arrow: bool
-    trigger: TMaybeRef[
-        typing.Literal["hover", "click", "focus", "mousedown", "context-menu"]
-    ]
+    trigger: typing.Literal["hover", "click", "focus", "mousedown", "context-menu"]
     trigger_element: str
     visible: bool
     z_index: float

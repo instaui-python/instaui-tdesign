@@ -9,7 +9,7 @@ from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
 class AutoComplete(BaseElement):
     def __init__(
         self,
-        options: typing.Optional[typing.List] = None,
+        options: typing.Optional[list] = None,
         value: typing.Optional[str] = None,
         *,
         model_value: typing.Optional[str] = None,
@@ -27,12 +27,12 @@ class AutoComplete(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "blur",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -40,12 +40,12 @@ class AutoComplete(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -53,12 +53,12 @@ class AutoComplete(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "clear",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -66,12 +66,12 @@ class AutoComplete(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "compositionend",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -79,12 +79,12 @@ class AutoComplete(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "compositionstart",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -92,12 +92,12 @@ class AutoComplete(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "enter",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -105,12 +105,12 @@ class AutoComplete(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "focus",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -118,12 +118,12 @@ class AutoComplete(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "select",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -137,15 +137,15 @@ class TAutoCompleteProps(TypedDict, total=False):
     filter: str
     filterable: bool
     highlight_keyword: bool
-    input_props: typing.Dict
+    input_props: dict
     panel_bottom_content: str
     panel_top_content: str
     placeholder: str
-    popup_props: typing.Dict
+    popup_props: dict
     readonly: bool
     size: typing.Literal["small", "medium", "large"]
     status: typing.Literal["default", "success", "warning", "error"]
-    textarea_props: typing.Dict
+    textarea_props: dict
     tips: str
     trigger_element: str
     default_value: str

@@ -35,12 +35,12 @@ class BreadcrumbItem(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: Optional[list] = None,
+        params: Optional[list] = None,
     ):
         self.on(
             "click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 

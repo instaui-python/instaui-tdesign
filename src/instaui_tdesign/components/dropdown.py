@@ -70,12 +70,12 @@ class Dropdown(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: Optional[list] = None,
+        params: Optional[list] = None,
     ):
         self.on(
             "click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -103,12 +103,12 @@ class DropdownItem(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: Optional[list] = None,
+        params: Optional[list] = None,
     ):
         self.on(
             "click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 

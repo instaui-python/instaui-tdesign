@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import List, Optional
+from typing import Optional
 from instaui import custom
 from instaui.internal.ui.event import EventMixin
 
@@ -28,12 +28,12 @@ class Icon(custom.element):
         self,
         handler: EventMixin,
         *,
-        extends: Optional[List] = None,
+        params: Optional[list] = None,
     ):
         self.on(
             "click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 

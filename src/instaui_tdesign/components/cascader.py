@@ -35,12 +35,12 @@ class Cascader(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "blur",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -48,12 +48,12 @@ class Cascader(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -61,12 +61,12 @@ class Cascader(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "focus",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -74,12 +74,12 @@ class Cascader(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "popup-visible-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -87,12 +87,12 @@ class Cascader(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "remove",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -100,7 +100,7 @@ class Cascader(BaseElement):
 class TCascaderProps(TypedDict, total=False):
     autofocus: bool
     borderless: bool
-    check_props: typing.Dict
+    check_props: dict
     check_strictly: bool
     clearable: bool
     collapsed_items: str
@@ -108,8 +108,8 @@ class TCascaderProps(TypedDict, total=False):
     empty: str
     filter: str
     filterable: bool
-    input_props: typing.Dict
-    keys: typing.Dict
+    input_props: dict
+    keys: dict
     label: str
     lazy: bool
     load: str
@@ -122,18 +122,18 @@ class TCascaderProps(TypedDict, total=False):
     panel_bottom_content: str
     panel_top_content: str
     placeholder: str
-    popup_props: typing.Dict
+    popup_props: dict
     popup_visible: bool
     default_popup_visible: bool
     readonly: bool
     reserve_keyword: bool
-    select_input_props: typing.Dict
+    select_input_props: dict
     show_all_levels: bool
     size: typing.Literal["large", "medium", "small"]
     status: typing.Literal["default", "success", "warning", "error"]
     suffix: str
-    tag_input_props: typing.Dict
-    tag_props: typing.Dict
+    tag_input_props: dict
+    tag_props: dict
     tips: str
     trigger: typing.Literal["click", "hover"]
     default_value: typing.Union[int, str]

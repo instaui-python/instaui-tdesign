@@ -74,12 +74,12 @@ class Notification(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "close-btn-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -87,12 +87,12 @@ class Notification(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "duration-end",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 

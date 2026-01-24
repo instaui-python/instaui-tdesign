@@ -36,12 +36,12 @@ class DatePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "blur",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -49,12 +49,12 @@ class DatePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -62,12 +62,12 @@ class DatePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "confirm",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -75,12 +75,12 @@ class DatePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "focus",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -88,12 +88,12 @@ class DatePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "pick",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -101,12 +101,12 @@ class DatePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "preset-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -133,12 +133,12 @@ class DateRangePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "blur",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -146,12 +146,12 @@ class DateRangePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -159,12 +159,12 @@ class DateRangePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "confirm",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -172,12 +172,12 @@ class DateRangePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "focus",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -185,12 +185,12 @@ class DateRangePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "input",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -198,12 +198,12 @@ class DateRangePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "pick",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -211,12 +211,12 @@ class DateRangePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "preset-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -240,12 +240,12 @@ class DatePickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "cell-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -253,12 +253,12 @@ class DatePickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -266,12 +266,12 @@ class DatePickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "confirm",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -279,12 +279,12 @@ class DatePickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "month-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -292,12 +292,12 @@ class DatePickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "panel-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -305,12 +305,12 @@ class DatePickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "preset-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -318,12 +318,12 @@ class DatePickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "time-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -331,12 +331,12 @@ class DatePickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "year-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -360,12 +360,12 @@ class DateRangePickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "cell-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -373,12 +373,12 @@ class DateRangePickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -386,12 +386,12 @@ class DateRangePickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "confirm",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -399,12 +399,12 @@ class DateRangePickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "month-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -412,12 +412,12 @@ class DateRangePickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "panel-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -425,12 +425,12 @@ class DateRangePickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "preset-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -438,12 +438,12 @@ class DateRangePickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "time-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -451,19 +451,19 @@ class DateRangePickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "year-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
 
 TDateValue = typing.Union[str, date]
-TDateMultipleValue = typing.List[TDateValue]
-TDateRangeValue = typing.List[TDateValue]
+TDateMultipleValue = list[TDateValue]
+TDateRangeValue = list[TDateValue]
 
 
 class TDatePickerProps(TypedDict, total=False):
@@ -471,25 +471,25 @@ class TDatePickerProps(TypedDict, total=False):
     borderless: bool
     clearable: bool
     default_time: str
-    disable_date: typing.Union[str, typing.Dict, typing.List]
+    disable_date: typing.Union[str, dict, list]
     disabled: bool
     enable_time_picker: bool
     first_day_of_week: float
     format: str
-    input_props: typing.Dict
+    input_props: dict
     label: str
     mode: typing.Literal["year", "quarter", "month", "week", "date"]
     multiple: bool
     need_confirm: bool
-    placeholder: typing.Union[str, typing.List]
-    popup_props: typing.Dict
-    presets: typing.Dict
+    placeholder: typing.Union[str, list]
+    popup_props: dict
+    presets: dict
     presets_placement: typing.Literal["left", "top", "right", "bottom"]
     readonly: bool
-    select_input_props: typing.Dict
+    select_input_props: dict
     size: typing.Literal["small", "medium", "large"]
     status: typing.Literal["default", "success", "warning", "error"]
-    time_picker_props: typing.Dict
+    time_picker_props: dict
     tips: str
     default_value: TDateMultipleValue
     value_display: str
@@ -507,8 +507,8 @@ class TDateRangePickerProps(TypedDict, total=False):
     borderless: bool
     cancel_range_select_limit: bool
     clearable: bool
-    default_time: typing.List
-    disable_date: typing.Union[str, typing.Dict, typing.List]
+    default_time: list
+    disable_date: typing.Union[str, dict, list]
     disable_time: str
     disabled: bool
     enable_time_picker: bool
@@ -519,15 +519,15 @@ class TDateRangePickerProps(TypedDict, total=False):
     need_confirm: bool
     panel_preselection: bool
     placeholder: typing.Literal["Array"]
-    popup_props: typing.Dict
-    presets: typing.Dict
+    popup_props: dict
+    presets: dict
     presets_placement: typing.Literal["left", "top", "right", "bottom"]
     readonly: bool
-    range_input_props: typing.Dict
+    range_input_props: dict
     separator: str
     size: typing.Literal["small", "medium", "large"]
     status: typing.Literal["default", "success", "warning", "error"]
-    time_picker_props: typing.Dict
+    time_picker_props: dict
     tips: str
     default_value: TDateRangeValue
     value_type: typing.Literal[
@@ -551,14 +551,14 @@ class TDateRangePickerProps(TypedDict, total=False):
 class TDatePickerPanelProps(TypedDict, total=False):
     default_time: str
     default_value: TDateMultipleValue
-    disable_date: typing.Union[str, typing.Dict, typing.List]
+    disable_date: typing.Union[str, dict, list]
     enable_time_picker: bool
     first_day_of_week: float
     format: str
     mode: typing.Literal["year", "quarter", "month", "week", "date"]
-    presets: typing.Dict
+    presets: dict
     presets_placement: typing.Literal["left", "top", "right", "bottom"]
-    time_picker_props: typing.Dict
+    time_picker_props: dict
     on_cell_click: EventMixin
     on_change: EventMixin
     on_confirm: EventMixin
@@ -570,17 +570,17 @@ class TDatePickerPanelProps(TypedDict, total=False):
 
 
 class TDateRangePickerPanelProps(TypedDict, total=False):
-    default_time: typing.List
+    default_time: list
     default_value: TDateRangeValue
-    disable_date: typing.Union[str, typing.Dict, typing.List]
+    disable_date: typing.Union[str, dict, list]
     enable_time_picker: bool
     first_day_of_week: float
     format: str
     mode: typing.Literal["year", "quarter", "month", "week", "date"]
     panel_preselection: bool
-    presets: typing.Dict
+    presets: dict
     presets_placement: typing.Literal["left", "top", "right", "bottom"]
-    time_picker_props: typing.Dict
+    time_picker_props: dict
     on_cell_click: EventMixin
     on_change: EventMixin
     on_confirm: EventMixin

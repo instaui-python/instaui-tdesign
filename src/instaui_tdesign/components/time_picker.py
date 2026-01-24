@@ -5,9 +5,6 @@ from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class TimePicker(BaseElement):
     def __init__(
@@ -28,12 +25,12 @@ class TimePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "blur",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -41,12 +38,12 @@ class TimePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -54,12 +51,12 @@ class TimePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "clear",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -67,12 +64,12 @@ class TimePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "close",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -80,12 +77,12 @@ class TimePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "confirm",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -93,12 +90,12 @@ class TimePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "focus",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -106,12 +103,12 @@ class TimePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "input",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -119,12 +116,12 @@ class TimePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "open",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -132,12 +129,12 @@ class TimePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "pick",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -145,9 +142,9 @@ class TimePicker(BaseElement):
 class TimeRangePicker(BaseElement):
     def __init__(
         self,
-        value: typing.Optional[typing.List] = None,
+        value: typing.Optional[list] = None,
         *,
-        model_value: typing.Optional[typing.List] = None,
+        model_value: typing.Optional[list] = None,
         **kwargs: Unpack[TTimeRangePickerProps],
     ):
         super().__init__("t-time-range-picker")
@@ -161,12 +158,12 @@ class TimeRangePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "blur",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -174,12 +171,12 @@ class TimeRangePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -187,12 +184,12 @@ class TimeRangePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "focus",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -200,12 +197,12 @@ class TimeRangePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "input",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -213,12 +210,12 @@ class TimeRangePicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "pick",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -231,16 +228,16 @@ class TTimePickerProps(TypedDict, total=False):
     disabled: bool
     format: str
     hide_disabled_time: bool
-    input_props: typing.Dict
+    input_props: dict
     label: str
     placeholder: str
-    popup_props: typing.Dict
-    presets: typing.Dict
+    popup_props: dict
+    presets: dict
     readonly: bool
-    select_input_props: typing.Dict
+    select_input_props: dict
     size: typing.Literal["small", "medium", "large"]
     status: typing.Literal["default", "success", "warning", "error"]
-    steps: typing.List
+    steps: list
     tips: str
     default_value: str
     value_display: str
@@ -261,19 +258,19 @@ class TTimeRangePickerProps(TypedDict, total=False):
     borderless: bool
     clearable: bool
     disable_time: str
-    disabled: typing.Union[TMaybeRef[bool, typing.List]]
+    disabled: bool | list
     format: str
     hide_disabled_time: bool
     label: typing.Literal["TNode"]
     placeholder: typing.Literal["Array"]
-    popup_props: typing.Dict
-    presets: typing.Dict
-    range_input_props: typing.Dict
+    popup_props: dict
+    presets: dict
+    range_input_props: dict
     size: typing.Literal["small", "medium", "large"]
     status: typing.Literal["default", "success", "warning", "error"]
-    steps: typing.List
+    steps: list
     tips: typing.Literal["TNode"]
-    default_value: typing.List
+    default_value: list
     on_blur: EventMixin
     on_change: EventMixin
     on_focus: EventMixin

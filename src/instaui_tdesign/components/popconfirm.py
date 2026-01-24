@@ -7,9 +7,6 @@ from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props, handle_event_from_props
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class Popconfirm(BaseElement):
     def __init__(
@@ -30,12 +27,12 @@ class Popconfirm(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "cancel",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -43,12 +40,12 @@ class Popconfirm(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "confirm",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -56,37 +53,35 @@ class Popconfirm(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "visible-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
 
 class TPopconfirmProps(TypedDict, total=False):
-    cancel_btn: typing.Union[str, typing.Dict]
-    confirm_btn: typing.Union[str, typing.Dict]
+    cancel_btn: typing.Union[str, dict]
+    confirm_btn: typing.Union[str, dict]
     destroy_on_close: bool
-    placement: TMaybeRef[
-        typing.Literal[
-            "top",
-            "left",
-            "right",
-            "bottom",
-            "top-left",
-            "top-right",
-            "bottom-left",
-            "bottom-right",
-            "left-top",
-            "left-bottom",
-            "right-top",
-            "right-bottom",
-        ]
+    placement: typing.Literal[
+        "top",
+        "left",
+        "right",
+        "bottom",
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right",
+        "left-top",
+        "left-bottom",
+        "right-top",
+        "right-bottom",
     ]
-    popup_props: typing.Dict
+    popup_props: dict
     show_arrow: bool
     trigger_element: str
     visible: bool

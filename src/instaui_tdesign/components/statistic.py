@@ -21,7 +21,7 @@ class Statistic(BaseElement):
 
 
 class TStatisticProps(TypedDict, total=False):
-    animation: typing.Dict
+    animation: dict
     animation_start: bool
     color: typing.Literal["black", "blue", "red", "orange", "green"]
     decimal_places: float

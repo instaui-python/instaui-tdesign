@@ -10,16 +10,13 @@ from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class RangeInput(BaseElement):
     def __init__(
         self,
-        value: typing.Optional[typing.List] = None,
+        value: typing.Optional[list] = None,
         *,
-        model_value: typing.Optional[typing.List] = None,
+        model_value: typing.Optional[list] = None,
         prefix_icon: typing.Optional[str] = None,
         suffix_icon: typing.Optional[str] = None,
         **kwargs: Unpack[TRangeInputProps],
@@ -36,12 +33,12 @@ class RangeInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "blur",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -49,12 +46,12 @@ class RangeInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -62,12 +59,12 @@ class RangeInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "clear",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -75,12 +72,12 @@ class RangeInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -88,12 +85,12 @@ class RangeInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "enter",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -101,12 +98,12 @@ class RangeInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "focus",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -114,12 +111,12 @@ class RangeInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "mouseenter",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -127,12 +124,12 @@ class RangeInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "mouseleave",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -142,8 +139,8 @@ class TRangeInputProps(TypedDict, total=False):
     borderless: bool
     clearable: bool
     disabled: bool
-    format: typing.Union[TMaybeRef[str, typing.List]]
-    input_props: typing.Union[TMaybeRef[typing.Dict, typing.List]]
+    format: typing.Union[str, list]
+    input_props: typing.Union[dict, list]
     label: str
     placeholder: typing.Literal["Array"]
     readonly: bool
@@ -153,7 +150,7 @@ class TRangeInputProps(TypedDict, total=False):
     status: typing.Literal["default", "success", "warning", "error"]
     suffix: str
     tips: str
-    default_value: typing.List
+    default_value: list
     on_blur: EventMixin
     on_change: EventMixin
     on_clear: EventMixin
@@ -167,14 +164,14 @@ class TRangeInputProps(TypedDict, total=False):
 class TRangeInputPopupProps(TypedDict, total=False):
     auto_width: bool
     disabled: bool
-    input_value: typing.List
-    default_input_value: typing.List
+    input_value: list
+    default_input_value: list
     label: str
     panel: str
-    popup_props: typing.Dict
+    popup_props: dict
     popup_visible: bool
     default_popup_visible: bool
-    range_input_props: typing.Dict
+    range_input_props: dict
     readonly: bool
     status: typing.Literal["default", "success", "warning", "error"]
     tips: str

@@ -5,16 +5,13 @@ from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class Slider(BaseElement):
     def __init__(
         self,
-        value: typing.Optional[typing.Union[float, typing.List]] = None,
+        value: typing.Optional[typing.Union[float, list]] = None,
         *,
-        model_value: typing.Optional[typing.Union[float, typing.List]] = None,
+        model_value: typing.Optional[typing.Union[float, list]] = None,
         min: typing.Optional[float] = None,
         max: typing.Optional[float] = None,
         range: typing.Optional[bool] = None,
@@ -38,12 +35,12 @@ class Slider(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -51,25 +48,25 @@ class Slider(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change-end",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
 
 class TSliderProps(TypedDict, total=False):
     disabled: bool
-    input_number_props: typing.Union[TMaybeRef[bool, typing.Dict]]
+    input_number_props: bool | dict
     label: typing.Literal["boolean"]
     layout: typing.Literal["vertical", "horizontal"]
-    marks: typing.Union[TMaybeRef[typing.Dict, typing.List]]
+    marks: dict | list
     show_step: bool
     step: float
-    tooltip_props: typing.Dict
-    default_value: typing.Union[float, typing.List]
+    tooltip_props: dict
+    default_value: typing.Union[float, list]
     on_change: EventMixin
     on_change_end: EventMixin

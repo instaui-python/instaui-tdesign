@@ -22,12 +22,12 @@ class Upload(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "cancel-upload",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -35,12 +35,12 @@ class Upload(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -48,12 +48,12 @@ class Upload(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "dragenter",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -61,12 +61,12 @@ class Upload(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "dragleave",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -74,12 +74,12 @@ class Upload(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "drop",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -87,12 +87,12 @@ class Upload(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "fail",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -100,12 +100,12 @@ class Upload(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "one-file-fail",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -113,12 +113,12 @@ class Upload(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "one-file-success",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -126,12 +126,12 @@ class Upload(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "preview",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -139,12 +139,12 @@ class Upload(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "progress",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -152,12 +152,12 @@ class Upload(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "remove",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -165,12 +165,12 @@ class Upload(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "select-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -178,12 +178,12 @@ class Upload(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "success",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -191,12 +191,12 @@ class Upload(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "validate",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -204,12 +204,12 @@ class Upload(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "waiting_upload-files-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -221,7 +221,7 @@ class TUploadSizeLimitObj(TypedDict, total=False):
 
 
 class TUploadProps(TypedDict, total=False):
-    abridge_name: typing.List
+    abridge_name: list
     accept: str
     action: str
     allow_upload_duplicate_file: bool
@@ -235,8 +235,8 @@ class TUploadProps(TypedDict, total=False):
     drag_content: str
     draggable: bool
     file_list_display: str
-    files: typing.List
-    default_files: typing.List
+    files: list
+    default_files: list
     format: str
     format_response: str
     headers: dict
@@ -277,8 +277,8 @@ class TUploadProps(TypedDict, total=False):
     upload_button: typing.Union[str, dict]
     upload_pasted_files: bool
     use_mock_progress: bool
-    value: typing.List
-    default_value: typing.List
+    value: list
+    default_value: list
     with_credentials: bool
     on_cancel_upload: EventMixin
     on_change: EventMixin

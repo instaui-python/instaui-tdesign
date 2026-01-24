@@ -37,12 +37,12 @@ class Switch(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -66,9 +66,9 @@ class _LabelSlot:
 class TSwitchProps(TypedDict, total=False):
     model_value: bool
     before_change: str
-    custom_value: typing.List
+    custom_value: list
     disabled: bool
-    label: typing.Union[str, typing.List]
+    label: typing.Union[str, list]
     loading: bool
     size: typing.Literal["small", "medium", "large"]
     default_value: typing.Literal["number"]

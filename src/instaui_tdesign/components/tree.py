@@ -7,14 +7,11 @@ from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props, handle_event_from_props
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class Tree(BaseElement):
     def __init__(
         self,
-        data: typing.List,
+        data: list,
         *,
         activable: typing.Optional[bool] = None,
         hover: typing.Optional[bool] = None,
@@ -39,12 +36,12 @@ class Tree(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "active",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -52,12 +49,12 @@ class Tree(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -65,12 +62,12 @@ class Tree(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -78,12 +75,12 @@ class Tree(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "drag-end",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -91,12 +88,12 @@ class Tree(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "drag-leave",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -104,12 +101,12 @@ class Tree(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "drag-over",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -117,12 +114,12 @@ class Tree(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "drag-start",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -130,12 +127,12 @@ class Tree(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "drop",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -143,12 +140,12 @@ class Tree(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "expand",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -156,12 +153,12 @@ class Tree(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "load",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -169,25 +166,25 @@ class Tree(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "scroll",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
 
 class TTreeProps(TypedDict, total=False):
     active_multiple: bool
-    actived: typing.List
+    actived: list
     allow_drop: str
     allow_fold_node_on_filter: bool
-    check_props: typing.Dict
+    check_props: dict
     check_strictly: bool
     checkable: bool
-    disable_check: typing.Union[TMaybeRef[bool, str]]
+    disable_check: bool | str
     disabled: bool
     draggable: bool
     empty: str
@@ -196,19 +193,19 @@ class TTreeProps(TypedDict, total=False):
     expand_mutex: bool
     expand_on_click_node: bool
     expand_parent: bool
-    expanded: typing.List
+    expanded: list
     filter: str
     height: typing.Union[float, str]
-    keys: typing.Dict
+    keys: dict
     label: typing.Literal["boolean"]
     lazy: bool
     line: typing.Union[bool, str]
     load: str
     max_height: typing.Union[float, str]
     operations: str
-    scroll: typing.Dict
-    value: typing.List
-    default_value: typing.List
+    scroll: dict
+    value: list
+    default_value: list
     value_mode: typing.Literal["onlyLeaf", "parentFirst", "all"]
     on_active: EventMixin
     on_change: EventMixin

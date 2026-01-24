@@ -26,12 +26,12 @@ class InputNumber(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "blur",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -39,12 +39,12 @@ class InputNumber(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -52,12 +52,12 @@ class InputNumber(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "enter",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -65,12 +65,12 @@ class InputNumber(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "focus",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -78,12 +78,12 @@ class InputNumber(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "keydown",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -91,12 +91,12 @@ class InputNumber(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "keypress",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -104,12 +104,12 @@ class InputNumber(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "keyup",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -117,12 +117,12 @@ class InputNumber(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "validate",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -131,10 +131,10 @@ class TInputNumberProps(TypedDict, total=False):
     align: typing.Literal["left", "center", "right"]
     allow_input_over_limit: bool
     auto_width: bool
-    decimal_places: typing.Union[float, typing.Dict]
+    decimal_places: typing.Union[float, dict]
     disabled: bool
     format: str
-    input_props: typing.Dict
+    input_props: dict
     label: str
     large_number: bool
     max: typing.Union[float, str]

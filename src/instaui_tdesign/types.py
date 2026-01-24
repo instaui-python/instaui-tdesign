@@ -1,4 +1,4 @@
-from typing import Any, Dict, Literal
+from typing import Any, Literal
 
 
 TLocale = Literal[
@@ -6,4 +6,4 @@ TLocale = Literal[
     "en_US",
 ]
 
-TCustomizeLocale = Dict[str, Any]
+TCustomizeLocale = dict[str, Any]

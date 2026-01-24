@@ -8,9 +8,6 @@ from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props, handle_event_from_props
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class Button(BaseElement):
     def __init__(
@@ -40,12 +37,12 @@ class Button(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -59,13 +56,11 @@ class TButtonProps(TypedDict, total=False):
     href: str
     loading: bool
     shape: typing.Literal["rectangle", "square", "round", "circle"]
-    loading_props: typing.Dict
+    loading_props: dict
     size: typing.Literal["small", "medium", "large"]
     suffix: str
     tag: typing.Literal["button", "a", "div"]
-    theme: TMaybeRef[
-        typing.Literal["default", "primary", "danger", "warning", "success"]
-    ]
+    theme: typing.Literal["default", "primary", "danger", "warning", "success"]
     type: typing.Literal["submit", "reset", "button"]
     variant: typing.Literal["base", "outline", "dashed", "text"]
     on_click: EventMixin

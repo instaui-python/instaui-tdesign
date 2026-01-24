@@ -32,22 +32,22 @@ class TRowProps(TypedDict, total=False):
     align: typing.Literal[
         "start", "end", "center", "stretch", "baseline", "top", "middle", "bottom"
     ]
-    gutter: typing.Union[float, typing.Dict, typing.List]
+    gutter: typing.Union[float, dict, list]
     justify: typing.Literal["start", "end", "center", "space-around", "space-between"]
     tag: str
 
 
 class TColProps(TypedDict, total=False):
     flex: typing.Union[float, str]
-    lg: typing.Union[float, typing.Dict]
-    md: typing.Union[float, typing.Dict]
+    lg: typing.Union[float, dict]
+    md: typing.Union[float, dict]
     offset: float
     order: float
     pull: float
     push: float
-    sm: typing.Union[float, typing.Dict]
+    sm: typing.Union[float, dict]
     span: float
     tag: str
-    xl: typing.Union[float, typing.Dict]
-    xs: typing.Union[float, typing.Dict]
-    xxl: typing.Union[float, typing.Dict]
+    xl: typing.Union[float, dict]
+    xs: typing.Union[float, dict]
+    xxl: typing.Union[float, dict]

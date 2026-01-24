@@ -21,12 +21,12 @@ class Tabs(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "add",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -34,12 +34,12 @@ class Tabs(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -47,12 +47,12 @@ class Tabs(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "drag-sort",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -60,12 +60,12 @@ class Tabs(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "remove",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -83,12 +83,12 @@ class TabPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "remove",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -98,7 +98,7 @@ class TTabsProps(TypedDict, total=False):
     addable: bool
     disabled: bool
     drag_sort: bool
-    list: typing.List[TTabPanelProps]
+    list: list[TTabPanelProps]
     placement: typing.Literal["left", "top", "bottom", "right"]
     scroll_position: typing.Literal["auto", "start", "center", "end"]
     size: typing.Literal["medium", "large"]

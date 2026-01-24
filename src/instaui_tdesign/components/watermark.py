@@ -1,11 +1,7 @@
 from __future__ import annotations
-import typing
 from ._base_element import BaseElement
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props
-
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
 
 
 class Watermark(BaseElement):
@@ -26,10 +22,10 @@ class TWatermarkProps(TypedDict, total=False):
     line_space: float
     movable: bool
     move_interval: float
-    offset: typing.List
+    offset: list
     removable: bool
     rotate: float
-    watermark_content: TMaybeRef[typing.Union[typing.Dict, typing.List]]
+    watermark_content: dict | list
     width: float
     x: float
     y: float

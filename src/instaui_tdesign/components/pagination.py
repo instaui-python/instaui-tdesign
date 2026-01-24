@@ -34,12 +34,12 @@ class Pagination(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -47,12 +47,12 @@ class Pagination(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "current-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -60,12 +60,12 @@ class Pagination(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "page-size-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -89,12 +89,12 @@ class PaginationMini(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -106,8 +106,8 @@ class TPaginationProps(TypedDict, total=False):
     max_page_btn: int
     page_ellipsis_mode: typing.Literal["mid", "both-ends"]
     default_page_size: int
-    page_size_options: typing.List
-    select_props: typing.Dict
+    page_size_options: list
+    select_props: dict
     show_first_and_last_page_btn: bool
     show_jumper: bool
     show_page_number: bool
@@ -123,10 +123,10 @@ class TPaginationProps(TypedDict, total=False):
 
 
 class TPaginationMiniProps(TypedDict, total=False):
-    disabled: typing.Union[bool, typing.Dict]
+    disabled: typing.Union[bool, dict]
     layout: typing.Literal["horizontal", "vertical"]
     show_current: bool
     size: typing.Literal["small", "medium", "large"]
-    tips: typing.Dict
+    tips: dict
     variant: typing.Literal["text", "outline"]
     on_change: EventMixin

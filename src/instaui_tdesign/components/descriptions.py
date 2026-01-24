@@ -42,10 +42,10 @@ class TDescriptionsProps(TypedDict, total=False):
     bordered: bool
     colon: bool
     column: int
-    content_style: typing.Dict
+    content_style: dict
     item_layout: typing.Literal["horizontal", "vertical"]
-    items: typing.List
-    label_style: typing.Dict
+    items: list
+    label_style: dict
     layout: typing.Literal["horizontal", "vertical"]
     size: typing.Literal["small", "medium", "large"]
     table_layout: typing.Literal["fixed", "auto"]

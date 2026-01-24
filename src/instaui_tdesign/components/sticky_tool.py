@@ -12,7 +12,7 @@ from ._utils import handle_props, handle_event_from_props
 class StickyTool(BaseElement):
     def __init__(
         self,
-        list: typing.Optional[typing.List[TStickyItemProps]] = None,
+        list: typing.Optional[list[TStickyItemProps]] = None,
         **kwargs: Unpack[TStickyToolProps],
     ):
         super().__init__("t-sticky-tool")
@@ -25,12 +25,12 @@ class StickyTool(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -38,12 +38,12 @@ class StickyTool(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "hover",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -65,7 +65,7 @@ class StickyItem(BaseElement):
 
 
 class TStickyToolProps(TypedDict, total=False):
-    offset: typing.List
+    offset: list
     placement: typing.Literal[
         "right-top",
         "right-center",
@@ -74,7 +74,7 @@ class TStickyToolProps(TypedDict, total=False):
         "left-center",
         "left-bottom",
     ]
-    popup_props: typing.Dict
+    popup_props: dict
     shape: typing.Literal["square", "round"]
     type: typing.Literal["normal", "compact"]
     width: typing.Union[float, str]
@@ -84,5 +84,5 @@ class TStickyToolProps(TypedDict, total=False):
 
 class TStickyItemProps(TypedDict, total=False):
     popup: str
-    popup_props: typing.Dict
+    popup_props: dict
     trigger: typing.Literal["hover", "click"]

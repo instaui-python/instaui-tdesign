@@ -28,12 +28,12 @@ class Alert(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "close",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -41,12 +41,12 @@ class Alert(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "closed",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
