@@ -23,12 +23,12 @@ class Avatar(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "error",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -49,7 +49,7 @@ class TAvatarProps(TypedDict, total=False):
     content: str
     hide_on_load_failed: bool
     image: str
-    image_props: typing.Dict
+    image_props: dict
     shape: typing.Literal["circle", "round"]
     size: typing.Literal["small", "medium", "large", "24px", "38px"]
     on_error: EventMixin
@@ -59,5 +59,5 @@ class TAvatarGroupProps(TypedDict, total=False):
     cascading: typing.Literal["left-up", "right-up"]
     collapse_avatar: str
     max: float
-    popup_props: typing.Dict
+    popup_props: dict
     size: typing.Literal["small", "medium", "large", "24px", "38px"]

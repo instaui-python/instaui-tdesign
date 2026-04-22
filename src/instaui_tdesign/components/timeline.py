@@ -5,9 +5,6 @@ from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props, handle_event_from_props
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class Timeline(BaseElement):
     def __init__(
@@ -38,20 +35,18 @@ class TimelineItem(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
 
 class TTimelineProps(TypedDict, total=False):
-    label_align: TMaybeRef[
-        typing.Literal["left", "right", "alternate", "top", "bottom"]
-    ]
+    label_align: typing.Literal["left", "right", "alternate", "top", "bottom"]
     layout: typing.Literal["horizontal", "vertical"]
     mode: typing.Literal["alternate", "same"]
     reverse: bool

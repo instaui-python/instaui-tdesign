@@ -52,12 +52,12 @@ class Input(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "blur",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -65,12 +65,12 @@ class Input(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -78,12 +78,12 @@ class Input(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "clear",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -91,12 +91,12 @@ class Input(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -104,12 +104,12 @@ class Input(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "compositionend",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -117,12 +117,12 @@ class Input(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "compositionstart",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -130,12 +130,12 @@ class Input(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "enter",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -143,12 +143,12 @@ class Input(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "focus",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -156,12 +156,12 @@ class Input(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "keydown",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -169,12 +169,12 @@ class Input(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "keypress",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -182,12 +182,12 @@ class Input(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "keyup",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -195,12 +195,12 @@ class Input(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "mouseenter",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -208,12 +208,12 @@ class Input(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "mouseleave",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -221,12 +221,12 @@ class Input(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "paste",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -234,12 +234,12 @@ class Input(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "validate",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -247,12 +247,12 @@ class Input(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "wheel",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -281,7 +281,7 @@ class TInputProps(TypedDict, total=False):
     clearable: bool
     disabled: bool
     format: str
-    input_class: typing.Union[str, typing.Dict, typing.List]
+    input_class: typing.Union[str, dict, list]
     label: str
     maxcharacter: float
     maxlength: typing.Union[float, str]

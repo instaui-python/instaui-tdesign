@@ -9,7 +9,7 @@ from ._utils import handle_props, handle_event_from_props
 class Calendar(BaseElement):
     def __init__(
         self,
-        value: typing.Optional[typing.Union[str, typing.List[str]]] = None,
+        value: typing.Optional[typing.Union[str, list[str]]] = None,
         **kwargs: Unpack[TCalendarProps],
     ):
         super().__init__("t-calendar")
@@ -22,12 +22,12 @@ class Calendar(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "cell-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -35,12 +35,12 @@ class Calendar(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "cell-double-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -48,12 +48,12 @@ class Calendar(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "cell-right-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -61,12 +61,12 @@ class Calendar(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "controller-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -74,12 +74,12 @@ class Calendar(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "month-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -87,7 +87,7 @@ class Calendar(BaseElement):
 class TCalendarProps(TypedDict, total=False):
     cell: str
     cell_append: str
-    controller_config: typing.Union[bool, typing.Dict]
+    controller_config: typing.Union[bool, dict]
     fill_with_zero: bool
     first_day_of_week: float
     format: str
@@ -97,9 +97,9 @@ class TCalendarProps(TypedDict, total=False):
     month: typing.Union[float, str]
     multiple: bool
     prevent_cell_contextmenu: bool
-    range: typing.List
+    range: list
     theme: typing.Literal["full", "card"]
-    week: typing.Union[str, typing.List]
+    week: typing.Union[str, list]
     year: typing.Union[float, str]
     on_cell_click: EventMixin
     on_cell_double_click: EventMixin

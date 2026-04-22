@@ -10,9 +10,6 @@ from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props, handle_event_from_props
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class Link(BaseElement):
     def __init__(
@@ -35,12 +32,12 @@ class Link(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -51,8 +48,6 @@ class TLinkProps(TypedDict, total=False):
     hover: typing.Literal["color", "underline"]
     size: typing.Literal["small", "medium", "large"]
     target: str
-    theme: TMaybeRef[
-        typing.Literal["default", "primary", "danger", "warning", "success"]
-    ]
+    theme: typing.Literal["default", "primary", "danger", "warning", "success"]
     underline: bool
     on_click: EventMixin

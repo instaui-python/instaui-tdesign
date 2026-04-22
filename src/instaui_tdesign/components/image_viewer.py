@@ -5,14 +5,11 @@ from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props, handle_event_from_props
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class ImageViewer(BaseElement):
     def __init__(
         self,
-        images: typing.Optional[typing.List[str]] = None,
+        images: typing.Optional[list[str]] = None,
         **kwargs: Unpack[TImageViewerProps],
     ):
         super().__init__("t-image-viewer")
@@ -24,12 +21,12 @@ class ImageViewer(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "close",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -37,12 +34,12 @@ class ImageViewer(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "download",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -50,12 +47,12 @@ class ImageViewer(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "index-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -66,19 +63,17 @@ class TImageViewerProps(TypedDict, total=False):
     close_on_esc_keydown: bool
     close_on_overlay: bool
     draggable: bool
-    image_referrerpolicy: TMaybeRef[
-        typing.Literal[
-            "no-referrer",
-            "no-referrer-when-downgrade",
-            "origin",
-            "origin-when-cross-origin",
-            "same-origin",
-            "strict-origin",
-            "strict-origin-when-cross-origin",
-            "unsafe-url",
-        ]
+    image_referrerpolicy: typing.Literal[
+        "no-referrer",
+        "no-referrer-when-downgrade",
+        "origin",
+        "origin-when-cross-origin",
+        "same-origin",
+        "strict-origin",
+        "strict-origin-when-cross-origin",
+        "unsafe-url",
     ]
-    image_scale: typing.Dict
+    image_scale: dict
     index: float
     default_index: float
     mode: typing.Literal["modal", "modeless"]
@@ -86,7 +81,7 @@ class TImageViewerProps(TypedDict, total=False):
     show_overlay: bool
     title: str
     trigger: str
-    viewer_scale: typing.Dict
+    viewer_scale: dict
     visible: bool
     default_visible: bool
     z_index: float

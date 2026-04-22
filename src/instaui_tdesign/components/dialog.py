@@ -5,9 +5,6 @@ from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class Dialog(BaseElement):
     def __init__(
@@ -31,12 +28,12 @@ class Dialog(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "before-close",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -44,12 +41,12 @@ class Dialog(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "before-open",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -57,12 +54,12 @@ class Dialog(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "cancel",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -70,12 +67,12 @@ class Dialog(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "close",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -83,12 +80,12 @@ class Dialog(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "close-btn-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -96,12 +93,12 @@ class Dialog(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "closed",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -109,12 +106,12 @@ class Dialog(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "confirm",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -122,12 +119,12 @@ class Dialog(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "esc-keydown",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -135,12 +132,12 @@ class Dialog(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "opened",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -148,12 +145,12 @@ class Dialog(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "overlay-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -164,7 +161,7 @@ class TDialogCardProps(TypedDict, total=False):
     close_btn: typing.Literal["ButtonProps"]
     confirm_btn: typing.Literal["ButtonProps"]
     confirm_loading: bool
-    footer: typing.Union[TMaybeRef[bool, str]]
+    footer: typing.Union[bool, str]
     header: typing.Literal["boolean"]
     theme: typing.Literal["default", "info", "warning", "danger", "success"]
     on_cancel: EventMixin
@@ -183,7 +180,7 @@ class TDialogProps(TypedDict, total=False):
     confirm_on_enter: bool
     destroy_on_close: bool
     dialog_class_name: str
-    dialog_style: typing.Dict
+    dialog_style: dict
     draggable: bool
     footer: typing.Union[bool, str]
     lazy: bool

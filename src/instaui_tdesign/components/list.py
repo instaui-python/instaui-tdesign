@@ -19,12 +19,12 @@ class List(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "load-more",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -32,12 +32,12 @@ class List(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "scroll",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -65,7 +65,7 @@ class TListProps(TypedDict, total=False):
     footer: str
     header: str
     layout: typing.Literal["horizontal", "vertical"]
-    scroll: typing.Dict
+    scroll: dict
     size: typing.Literal["small", "medium", "large"]
     split: bool
     stripe: bool

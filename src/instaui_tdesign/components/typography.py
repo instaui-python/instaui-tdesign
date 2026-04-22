@@ -46,10 +46,10 @@ class TypographyParagraph(BaseElement):
 
 class TTextProps(TypedDict, total=False):
     code: bool
-    copyable: typing.Union[bool, typing.Dict]
+    copyable: typing.Union[bool, dict]
     delete: bool
     disabled: bool
-    ellipsis: typing.Union[bool, typing.Dict]
+    ellipsis: typing.Union[bool, dict]
     italic: bool
     keyboard: bool
     mark: typing.Union[bool, str]
@@ -59,9 +59,9 @@ class TTextProps(TypedDict, total=False):
 
 
 class TTitleProps(TypedDict, total=False):
-    ellipsis: typing.Union[bool, typing.Dict]
+    ellipsis: typing.Union[bool, dict]
     level: typing.Literal["h1", "h2", "h3", "h4", "h5", "h6"]
 
 
 class TParagraphProps(TypedDict, total=False):
-    ellipsis: typing.Union[bool, typing.Dict]
+    ellipsis: typing.Union[bool, dict]

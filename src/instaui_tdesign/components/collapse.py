@@ -11,7 +11,7 @@ from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
 class Collapse(BaseElement):
     def __init__(
         self,
-        value: typing.Optional[typing.List] = None,
+        value: typing.Optional[list] = None,
         *,
         expand_icon: typing.Optional[typing.Union[bool, str]] = None,
         **kwargs: Unpack[TCollapseProps],
@@ -28,12 +28,12 @@ class Collapse(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -63,7 +63,7 @@ class TCollapseProps(TypedDict, total=False):
     expand_icon_placement: typing.Literal["left", "right"]
     expand_mutex: bool
     expand_on_row_click: bool
-    default_value: typing.List
+    default_value: list
     on_change: EventMixin
 
 

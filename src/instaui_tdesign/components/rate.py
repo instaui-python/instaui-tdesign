@@ -31,12 +31,12 @@ class Rate(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -49,5 +49,5 @@ class TRateProps(TypedDict, total=False):
     gap: float
     show_text: bool
     size: str
-    texts: typing.List
+    texts: list
     on_change: EventMixin

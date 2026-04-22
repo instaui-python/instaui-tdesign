@@ -26,7 +26,7 @@ class Progress(BaseElement):
 
 
 class TProgressProps(TypedDict, total=False):
-    color: typing.Union[str, typing.List[str]]
+    color: typing.Union[str, list[str]]
     stroke_width: typing.Union[float, str]
     theme: typing.Literal["line", "plump", "circle"]
     track_color: str

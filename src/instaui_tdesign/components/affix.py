@@ -20,12 +20,12 @@ class Affix(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "fixed-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 

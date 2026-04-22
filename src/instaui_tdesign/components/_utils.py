@@ -1,10 +1,9 @@
-from typing import Dict
 from instaui.internal.ui.element import Element
 from instaui.internal.ui.event import EventMixin
 from instaui.internal.ui.bindable import is_bindable
 
 
-def handle_props(props: Dict, *, model_value=None):
+def handle_props(props: dict, *, model_value=None):
     props = {
         k.replace("_", "-"): v
         for k, v in props.items()
@@ -15,7 +14,7 @@ def handle_props(props: Dict, *, model_value=None):
     return props
 
 
-def handle_event_from_props(element: Element, props: Dict):
+def handle_event_from_props(element: Element, props: dict):
     for k, v in props.items():
         if isinstance(v, EventMixin):
             # 'on_click' -> 'click'

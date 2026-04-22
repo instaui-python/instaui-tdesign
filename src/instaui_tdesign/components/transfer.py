@@ -5,16 +5,13 @@ from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class Transfer(BaseElement):
     def __init__(
         self,
-        value: typing.Optional[typing.List] = None,
+        value: typing.Optional[list] = None,
         *,
-        model_value: typing.Optional[typing.List] = None,
+        model_value: typing.Optional[list] = None,
         **kwargs: Unpack[TTransferProps],
     ):
         super().__init__("t-transfer")
@@ -28,12 +25,12 @@ class Transfer(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -41,12 +38,12 @@ class Transfer(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "checked-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -54,12 +51,12 @@ class Transfer(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "page-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -67,12 +64,12 @@ class Transfer(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "scroll",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -80,35 +77,35 @@ class Transfer(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "search",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
 
 class TTransferProps(TypedDict, total=False):
-    checkbox_props: typing.Dict
-    checked: typing.List
-    data: typing.List
+    checkbox_props: dict
+    checked: list
+    data: list
     direction: typing.Literal["left", "right", "both"]
-    disabled: typing.Union[bool, typing.List]
+    disabled: typing.Union[bool, list]
     empty: str
-    footer: typing.Union[bool, typing.List]
-    keys: typing.Dict
-    operation: typing.Union[bool, typing.List]
-    pagination: typing.Union[TMaybeRef[typing.Dict, typing.List]]
-    search: TMaybeRef[typing.Union[bool, typing.Dict, typing.List]]
-    show_check_all: typing.Union[TMaybeRef[bool, typing.List]]
+    footer: typing.Union[bool, list]
+    keys: dict
+    operation: typing.Union[bool, list]
+    pagination: dict | list
+    search: dict | list | bool
+    show_check_all: list | bool
     target_draggable: bool
     target_sort: typing.Literal["original", "push", "unshift"]
-    title: typing.Union[bool, typing.List]
+    title: typing.Union[bool, list]
     transfer_item: str
     tree: str
-    default_value: typing.List
+    default_value: list
     on_change: EventMixin
     on_checked_change: EventMixin
     on_page_change: EventMixin

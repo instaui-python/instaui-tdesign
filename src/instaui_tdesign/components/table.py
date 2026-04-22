@@ -70,12 +70,12 @@ class BaseTable(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "active-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -83,12 +83,12 @@ class BaseTable(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "active-row-action",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -96,12 +96,12 @@ class BaseTable(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "cell-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -109,12 +109,12 @@ class BaseTable(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "column-resize-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -122,12 +122,12 @@ class BaseTable(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "page-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -135,12 +135,12 @@ class BaseTable(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "row-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -148,12 +148,12 @@ class BaseTable(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "row-dblclick",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -161,12 +161,12 @@ class BaseTable(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "row-mousedown",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -174,12 +174,12 @@ class BaseTable(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "row-mouseenter",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -187,12 +187,12 @@ class BaseTable(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "row-mouseleave",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -200,12 +200,12 @@ class BaseTable(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "row-mouseover",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -213,12 +213,12 @@ class BaseTable(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "row-mouseup",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -226,12 +226,12 @@ class BaseTable(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "scroll",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -239,12 +239,12 @@ class BaseTable(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "scroll-x",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -252,12 +252,12 @@ class BaseTable(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "scroll-y",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -369,12 +369,12 @@ class Table(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "async-loading-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -436,12 +436,12 @@ class Table(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "cell-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -449,12 +449,12 @@ class Table(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -462,12 +462,12 @@ class Table(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "column-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -475,12 +475,12 @@ class Table(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "column-controller-visible-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -488,12 +488,12 @@ class Table(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "data-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -501,12 +501,12 @@ class Table(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "display-columns-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -514,12 +514,12 @@ class Table(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "drag-sort",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -527,12 +527,12 @@ class Table(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "expand-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -540,12 +540,12 @@ class Table(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "filter-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -553,12 +553,12 @@ class Table(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "row-edit",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -566,12 +566,12 @@ class Table(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "row-validate",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -579,12 +579,12 @@ class Table(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "select-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -592,12 +592,12 @@ class Table(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "sort-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -605,12 +605,12 @@ class Table(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[list] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "validate",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 

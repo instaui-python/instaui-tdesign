@@ -25,12 +25,12 @@ class Textarea(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "blur",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -38,12 +38,12 @@ class Textarea(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -51,12 +51,12 @@ class Textarea(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "focus",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -64,12 +64,12 @@ class Textarea(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "keydown",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -77,12 +77,12 @@ class Textarea(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "keypress",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -90,12 +90,12 @@ class Textarea(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "keyup",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -103,12 +103,12 @@ class Textarea(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "validate",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -116,7 +116,7 @@ class Textarea(BaseElement):
 class TTextareaProps(TypedDict, total=False):
     allow_input_over_max: bool
     autofocus: bool
-    autosize: typing.Union[bool, typing.Dict]
+    autosize: typing.Union[bool, dict]
     disabled: bool
     maxcharacter: float
     maxlength: int

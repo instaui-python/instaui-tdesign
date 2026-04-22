@@ -18,9 +18,9 @@ class Comment(BaseElement):
 
 
 class TCommentProps(TypedDict, total=False):
-    actions: typing.List
+    actions: list
     author: str
-    avatar: typing.Dict
+    avatar: dict
     datetime: str
     quote: str
     reply: str

@@ -22,7 +22,7 @@ class TCardProps(TypedDict, total=False):
     actions: str
     avatar: str
     bordered: bool
-    body_style: typing.Dict
+    body_style: dict
     cover: str
     description: str
     footer: str
@@ -30,7 +30,7 @@ class TCardProps(TypedDict, total=False):
     header_bordered: bool
     hover_shadow: bool
     loading: typing.Union[bool, str]
-    loading_props: typing.Dict
+    loading_props: dict
     shadow: bool
     size: typing.Literal["medium", "small"]
     status: str

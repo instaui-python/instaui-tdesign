@@ -7,9 +7,6 @@ from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props, handle_event_from_props
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class Tag(BaseElement):
     def __init__(
@@ -30,12 +27,12 @@ class Tag(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -43,12 +40,12 @@ class Tag(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "close",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -60,9 +57,7 @@ class TTagProps(TypedDict, total=False):
     max_width: typing.Union[float, str]
     shape: typing.Literal["square", "round", "mark"]
     size: typing.Literal["small", "medium", "large"]
-    theme: TMaybeRef[
-        typing.Literal["default", "primary", "warning", "danger", "success"]
-    ]
+    theme: typing.Literal["default", "primary", "warning", "danger", "success"]
     title: str
     variant: typing.Literal["dark", "light", "outline", "light-outline"]
     on_click: EventMixin
@@ -72,22 +67,22 @@ class TTagProps(TypedDict, total=False):
 class TCheckTagProps(TypedDict, total=False):
     checked: bool
     default_checked: bool
-    checked_props: typing.Dict
+    checked_props: dict
     content: typing.Literal["number"]
     default: typing.Literal["TNode"]
     disabled: bool
     size: typing.Literal["small", "medium", "large"]
-    unchecked_props: typing.Dict
-    value: typing.Union[TMaybeRef[float, str]]
+    unchecked_props: dict
+    value: float | str
     on_change: EventMixin
     on_click: EventMixin
 
 
 class TCheckTagGroupProps(TypedDict, total=False):
-    checked_props: typing.Dict
+    checked_props: dict
     multiple: bool
-    options: typing.List
-    unchecked_props: typing.Dict
-    value: typing.List
-    default_value: typing.List
+    options: list
+    unchecked_props: dict
+    value: list
+    default_value: list
     on_change: EventMixin

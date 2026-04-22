@@ -5,9 +5,6 @@ from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props, handle_event_from_props
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class Image(BaseElement):
     def __init__(
@@ -24,12 +21,12 @@ class Image(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "error",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -37,12 +34,12 @@ class Image(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "load",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -59,19 +56,17 @@ class TImageProps(TypedDict, total=False):
     overlay_trigger: typing.Literal["always", "hover"]
     placeholder: str
     position: str
-    referrerpolicy: TMaybeRef[
-        typing.Literal[
-            "no-referrer",
-            "no-referrer-when-downgrade",
-            "origin",
-            "origin-when-cross-origin",
-            "same-origin",
-            "strict-origin",
-            "strict-origin-when-cross-origin",
-            "unsafe-url",
-        ]
+    referrerpolicy: typing.Literal[
+        "no-referrer",
+        "no-referrer-when-downgrade",
+        "origin",
+        "origin-when-cross-origin",
+        "same-origin",
+        "strict-origin",
+        "strict-origin-when-cross-origin",
+        "unsafe-url",
     ]
     shape: typing.Literal["circle", "round", "square"]
-    srcset: typing.Dict
+    srcset: dict
     on_error: EventMixin
     on_load: EventMixin

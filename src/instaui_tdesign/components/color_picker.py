@@ -12,7 +12,7 @@ class ColorPicker(BaseElement):
         value: typing.Optional[str] = None,
         *,
         model_value: typing.Optional[str] = None,
-        recent_colors: typing.Optional[typing.Union[typing.List[str, bool]]] = None,
+        recent_colors: typing.Optional[typing.Union[list[str, bool]]] = None,
         **kwargs: Unpack[TColorPickerProps],
     ):
         super().__init__("t-color-picker")
@@ -27,12 +27,12 @@ class ColorPicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -40,12 +40,12 @@ class ColorPicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "clear",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -53,12 +53,12 @@ class ColorPicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "palette-bar-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -66,12 +66,12 @@ class ColorPicker(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "recent-colors-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -82,7 +82,7 @@ class ColorPickerPanel(BaseElement):
         value: typing.Optional[str] = None,
         *,
         model_value: typing.Optional[str] = None,
-        recent_colors: typing.Optional[typing.Union[typing.List[str], bool]] = None,
+        recent_colors: typing.Optional[typing.Union[list[str], bool]] = None,
         **kwargs: Unpack[TColorPickerPanelProps],
     ):
         super().__init__("t-color-picker-panel")
@@ -97,12 +97,12 @@ class ColorPickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -110,12 +110,12 @@ class ColorPickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "palette-bar-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -123,12 +123,12 @@ class ColorPickerPanel(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "recent-colors-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -136,20 +136,20 @@ class ColorPickerPanel(BaseElement):
 class TColorPickerProps(TypedDict, total=False):
     borderless: bool
     clearable: bool
-    color_modes: typing.List
+    color_modes: list
     disabled: bool
     enable_alpha: bool
     enable_multiple_gradient: bool
     format: typing.Literal[
         "HEX", "HEX8", "RGB", "RGBA", "HSL", "HSLA", "HSV", "HSVA", "CMYK", "CSS"
     ]
-    input_props: typing.Dict
-    popup_props: typing.Dict
-    default_recent_colors: typing.List
-    select_input_props: typing.Dict
+    input_props: dict
+    popup_props: dict
+    default_recent_colors: list
+    select_input_props: dict
     show_primary_color_preview: bool
     size: typing.Literal["small", "medium", "large"]
-    swatch_colors: typing.List
+    swatch_colors: list
     default_value: str
     on_change: EventMixin
     on_clear: EventMixin
@@ -158,16 +158,16 @@ class TColorPickerProps(TypedDict, total=False):
 
 
 class TColorPickerPanelProps(TypedDict, total=False):
-    color_modes: typing.List
+    color_modes: list
     disabled: bool
     enable_alpha: bool
     enable_multiple_gradient: bool
     format: typing.Literal[
         "HEX", "HEX8", "RGB", "RGBA", "HSL", "HSLA", "HSV", "HSVA", "CMYK", "CSS"
     ]
-    default_recent_colors: typing.List
+    default_recent_colors: list
     show_primary_color_preview: bool
-    swatch_colors: typing.List
+    swatch_colors: list
     default_value: str
     on_change: EventMixin
     on_palette_bar_change: EventMixin

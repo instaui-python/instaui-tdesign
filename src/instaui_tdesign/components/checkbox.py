@@ -26,12 +26,12 @@ class Checkbox(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -39,12 +39,10 @@ class Checkbox(BaseElement):
 class CheckboxGroup(BaseElement):
     def __init__(
         self,
-        options: typing.Optional[
-            typing.List[typing.Union[str, TCheckboxOption]]
-        ] = None,
-        value: typing.Optional[typing.List[typing.Union[int, str, bool]]] = None,
+        options: typing.Optional[list[typing.Union[str, TCheckboxOption]]] = None,
+        value: typing.Optional[list[typing.Union[int, str, bool]]] = None,
         *,
-        model_value: typing.Optional[typing.List[typing.Union[int, str, bool]]] = None,
+        model_value: typing.Optional[list[typing.Union[int, str, bool]]] = None,
         **kwargs: Unpack[TCheckboxGroupProps],
     ):
         super().__init__("t-checkbox-group")
@@ -58,12 +56,12 @@ class CheckboxGroup(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -87,7 +85,7 @@ class TCheckboxGroupProps(TypedDict, total=False):
     max: float
     name: str
     readonly: bool
-    default_value: typing.List
+    default_value: list
     on_change: EventMixin
 
 

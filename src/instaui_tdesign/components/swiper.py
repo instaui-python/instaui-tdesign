@@ -26,12 +26,12 @@ class Swiper(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -50,7 +50,7 @@ class TSwiperProps(TypedDict, total=False):
     direction: typing.Literal["horizontal", "vertical"]
     height: float
     loop: bool
-    navigation: typing.Union[str, typing.Dict]
+    navigation: typing.Union[str, dict]
     stop_on_hover: bool
     theme: typing.Literal["light", "dark"]
     trigger: typing.Literal["hover", "click"]

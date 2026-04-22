@@ -28,12 +28,12 @@ class Steps(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -54,7 +54,7 @@ class StepItem(BaseElement):
 class TStepsProps(TypedDict, total=False):
     default_current: typing.Union[float, str]
     layout: typing.Literal["horizontal", "vertical"]
-    options: typing.List[TStepItemProps]
+    options: list[TStepItemProps]
     readonly: bool
     separator: typing.Literal["line", "dashed", "arrow"]
     sequence: typing.Literal["positive", "reverse"]

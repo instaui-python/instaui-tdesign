@@ -33,12 +33,12 @@ class SelectInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "blur",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -46,12 +46,12 @@ class SelectInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "clear",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -59,12 +59,12 @@ class SelectInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "enter",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -72,12 +72,12 @@ class SelectInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "focus",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -85,12 +85,12 @@ class SelectInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "input-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -98,12 +98,12 @@ class SelectInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "mouseenter",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -111,12 +111,12 @@ class SelectInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "mouseleave",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -124,12 +124,12 @@ class SelectInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "paste",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -137,12 +137,12 @@ class SelectInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "popup-visible-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -150,12 +150,12 @@ class SelectInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "tag-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -168,17 +168,17 @@ class TSelectInputProps(TypedDict, total=False):
     clearable: bool
     collapsed_items: str
     disabled: bool
-    input_props: typing.Dict
+    input_props: dict
     input_value: typing.Union[float, str]
     default_input_value: typing.Union[float, str]
-    keys: typing.Dict
+    keys: dict
     label: str
     loading: bool
     min_collapsed_num: float
     multiple: bool
     panel: str
     placeholder: str
-    popup_props: typing.Dict
+    popup_props: dict
     popup_visible: bool
     default_popup_visible: bool
     readonly: bool
@@ -187,8 +187,8 @@ class TSelectInputProps(TypedDict, total=False):
     status: typing.Literal["default", "success", "warning", "error"]
     suffix: str
     tag: str
-    tag_input_props: typing.Dict
-    tag_props: typing.Dict
+    tag_input_props: dict
+    tag_props: dict
     tips: str
     value_display: str
     on_blur: EventMixin

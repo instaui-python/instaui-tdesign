@@ -21,12 +21,12 @@ class BackTop(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -34,7 +34,7 @@ class BackTop(BaseElement):
 class TBackTopProps(TypedDict, total=False):
     container: str
     duration: float
-    offset: typing.List
+    offset: list
     shape: typing.Literal["circle", "square"]
     size: typing.Literal["medium", "small"]
     target: str

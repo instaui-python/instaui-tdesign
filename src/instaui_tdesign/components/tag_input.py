@@ -34,12 +34,12 @@ class TagInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "blur",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -47,12 +47,12 @@ class TagInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -60,12 +60,12 @@ class TagInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "clear",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -73,12 +73,12 @@ class TagInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -86,12 +86,12 @@ class TagInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "drag-sort",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -99,12 +99,12 @@ class TagInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "enter",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -112,12 +112,12 @@ class TagInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "focus",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -125,12 +125,12 @@ class TagInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "input-change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -138,12 +138,12 @@ class TagInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "mouseenter",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -151,12 +151,12 @@ class TagInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "mouseleave",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -164,12 +164,12 @@ class TagInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "paste",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -177,12 +177,12 @@ class TagInput(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "remove",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -195,7 +195,7 @@ class TTagInputProps(TypedDict, total=False):
     disabled: bool
     drag_sort: bool
     excess_tags_display_type: typing.Literal["scroll", "break-line"]
-    input_props: typing.Dict
+    input_props: dict
     input_value: typing.Union[float, str]
     default_input_value: typing.Union[float, str]
     label: str
@@ -207,9 +207,9 @@ class TTagInputProps(TypedDict, total=False):
     status: typing.Literal["default", "success", "warning", "error"]
     suffix: str
     tag: str
-    tag_props: typing.Dict
+    tag_props: dict
     tips: str
-    default_value: typing.List[str]
+    default_value: list[str]
     value_display: str
     on_blur: EventMixin
     on_change: EventMixin

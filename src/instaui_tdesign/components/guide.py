@@ -11,7 +11,7 @@ class Guide(BaseElement):
         self,
         *,
         current: int,
-        steps: typing.List[TGuideStepValue],
+        steps: list[TGuideStepValue],
         **kwargs: Unpack[TGuideProps],
     ):
         super().__init__("t-guide")
@@ -24,12 +24,12 @@ class Guide(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -37,12 +37,12 @@ class Guide(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "finish",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -50,12 +50,12 @@ class Guide(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "next-step-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -63,12 +63,12 @@ class Guide(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "prev-step-click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -76,12 +76,12 @@ class Guide(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "skip",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -89,16 +89,16 @@ class Guide(BaseElement):
 class TGuideProps(TypedDict, total=False):
     counter: str
     default_current: int
-    finish_button_props: typing.Dict
+    finish_button_props: dict
     hide_counter: bool
     hide_prev: bool
     hide_skip: bool
     highlight_padding: float
     mode: typing.Literal["popup", "dialog"]
-    next_button_props: typing.Dict
-    prev_button_props: typing.Dict
+    next_button_props: dict
+    prev_button_props: dict
     show_overlay: bool
-    skip_button_props: typing.Dict
+    skip_button_props: dict
     z_index: float
     on_change: EventMixin
     on_finish: EventMixin
@@ -114,13 +114,13 @@ class TGuideStepValue(TypedDict, total=False):
     highlight_content: str
     highlight_padding: float
     mode: typing.Literal["popup", "dialog"]
-    next_button_props: typing.Dict
-    offset: typing.List
+    next_button_props: dict
+    offset: list
     placement: typing.Union[TStepPopupPlacement, TStepDialogPlacement]
-    popup_props: typing.Dict
-    prev_button_props: typing.Dict
+    popup_props: dict
+    prev_button_props: dict
     show_overlay: bool
-    skip_button_props: typing.Dict
+    skip_button_props: dict
     step_overlay_class: str
     title: str
 

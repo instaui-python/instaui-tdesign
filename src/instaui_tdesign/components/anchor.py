@@ -10,7 +10,7 @@ class Anchor(BaseElement):
     def __init__(
         self,
         *,
-        affix_props: typing.Optional[typing.Dict] = None,
+        affix_props: typing.Optional[dict] = None,
         **kwargs: Unpack[TAnchorProps],
     ):
         super().__init__("t-anchor")
@@ -26,12 +26,12 @@ class Anchor(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -39,12 +39,12 @@ class Anchor(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 

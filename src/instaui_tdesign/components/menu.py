@@ -26,12 +26,12 @@ class Menu(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -39,12 +39,12 @@ class Menu(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "expand",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -67,12 +67,12 @@ class HeadMenu(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "change",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -80,12 +80,12 @@ class HeadMenu(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "expand",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -125,12 +125,12 @@ class MenuItem(BaseElement):
         self,
         handler: EventMixin,
         *,
-        extends: typing.Optional[typing.List] = None,
+        params: typing.Optional[list] = None,
     ):
         self.on(
             "click",
             handler,
-            extends=extends,
+            params=params,
         )
         return self
 
@@ -146,21 +146,21 @@ class TMenuProps(TypedDict, total=False):
     collapsed: bool
     expand_mutex: bool
     expand_type: typing.Literal["normal", "popup"]
-    expanded: typing.List
-    default_expanded: typing.List
+    expanded: list
+    default_expanded: list
     logo: str
     operations: str
     theme: typing.Literal["light", "dark", "global", "system"]
     default_value: typing.Union[float, str]
-    width: typing.Union[float, str, typing.List[typing.Union[float, str]]]
+    width: typing.Union[float, str, list[typing.Union[float, str]]]
     on_change: EventMixin
     on_expand: EventMixin
 
 
 class THeadMenuProps(TypedDict, total=False):
     expand_type: typing.Literal["normal", "popup"]
-    expanded: typing.List
-    default_expanded: typing.List
+    expanded: list
+    default_expanded: list
     logo: str
     operations: str
     theme: typing.Literal["light", "dark"]
@@ -170,7 +170,7 @@ class THeadMenuProps(TypedDict, total=False):
 
 class TSubMenuProps(TypedDict, total=False):
     disabled: bool
-    popup_props: typing.Dict
+    popup_props: dict
     title: str
     value: typing.Union[int, str]
 
@@ -179,7 +179,7 @@ class TMenuItemProps(TypedDict, total=False):
     disabled: bool
     href: str
     replace: bool
-    router: typing.Dict
+    router: dict
     router_link: bool
     target: typing.Literal["_blank", "_self", "_parent", "_top"]
     to: str

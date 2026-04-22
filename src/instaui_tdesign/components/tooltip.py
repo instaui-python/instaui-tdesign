@@ -5,9 +5,6 @@ from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props
 from .popup import TPopupProps, TPopupPlacementValue
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class Tooltip(BaseElement):
     def __init__(
@@ -37,9 +34,7 @@ class TTooltipProps(TPopupProps, total=False):
     duration: float
     placement: TPopupPlacementValue
     show_arrow: bool
-    theme: TMaybeRef[
-        typing.Literal["default", "primary", "success", "danger", "warning", "light"]
-    ]
+    theme: typing.Literal["default", "primary", "success", "danger", "warning", "light"]
 
 
 class TTooltipLiteProps(TypedDict, total=False):

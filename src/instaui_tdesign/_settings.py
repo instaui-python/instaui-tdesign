@@ -1,4 +1,4 @@
-from typing import Dict, Union, cast
+from typing import Union, cast
 from instaui import ui
 from instaui_tdesign.types import TLocale, TCustomizeLocale
 from instaui_tdesign.components.config_provider import ConfigProvider
@@ -11,5 +11,5 @@ def configure(*, locale: Union[TLocale, TCustomizeLocale]):
 
     @ui.layout
     def add_config_provider_lifespan():
-        with ConfigProvider(global_config=cast(Dict, locale)):
+        with ConfigProvider(global_config=cast(dict, locale)):
             yield

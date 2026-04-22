@@ -4,9 +4,6 @@ from ._base_element import BaseElement
 from typing_extensions import TypedDict, Unpack
 from ._utils import handle_props
 
-if typing.TYPE_CHECKING:
-    from instaui.vars.types import TMaybeRef
-
 
 class Empty(BaseElement):
     def __init__(
@@ -25,9 +22,7 @@ class Empty(BaseElement):
 
 
 class TEmptyProps(TypedDict, total=False):
-    image: typing.Dict
-    image_style: typing.Dict
+    image: dict
+    image_style: dict
     size: typing.Literal["small", "medium", "large"]
-    type: TMaybeRef[
-        typing.Literal["empty", "success", "fail", "network-error", "maintenance"]
-    ]
+    type: typing.Literal["empty", "success", "fail", "network-error", "maintenance"]

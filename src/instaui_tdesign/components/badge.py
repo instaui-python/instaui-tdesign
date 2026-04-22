@@ -23,7 +23,7 @@ class TBadgeProps(TypedDict, total=False):
     count: typing.Union[int, str]
     dot: bool
     max_count: float
-    offset: typing.List
+    offset: list
     shape: typing.Literal["circle", "round"]
     show_zero: bool
     size: typing.Literal["small", "medium"]
