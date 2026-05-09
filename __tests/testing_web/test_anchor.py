@@ -1,7 +1,8 @@
+from instaui import html, ui
+
 from __tests.testing_web.context import Context
-from instaui import ui
+from __tests.utils.anchor_utils import click_anchor_item, should_anchor_item_active
 from instaui_tdesign import td
-from __tests.utils.anchor_utils import should_anchor_item_active, click_anchor_item
 
 
 def test_base(context: Context):
@@ -13,15 +14,15 @@ def test_base(context: Context):
             td.anchor_item(href="#page3", title="Page 3")
 
         with td.card().style("height: 100vh"):
-            ui.heading("Page1").props({"id": "page1"})
+            html.h1("Page1").props({"id": "page1"})
             ui.text("Content1")
 
         with ui.column().style("height: 100vh"):
-            ui.heading("Page2").props({"id": "page2"})
+            html.h1("Page2").props({"id": "page2"})
             ui.text("Content2")
 
         with ui.column().style("height: 100vh"):
-            ui.heading("Page3").props({"id": "page3"})
+            html.h1("Page3").props({"id": "page3"})
             ui.text("Content3")
 
     context.open()
