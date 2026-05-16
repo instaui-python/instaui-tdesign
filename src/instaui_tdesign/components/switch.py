@@ -1,11 +1,13 @@
 from __future__ import annotations
+
 import typing
-from ._base_element import BaseElement
+
 from instaui.internal.ui.event import EventMixin
 from instaui.internal.ui.slot import Slot
 from typing_extensions import TypedDict, Unpack
 
-from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props, try_setup_vmodel
 
 
 class Switch(BaseElement):
@@ -33,17 +35,8 @@ class Switch(BaseElement):
         """
         return _LabelSlot(self.add_slot("label"))
 
-    def on_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "change",
-            handler,
-            params=params,
-        )
+    def on_change(self, handler: EventMixin):
+        self.on("change", handler)
         return self
 
 

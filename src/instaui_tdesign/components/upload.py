@@ -1,9 +1,12 @@
 from __future__ import annotations
+
 import typing
-from ._base_element import BaseElement
+
 from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
-from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
+
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props, try_setup_vmodel
 
 
 class Upload(BaseElement):
@@ -18,199 +21,64 @@ class Upload(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_cancel_upload(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "cancel-upload",
-            handler,
-            params=params,
-        )
+    def on_cancel_upload(self, handler: EventMixin):
+        self.on("cancel-upload", handler)
         return self
 
-    def on_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "change",
-            handler,
-            params=params,
-        )
+    def on_change(self, handler: EventMixin):
+        self.on("change", handler)
         return self
 
-    def on_dragenter(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "dragenter",
-            handler,
-            params=params,
-        )
+    def on_dragenter(self, handler: EventMixin):
+        self.on("dragenter", handler)
         return self
 
-    def on_dragleave(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "dragleave",
-            handler,
-            params=params,
-        )
+    def on_dragleave(self, handler: EventMixin):
+        self.on("dragleave", handler)
         return self
 
-    def on_drop(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "drop",
-            handler,
-            params=params,
-        )
+    def on_drop(self, handler: EventMixin):
+        self.on("drop", handler)
         return self
 
-    def on_fail(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "fail",
-            handler,
-            params=params,
-        )
+    def on_fail(self, handler: EventMixin):
+        self.on("fail", handler)
         return self
 
-    def on_one_file_fail(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "one-file-fail",
-            handler,
-            params=params,
-        )
+    def on_one_file_fail(self, handler: EventMixin):
+        self.on("one-file-fail", handler)
         return self
 
-    def on_one_file_success(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "one-file-success",
-            handler,
-            params=params,
-        )
+    def on_one_file_success(self, handler: EventMixin):
+        self.on("one-file-success", handler)
         return self
 
-    def on_preview(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "preview",
-            handler,
-            params=params,
-        )
+    def on_preview(self, handler: EventMixin):
+        self.on("preview", handler)
         return self
 
-    def on_progress(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "progress",
-            handler,
-            params=params,
-        )
+    def on_progress(self, handler: EventMixin):
+        self.on("progress", handler)
         return self
 
-    def on_remove(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "remove",
-            handler,
-            params=params,
-        )
+    def on_remove(self, handler: EventMixin):
+        self.on("remove", handler)
         return self
 
-    def on_select_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "select-change",
-            handler,
-            params=params,
-        )
+    def on_select_change(self, handler: EventMixin):
+        self.on("select-change", handler)
         return self
 
-    def on_success(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "success",
-            handler,
-            params=params,
-        )
+    def on_success(self, handler: EventMixin):
+        self.on("success", handler)
         return self
 
-    def on_validate(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "validate",
-            handler,
-            params=params,
-        )
+    def on_validate(self, handler: EventMixin):
+        self.on("validate", handler)
         return self
 
-    def on_waiting_upload_files_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "waiting_upload-files-change",
-            handler,
-            params=params,
-        )
+    def on_waiting_upload_files_change(self, handler: EventMixin):
+        self.on("waiting_upload-files-change", handler)
         return self
 
 

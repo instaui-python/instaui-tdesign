@@ -486,16 +486,12 @@ wheels = [
 [[package]]
 name = "instaui"
 version = "0.9.0"
-source = { registry = "https://pypi.mirrors.ustc.edu.cn/simple/" }
+source = { editable = "../instaui" }
 dependencies = [
     { name = "jinja2" },
     { name = "orjson" },
     { name = "pydantic" },
     { name = "typing-extensions" },
-]
-sdist = { url = "https://mirrors.ustc.edu.cn/pypi/packages/99/c2/3abddaaf6513460621813e67a230fce6a93ec4c1e2c0a4b4bdca1b827913/instaui-0.9.0.tar.gz", hash = "sha256:e4eb7c9746cf0ed0b3a47d20e2201e11c7ab6fb90820c7f4c1101e85c45e1628", size = 378008, upload-time = "2026-05-09T14:00:23.69Z" }
-wheels = [
-    { url = "https://mirrors.ustc.edu.cn/pypi/packages/a8/3d/b3134f6127ee153512b56d81ce83ed60f4ed1c4ed6525fc5d90763f71724/instaui-0.9.0-py3-none-any.whl", hash = "sha256:5a0b159b4cd0c4d9f03e5b2cf045d2290ea7824260749fa3263f332ab8b9cd84", size = 503571, upload-time = "2026-05-09T14:00:25.689Z" },
 ]
 
 [package.optional-dependencies]
@@ -511,6 +507,52 @@ web = [
 webview = [
     { name = "pywebview" },
 ]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi", extras = ["standard"], marker = "extra == 'all'" },
+    { name = "fastapi", extras = ["standard"], marker = "extra == 'web'" },
+    { name = "jinja2", specifier = ">=3.1.6" },
+    { name = "orjson", specifier = ">=3.10.15" },
+    { name = "pydantic", specifier = ">=2.10.6" },
+    { name = "pywebview", marker = "extra == 'all'" },
+    { name = "pywebview", marker = "extra == 'webview'" },
+    { name = "typing-extensions", specifier = ">=4.13.2" },
+    { name = "uvicorn", marker = "extra == 'all'" },
+    { name = "uvicorn", marker = "extra == 'web'" },
+]
+provides-extras = ["web", "webview", "all"]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "beautifulsoup4", specifier = "==4.13.5" },
+    { name = "fastapi", extras = ["standard"], specifier = ">=0.115.12" },
+    { name = "playwright", specifier = "==1.57.0" },
+    { name = "pytest", specifier = ">=8.3.5" },
+    { name = "pytest-asyncio", specifier = ">=0.24.0" },
+    { name = "pytest-html", specifier = ">=4.1.1" },
+    { name = "pytest-playwright", specifier = ">=0.7.1" },
+    { name = "pywebview", specifier = ">=5.4" },
+    { name = "ruff", specifier = "==0.12.2" },
+    { name = "uvicorn", specifier = ">=0.33.0" },
+]
+git = [{ name = "pre-commit", specifier = ">=3.5.0" }]
+lint = [{ name = "ruff", specifier = "==0.12.2" }]
+playwright = [
+    { name = "playwright", specifier = "==1.57.0" },
+    { name = "pytest-playwright", specifier = ">=0.7.1" },
+]
+test = [
+    { name = "beautifulsoup4", specifier = "==4.13.5" },
+    { name = "pytest", specifier = ">=8.3.5" },
+    { name = "pytest-asyncio", specifier = ">=0.24.0" },
+    { name = "pytest-html", specifier = ">=4.1.1" },
+]
+web = [
+    { name = "fastapi", extras = ["standard"], specifier = ">=0.115.12" },
+    { name = "uvicorn", specifier = ">=0.33.0" },
+]
+webview = [{ name = "pywebview", specifier = ">=5.4" }]
 
 [[package]]
 name = "instaui-tdesign"
@@ -539,6 +581,7 @@ dev = [
     { name = "pandas" },
     { name = "playwright" },
     { name = "polars" },
+    { name = "pre-commit" },
     { name = "pytest" },
     { name = "pytest-asyncio" },
     { name = "pytest-html" },
@@ -572,10 +615,10 @@ web = [
 
 [package.metadata]
 requires-dist = [
-    { name = "instaui", specifier = ">=0.9.0" },
-    { name = "instaui", extras = ["all"], marker = "extra == 'all'" },
-    { name = "instaui", extras = ["web"], marker = "extra == 'web'" },
-    { name = "instaui", extras = ["webview"], marker = "extra == 'webview'" },
+    { name = "instaui", editable = "../instaui" },
+    { name = "instaui", extras = ["all"], marker = "extra == 'all'", editable = "../instaui" },
+    { name = "instaui", extras = ["web"], marker = "extra == 'web'", editable = "../instaui" },
+    { name = "instaui", extras = ["webview"], marker = "extra == 'webview'", editable = "../instaui" },
 ]
 provides-extras = ["web", "webview", "all"]
 
@@ -583,10 +626,11 @@ provides-extras = ["web", "webview", "all"]
 dev = [
     { name = "fastapi", extras = ["standard"], specifier = ">=0.115.12" },
     { name = "fastexcel", specifier = ">=0.16.0" },
-    { name = "instaui", extras = ["web"] },
+    { name = "instaui", extras = ["web"], editable = "../instaui" },
     { name = "pandas", specifier = ">=2.0.3" },
     { name = "playwright", specifier = "==1.57.0" },
     { name = "polars", specifier = ">=1.34.0" },
+    { name = "pre-commit", specifier = ">=3.5.0" },
     { name = "pytest", specifier = ">=8.3.5" },
     { name = "pytest-asyncio", specifier = ">=0.24.0" },
     { name = "pytest-html", specifier = ">=4.1.1" },
@@ -602,7 +646,7 @@ playwright = [
 ]
 test = [
     { name = "fastexcel", specifier = ">=0.16.0" },
-    { name = "instaui", extras = ["web"] },
+    { name = "instaui", extras = ["web"], editable = "../instaui" },
     { name = "pandas", specifier = ">=2.0.3" },
     { name = "polars", specifier = ">=1.34.0" },
     { name = "pytest", specifier = ">=8.3.5" },

@@ -1,9 +1,12 @@
 from __future__ import annotations
+
 import typing
-from ._base_element import BaseElement
+
 from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
-from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
+
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props, try_setup_vmodel
 
 
 class Textarea(BaseElement):
@@ -21,95 +24,32 @@ class Textarea(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_blur(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "blur",
-            handler,
-            params=params,
-        )
+    def on_blur(self, handler: EventMixin):
+        self.on("blur", handler)
         return self
 
-    def on_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "change",
-            handler,
-            params=params,
-        )
+    def on_change(self, handler: EventMixin):
+        self.on("change", handler)
         return self
 
-    def on_focus(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "focus",
-            handler,
-            params=params,
-        )
+    def on_focus(self, handler: EventMixin):
+        self.on("focus", handler)
         return self
 
-    def on_keydown(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "keydown",
-            handler,
-            params=params,
-        )
+    def on_keydown(self, handler: EventMixin):
+        self.on("keydown", handler)
         return self
 
-    def on_keypress(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "keypress",
-            handler,
-            params=params,
-        )
+    def on_keypress(self, handler: EventMixin):
+        self.on("keypress", handler)
         return self
 
-    def on_keyup(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "keyup",
-            handler,
-            params=params,
-        )
+    def on_keyup(self, handler: EventMixin):
+        self.on("keyup", handler)
         return self
 
-    def on_validate(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "validate",
-            handler,
-            params=params,
-        )
+    def on_validate(self, handler: EventMixin):
+        self.on("validate", handler)
         return self
 
 

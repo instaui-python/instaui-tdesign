@@ -1,9 +1,12 @@
 from __future__ import annotations
+
 import typing
-from ._base_element import BaseElement
+
 from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
-from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
+
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props, try_setup_vmodel
 
 
 class Dialog(BaseElement):
@@ -24,134 +27,44 @@ class Dialog(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_before_close(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "before-close",
-            handler,
-            params=params,
-        )
+    def on_before_close(self, handler: EventMixin):
+        self.on("before-close", handler)
         return self
 
-    def on_before_open(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "before-open",
-            handler,
-            params=params,
-        )
+    def on_before_open(self, handler: EventMixin):
+        self.on("before-open", handler)
         return self
 
-    def on_cancel(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "cancel",
-            handler,
-            params=params,
-        )
+    def on_cancel(self, handler: EventMixin):
+        self.on("cancel", handler)
         return self
 
-    def on_close(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "close",
-            handler,
-            params=params,
-        )
+    def on_close(self, handler: EventMixin):
+        self.on("close", handler)
         return self
 
-    def on_close_btn_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "close-btn-click",
-            handler,
-            params=params,
-        )
+    def on_close_btn_click(self, handler: EventMixin):
+        self.on("close-btn-click", handler)
         return self
 
-    def on_closed(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "closed",
-            handler,
-            params=params,
-        )
+    def on_closed(self, handler: EventMixin):
+        self.on("closed", handler)
         return self
 
-    def on_confirm(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "confirm",
-            handler,
-            params=params,
-        )
+    def on_confirm(self, handler: EventMixin):
+        self.on("confirm", handler)
         return self
 
-    def on_esc_keydown(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "esc-keydown",
-            handler,
-            params=params,
-        )
+    def on_esc_keydown(self, handler: EventMixin):
+        self.on("esc-keydown", handler)
         return self
 
-    def on_opened(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "opened",
-            handler,
-            params=params,
-        )
+    def on_opened(self, handler: EventMixin):
+        self.on("opened", handler)
         return self
 
-    def on_overlay_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "overlay-click",
-            handler,
-            params=params,
-        )
+    def on_overlay_click(self, handler: EventMixin):
+        self.on("overlay-click", handler)
         return self
 
 

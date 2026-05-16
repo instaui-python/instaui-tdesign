@@ -1,12 +1,14 @@
 from __future__ import annotations
+
 import typing
 
-from instaui_tdesign.components._icon_param_utils import make_icon_for_bool_or_str
-from ._base_element import BaseElement
 from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 
-from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
+from instaui_tdesign.components._icon_param_utils import make_icon_for_bool_or_str
+
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props, try_setup_vmodel
 
 
 class Steps(BaseElement):
@@ -24,17 +26,8 @@ class Steps(BaseElement):
         self.props(handle_props(kwargs, model_value=current_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "change",
-            handler,
-            params=params,
-        )
+    def on_change(self, handler: EventMixin):
+        self.on("change", handler)
         return self
 
 
