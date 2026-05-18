@@ -1,7 +1,8 @@
 import pytest
+from instaui import file_io, ui
 from playwright.sync_api import FilePayload
+
 from __tests.testing_web.context import Context
-from instaui import ui, file_io
 from instaui_tdesign import td
 
 

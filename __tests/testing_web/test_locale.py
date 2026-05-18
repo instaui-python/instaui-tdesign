@@ -1,8 +1,7 @@
 from __tests.testing_web.context import Context
-from instaui_tdesign import td
-from instaui_tdesign import locales
-from __tests.utils.select_utils import use_select_controls
 from __tests.utils.input_utils import use_input_controls
+from __tests.utils.select_utils import use_select_controls
+from instaui_tdesign import locales, td
 
 
 def test_use_locale_dict(context: Context):

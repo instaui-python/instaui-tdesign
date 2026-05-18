@@ -1,6 +1,6 @@
+from instaui.internal.ui.bindable import is_bindable
 from instaui.internal.ui.element import Element
 from instaui.internal.ui.event import EventMixin
-from instaui.internal.ui.bindable import is_bindable
 
 
 def handle_props(props: dict, *, model_value=None):

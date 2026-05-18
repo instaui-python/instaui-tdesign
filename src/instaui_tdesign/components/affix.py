@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 

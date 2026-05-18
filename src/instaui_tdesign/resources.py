@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import Final
-from instaui_tdesign import __version__
 
+from instaui_tdesign import __version__
 
 static_folder: Final = Path(__file__).parent / "static"
 

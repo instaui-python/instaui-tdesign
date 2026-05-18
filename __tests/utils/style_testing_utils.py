@@ -1,6 +1,8 @@
-from typing import Callable, Optional
-from instaui import ui, html
 from dataclasses import dataclass
+from typing import Callable, Optional
+
+from instaui import html, ui
+
 from __tests.screen import BaseContext
 
 

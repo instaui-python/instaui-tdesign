@@ -1,9 +1,11 @@
 from __future__ import annotations
+
 import typing
-from ._base_element import BaseElement
+
 from typing_extensions import TypedDict, Unpack
 
-from ._utils import handle_props, handle_event_from_props
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props
 
 
 class Divider(BaseElement):

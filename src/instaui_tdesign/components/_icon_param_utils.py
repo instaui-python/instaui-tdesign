@@ -1,4 +1,5 @@
 from typing import Union
+
 from instaui import custom
 from instaui.internal.ui.app_context import get_app
 

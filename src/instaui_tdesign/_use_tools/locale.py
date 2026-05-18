@@ -1,7 +1,9 @@
 from typing import get_args
+
 from instaui import ui
-from instaui_tdesign.types import TLocale
+
 from instaui_tdesign.locales import get_locale
+from instaui_tdesign.types import TLocale
 
 
 class Locale:

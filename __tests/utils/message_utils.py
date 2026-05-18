@@ -1,6 +1,5 @@
 from __tests.screen import BaseContext
 
-
 MESSAGE_LIST_SELECTOR = ".t-message__list"
 MESSAGE_SELECTOR = ".t-message"
 CLOSE_BTN_SELECTOR = ".t-message__close"

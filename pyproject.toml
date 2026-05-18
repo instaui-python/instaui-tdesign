@@ -4,6 +4,7 @@ version = "0.8.0"
 description = "InstaUI TDesign"
 keywords = ["ui", "gui", "web", "instaui", "TDesign"]
 license = "MIT"
+license-files = ["LICENSE"]
 readme = "README.md"
 authors = [
     { name = "CrystalWindSnake", email = "568166495@qq.com" }
@@ -55,6 +56,9 @@ lint = [
 web = ["instaui[web]"]
 webview = ["instaui[webview]"]
 all = ["instaui[all]"]
+
+[tool.ruff.lint]
+extend-select = ["I"]
 
 [build-system]
 requires = ["uv_build>=0.11.13,<0.12"]

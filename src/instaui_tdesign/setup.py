@@ -1,10 +1,11 @@
-from typing import Optional, Union, Literal
-from instaui import ui, custom
-from instaui_tdesign.types import TLocale, TCustomizeLocale
-from instaui_tdesign import symbol
+from typing import Literal, Optional, Union
+
+from instaui import custom, ui
+
+from instaui_tdesign import resources, symbol
 from instaui_tdesign._settings import configure
-from instaui_tdesign import resources
 from instaui_tdesign.components.icon import _reset_prefix
+from instaui_tdesign.types import TCustomizeLocale, TLocale
 
 
 def use(

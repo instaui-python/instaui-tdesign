@@ -1,7 +1,8 @@
-from __tests.testing_web.context import Context
-from instaui_tdesign import td
 from instaui import ui
+
+from __tests.testing_web.context import Context
 from __tests.utils.select_utils import use_select_controls
+from instaui_tdesign import td
 
 
 def test_value(context: Context):
