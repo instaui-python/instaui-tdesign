@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import typing
 
+from instaui import custom
 from instaui.internal.ui.bindable import is_bindable
 from instaui.internal.ui.event import EventMixin
 from instaui.internal.ui.slot import Slot
@@ -67,6 +68,11 @@ class BaseTable(BaseElement):
 
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
+
+    def props(self, add: str | dict[str, typing.Any]) -> Self:
+        if isinstance(add, dict) and "data" in add:
+            add = {**add, "data": custom.shallow_expr((add["data"]))}
+        return super().props(add)
 
     def on_active_change(self, handler: EventMixin):
         self.on("active-change", handler)
