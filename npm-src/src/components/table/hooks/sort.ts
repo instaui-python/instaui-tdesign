@@ -1,7 +1,9 @@
-import type { SetupContext } from "vue";
 import type { TableProps } from "tdesign-vue-next";
-import { computed, ref } from "vue";
+import type { SetupContext } from "vue";
+
 import { orderBy as _orderBy } from "lodash-es";
+import { computed, ref } from "vue";
+
 import type { TTableColumnHandler, TTableColumnsWithInfer, TTableRowsHandler } from "../types";
 
 export function useTableSort(options: {

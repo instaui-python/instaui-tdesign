@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import * as TDesign from "tdesign-vue-next";
 import { useAttrs, useSlots } from "vue";
+
 import { withDefaultAffixProps, withDefaultContainer } from "./anchor";
 
 defineOptions({ inheritAttrs: false });

@@ -1,5 +1,6 @@
-import type { SetupContext } from "vue";
 import type { TableProps } from "tdesign-vue-next";
+import type { SetupContext } from "vue";
+
 import { computed } from "vue";
 
 const m_defaultTableAttrs = {

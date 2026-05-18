@@ -1,5 +1,7 @@
 import type { ComputedRef, SetupContext } from "vue";
+
 import { computed } from "vue";
+
 import type { TRequiredTableColumns } from "../types";
 
 export function defaultHeaderSlotInfos(

@@ -1,5 +1,5 @@
-import type { SetupContext } from "vue";
 import type { AnchorProps } from "tdesign-vue-next";
+import type { SetupContext } from "vue";
 
 export function withDefaultAffixProps(attrs: SetupContext["attrs"]): AnchorProps["affixProps"] {
   const { affixProps = {} } = attrs as AnchorProps;

@@ -1,6 +1,10 @@
+import { useBindingGetter } from "instaui";
+import { uniqBy as _uniqBy } from "lodash-es";
 import { type TableProps, DateRangePickerPanel } from "tdesign-vue-next";
 import { ref, watch, type SetupContext, type Slot } from "vue";
-import { uniqBy as _uniqBy } from "lodash-es";
+
+import { functionFromString } from "@/systems/function-systems";
+
 import type {
   TTableData,
   TTableRowsHandler,
@@ -9,9 +13,8 @@ import type {
   TTableColumnHandler,
   TFilterType,
 } from "../types";
-import { functionFromString } from "@/systems/function-systems";
+
 import CommonFilter from "../filter-components/common";
-import { useBindingGetter } from "instaui";
 
 export function useTableFilter(options: {
   tableData: TTableData;
