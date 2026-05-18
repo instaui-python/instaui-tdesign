@@ -19,9 +19,7 @@ const realOptions = computed(() => {
     }
 
     return options.map((item) =>
-      typeof item === "string" || typeof item === "number"
-        ? { label: item, value: item }
-        : item
+      typeof item === "string" || typeof item === "number" ? { label: item, value: item } : item,
     );
   }
 

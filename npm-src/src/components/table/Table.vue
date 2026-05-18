@@ -17,8 +17,7 @@ const attrs = useAttrs();
 const slots = useSlots();
 const { t, globalConfig } = useConfig("table");
 
-const { tableData, orgData, registerRowsHandler, notifyTableDataChange } =
-  useTableData(attrs);
+const { tableData, orgData, registerRowsHandler, notifyTableDataChange } = useTableData(attrs);
 const [columnsWithInfer, registerColumnsHandler] = useTableColumnsWithInfer({
   tableData,
   attrs,
@@ -32,17 +31,16 @@ const { sort, onSortChange, multipleSort } = useTableSort({
   columns: columnsWithInfer,
 });
 
-const { onFilterChange, filterValue, resetFilters, filterResultText } =
-  useTableFilter({
-    tableData: orgData,
-    registerRowsHandler,
-    attrs,
-    registerColumnsHandler,
-    columns: columnsWithInfer,
-    tdesignGlobalConfig: globalConfig.value,
-    notifyTableDataChange,
-    slots,
-  });
+const { onFilterChange, filterValue, resetFilters, filterResultText } = useTableFilter({
+  tableData: orgData,
+  registerRowsHandler,
+  attrs,
+  registerColumnsHandler,
+  columns: columnsWithInfer,
+  tdesignGlobalConfig: globalConfig.value,
+  notifyTableDataChange,
+  slots,
+});
 
 const bindAttrs = withDefaultAttrs({ attrs });
 
@@ -63,11 +61,7 @@ const cellSlotPropConverter = withCellSlotPropConverter(columnsWithInfer);
     :multiple-sort="multipleSort"
   >
     <!-- column title slot -->
-    <template
-      v-for="info in headerSlotInfos"
-      v-slot:[info.slotName]
-      :key="info.slotName"
-    >
+    <template v-for="info in headerSlotInfos" v-slot:[info.slotName] :key="info.slotName">
       {{ info.content }}
     </template>
 

@@ -1,12 +1,4 @@
-import {
-  defineComponent,
-  h,
-  onMounted,
-  reactive,
-  ref,
-  useSlots,
-  watch,
-} from "vue";
+import { defineComponent, onMounted, reactive, watch } from "vue";
 
 export default defineComponent(render, {
   props: ["props"],
@@ -36,7 +28,7 @@ function render(inputProps: TProps) {
     () => slotArgs.value,
     (value) => {
       props.onChange(value);
-    }
+    },
   );
 
   // render

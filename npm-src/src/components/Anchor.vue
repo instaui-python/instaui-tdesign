@@ -12,11 +12,7 @@ const container = withDefaultContainer(attrs);
 </script>
 
 <template>
-  <TDesign.Anchor
-    v-bind="attrs"
-    :container="container"
-    :affix-props="affixProps"
-  >
+  <TDesign.Anchor v-bind="attrs" :container="container" :affix-props="affixProps">
     <template v-for="(_, name) in slots" v-slot:[name]="slotProps" :key="name">
       <slot :name="name" v-bind="slotProps" />
     </template>

@@ -1,9 +1,5 @@
 import type { ComputedRef } from "vue";
-import type {
-  PrimaryTableCol,
-  TableProps,
-  TableRowData,
-} from "tdesign-vue-next";
+import type { PrimaryTableCol, TableProps, TableRowData } from "tdesign-vue-next";
 
 export type TRequiredTableColumns = NonNullable<TableProps["columns"]>;
 

@@ -4,12 +4,10 @@ import type { TRequiredTableColumns } from "../types";
 
 export function defaultHeaderSlotInfos(
   slots: SetupContext["slots"],
-  columns: ComputedRef<TRequiredTableColumns>
+  columns: ComputedRef<TRequiredTableColumns>,
 ) {
   return computed(() => {
-    const excludeNames = Object.keys(slots).filter((name) =>
-      name.startsWith("header-cell-")
-    );
+    const excludeNames = Object.keys(slots).filter((name) => name.startsWith("header-cell-"));
 
     return columns.value
       .filter((col: any) => !excludeNames.includes(col.title))

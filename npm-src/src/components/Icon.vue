@@ -19,13 +19,7 @@ const icon = computed(() => {
 </script>
 
 <template>
-  <component
-    class="t-icon"
-    is="icon"
-    :icon="icon"
-    :size="size"
-    :color="color"
-  />
+  <component class="t-icon" is="icon" :icon="icon" :size="size" :color="color" />
 </template>
 
 <style scoped></style>

@@ -35,19 +35,14 @@ export function useTableFilter(options: {
   const slotsMap = new Map(
     Object.entries(slots)
       .filter(([name]) => name.startsWith("filter-"))
-      .map(([name, slot]) => [name.replace("filter-", ""), slot])
+      .map(([name, slot]) => [name.replace("filter-", ""), slot]),
   );
 
   registerColumnsHandler(
     (columns) =>
       columns.map((column) =>
-        normalizeTableFilterRecord(
-          column,
-          tableData,
-          options.tdesignGlobalConfig,
-          slotsMap
-        )
-      ) as TTableColumns
+        normalizeTableFilterRecord(column, tableData, options.tdesignGlobalConfig, slotsMap),
+      ) as TTableColumns,
   );
 
   const filterValue = ref<TableProps["filterValue"]>();
@@ -64,9 +59,7 @@ export function useTableFilter(options: {
       const value = (filterValue.value as any)[key] as any;
       const filter = colKey2Info.get(key)!.filter!;
       const type = filter.type!;
-      const predicate = filter.predicate
-        ? functionFromString(filter.predicate)
-        : undefined;
+      const predicate = filter.predicate ? functionFromString(filter.predicate) : undefined;
 
       const realType = type ?? ((filter as any)._type as TFilterType);
 
@@ -173,7 +166,7 @@ function normalizeTableFilterRecord(
   column: Record<string, any>,
   tableData: TTableData,
   tdesignGlobalConfig: Record<string, any>,
-  slotsMap: Map<string, Slot<any> | undefined>
+  slotsMap: Map<string, Slot<any> | undefined>,
 ) {
   if (slotsMap.has(column.colKey)) {
     if (column.filter) throw new Error("cannot set both slot and filter");
@@ -205,10 +198,7 @@ function normalizeTableFilterRecord(
 
     const newFilter = {
       resetValue: [],
-      list: [
-        { label: tdesignGlobalConfig.selectAllText, checkAll: true },
-        ...list,
-      ],
+      list: [{ label: tdesignGlobalConfig.selectAllText, checkAll: true }, ...list],
       ...column.filter,
     };
 
