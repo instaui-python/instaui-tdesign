@@ -1,9 +1,12 @@
 from __future__ import annotations
+
 import typing
-from ._base_element import BaseElement
+
 from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
-from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
+
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props, try_setup_vmodel
 
 
 class TimePicker(BaseElement):
@@ -21,121 +24,40 @@ class TimePicker(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_blur(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "blur",
-            handler,
-            params=params,
-        )
+    def on_blur(self, handler: EventMixin):
+        self.on("blur", handler)
         return self
 
-    def on_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "change",
-            handler,
-            params=params,
-        )
+    def on_change(self, handler: EventMixin):
+        self.on("change", handler)
         return self
 
-    def on_clear(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "clear",
-            handler,
-            params=params,
-        )
+    def on_clear(self, handler: EventMixin):
+        self.on("clear", handler)
         return self
 
-    def on_close(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "close",
-            handler,
-            params=params,
-        )
+    def on_close(self, handler: EventMixin):
+        self.on("close", handler)
         return self
 
-    def on_confirm(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "confirm",
-            handler,
-            params=params,
-        )
+    def on_confirm(self, handler: EventMixin):
+        self.on("confirm", handler)
         return self
 
-    def on_focus(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "focus",
-            handler,
-            params=params,
-        )
+    def on_focus(self, handler: EventMixin):
+        self.on("focus", handler)
         return self
 
-    def on_input(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "input",
-            handler,
-            params=params,
-        )
+    def on_input(self, handler: EventMixin):
+        self.on("input", handler)
         return self
 
-    def on_open(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "open",
-            handler,
-            params=params,
-        )
+    def on_open(self, handler: EventMixin):
+        self.on("open", handler)
         return self
 
-    def on_pick(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "pick",
-            handler,
-            params=params,
-        )
+    def on_pick(self, handler: EventMixin):
+        self.on("pick", handler)
         return self
 
 
@@ -154,69 +76,24 @@ class TimeRangePicker(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_blur(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "blur",
-            handler,
-            params=params,
-        )
+    def on_blur(self, handler: EventMixin):
+        self.on("blur", handler)
         return self
 
-    def on_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "change",
-            handler,
-            params=params,
-        )
+    def on_change(self, handler: EventMixin):
+        self.on("change", handler)
         return self
 
-    def on_focus(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "focus",
-            handler,
-            params=params,
-        )
+    def on_focus(self, handler: EventMixin):
+        self.on("focus", handler)
         return self
 
-    def on_input(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "input",
-            handler,
-            params=params,
-        )
+    def on_input(self, handler: EventMixin):
+        self.on("input", handler)
         return self
 
-    def on_pick(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "pick",
-            handler,
-            params=params,
-        )
+    def on_pick(self, handler: EventMixin):
+        self.on("pick", handler)
         return self
 
 

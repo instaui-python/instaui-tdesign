@@ -1,11 +1,14 @@
 from __future__ import annotations
+
 import typing
-from instaui_tdesign.components._icon_param_utils import make_icon_for_bool_or_str
-from ._base_element import BaseElement
+
 from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 
-from ._utils import handle_props, handle_event_from_props
+from instaui_tdesign.components._icon_param_utils import make_icon_for_bool_or_str
+
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props
 
 
 class Form(BaseElement):
@@ -20,43 +23,16 @@ class Form(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_reset(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "reset",
-            handler,
-            params=params,
-        )
+    def on_reset(self, handler: EventMixin):
+        self.on("reset", handler)
         return self
 
-    def on_submit(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "submit",
-            handler,
-            params=params,
-        )
+    def on_submit(self, handler: EventMixin):
+        self.on("submit", handler)
         return self
 
-    def on_validate(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "validate",
-            handler,
-            params=params,
-        )
+    def on_validate(self, handler: EventMixin):
+        self.on("validate", handler)
         return self
 
 

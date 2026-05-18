@@ -1,6 +1,6 @@
+import * as path from "path";
 // vite.config.tdesign.ts
 import { defineConfig } from "vite";
-import * as path from "path";
 
 export default defineConfig({
   build: {
@@ -14,10 +14,7 @@ export default defineConfig({
       external: ["vue"],
       output: {
         assetFileNames: (assetInfo) => {
-          if (
-            assetInfo.type === "asset" &&
-            assetInfo.names?.some((n) => n.endsWith(".css"))
-          ) {
+          if (assetInfo.type === "asset" && assetInfo.names?.some((n) => n.endsWith(".css"))) {
             return "tdesign.min.css";
           }
           return "[name][extname]";

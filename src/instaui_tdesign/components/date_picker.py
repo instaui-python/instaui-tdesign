@@ -1,16 +1,18 @@
 from __future__ import annotations
-from datetime import date
+
 import typing
+from datetime import date
+
+from instaui.internal.ui.event import EventMixin
+from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import (
     make_prefix_icon,
     make_suffix_icon,
 )
-from ._base_element import BaseElement
-from instaui.internal.ui.event import EventMixin
-from typing_extensions import TypedDict, Unpack
 
-from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props, try_setup_vmodel
 
 
 class DatePicker(BaseElement):
@@ -32,82 +34,28 @@ class DatePicker(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_blur(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "blur",
-            handler,
-            params=params,
-        )
+    def on_blur(self, handler: EventMixin):
+        self.on("blur", handler)
         return self
 
-    def on_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "change",
-            handler,
-            params=params,
-        )
+    def on_change(self, handler: EventMixin):
+        self.on("change", handler)
         return self
 
-    def on_confirm(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "confirm",
-            handler,
-            params=params,
-        )
+    def on_confirm(self, handler: EventMixin):
+        self.on("confirm", handler)
         return self
 
-    def on_focus(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "focus",
-            handler,
-            params=params,
-        )
+    def on_focus(self, handler: EventMixin):
+        self.on("focus", handler)
         return self
 
-    def on_pick(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "pick",
-            handler,
-            params=params,
-        )
+    def on_pick(self, handler: EventMixin):
+        self.on("pick", handler)
         return self
 
-    def on_preset_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "preset-click",
-            handler,
-            params=params,
-        )
+    def on_preset_click(self, handler: EventMixin):
+        self.on("preset-click", handler)
         return self
 
 
@@ -129,95 +77,32 @@ class DateRangePicker(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_blur(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "blur",
-            handler,
-            params=params,
-        )
+    def on_blur(self, handler: EventMixin):
+        self.on("blur", handler)
         return self
 
-    def on_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "change",
-            handler,
-            params=params,
-        )
+    def on_change(self, handler: EventMixin):
+        self.on("change", handler)
         return self
 
-    def on_confirm(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "confirm",
-            handler,
-            params=params,
-        )
+    def on_confirm(self, handler: EventMixin):
+        self.on("confirm", handler)
         return self
 
-    def on_focus(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "focus",
-            handler,
-            params=params,
-        )
+    def on_focus(self, handler: EventMixin):
+        self.on("focus", handler)
         return self
 
-    def on_input(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "input",
-            handler,
-            params=params,
-        )
+    def on_input(self, handler: EventMixin):
+        self.on("input", handler)
         return self
 
-    def on_pick(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "pick",
-            handler,
-            params=params,
-        )
+    def on_pick(self, handler: EventMixin):
+        self.on("pick", handler)
         return self
 
-    def on_preset_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "preset-click",
-            handler,
-            params=params,
-        )
+    def on_preset_click(self, handler: EventMixin):
+        self.on("preset-click", handler)
         return self
 
 
@@ -236,108 +121,36 @@ class DatePickerPanel(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_cell_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "cell-click",
-            handler,
-            params=params,
-        )
+    def on_cell_click(self, handler: EventMixin):
+        self.on("cell-click", handler)
         return self
 
-    def on_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "change",
-            handler,
-            params=params,
-        )
+    def on_change(self, handler: EventMixin):
+        self.on("change", handler)
         return self
 
-    def on_confirm(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "confirm",
-            handler,
-            params=params,
-        )
+    def on_confirm(self, handler: EventMixin):
+        self.on("confirm", handler)
         return self
 
-    def on_month_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "month-change",
-            handler,
-            params=params,
-        )
+    def on_month_change(self, handler: EventMixin):
+        self.on("month-change", handler)
         return self
 
-    def on_panel_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "panel-click",
-            handler,
-            params=params,
-        )
+    def on_panel_click(self, handler: EventMixin):
+        self.on("panel-click", handler)
         return self
 
-    def on_preset_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "preset-click",
-            handler,
-            params=params,
-        )
+    def on_preset_click(self, handler: EventMixin):
+        self.on("preset-click", handler)
         return self
 
-    def on_time_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "time-change",
-            handler,
-            params=params,
-        )
+    def on_time_change(self, handler: EventMixin):
+        self.on("time-change", handler)
         return self
 
-    def on_year_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "year-change",
-            handler,
-            params=params,
-        )
+    def on_year_change(self, handler: EventMixin):
+        self.on("year-change", handler)
         return self
 
 
@@ -356,108 +169,36 @@ class DateRangePickerPanel(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_cell_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "cell-click",
-            handler,
-            params=params,
-        )
+    def on_cell_click(self, handler: EventMixin):
+        self.on("cell-click", handler)
         return self
 
-    def on_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "change",
-            handler,
-            params=params,
-        )
+    def on_change(self, handler: EventMixin):
+        self.on("change", handler)
         return self
 
-    def on_confirm(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "confirm",
-            handler,
-            params=params,
-        )
+    def on_confirm(self, handler: EventMixin):
+        self.on("confirm", handler)
         return self
 
-    def on_month_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "month-change",
-            handler,
-            params=params,
-        )
+    def on_month_change(self, handler: EventMixin):
+        self.on("month-change", handler)
         return self
 
-    def on_panel_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "panel-click",
-            handler,
-            params=params,
-        )
+    def on_panel_click(self, handler: EventMixin):
+        self.on("panel-click", handler)
         return self
 
-    def on_preset_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "preset-click",
-            handler,
-            params=params,
-        )
+    def on_preset_click(self, handler: EventMixin):
+        self.on("preset-click", handler)
         return self
 
-    def on_time_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "time-change",
-            handler,
-            params=params,
-        )
+    def on_time_change(self, handler: EventMixin):
+        self.on("time-change", handler)
         return self
 
-    def on_year_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "year-change",
-            handler,
-            params=params,
-        )
+    def on_year_change(self, handler: EventMixin):
+        self.on("year-change", handler)
         return self
 
 

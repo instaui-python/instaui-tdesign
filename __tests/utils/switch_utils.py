@@ -1,6 +1,6 @@
 from typing import Optional
-from __tests.screen import BaseContext
 
+from __tests.screen import BaseContext
 
 SWITCH_BOX_SELECTOR = ".t-switch"
 

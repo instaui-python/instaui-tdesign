@@ -1,11 +1,14 @@
 from __future__ import annotations
+
 import typing
 
-from instaui_tdesign.components._icon_param_utils import make_icon_for_bool_or_str
-from ._base_element import BaseElement
 from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
-from ._utils import handle_props, handle_event_from_props
+
+from instaui_tdesign.components._icon_param_utils import make_icon_for_bool_or_str
+
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props
 
 
 class Tree(BaseElement):
@@ -32,147 +35,48 @@ class Tree(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_active(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "active",
-            handler,
-            params=params,
-        )
+    def on_active(self, handler: EventMixin):
+        self.on("active", handler)
         return self
 
-    def on_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "change",
-            handler,
-            params=params,
-        )
+    def on_change(self, handler: EventMixin):
+        self.on("change", handler)
         return self
 
-    def on_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "click",
-            handler,
-            params=params,
-        )
+    def on_click(self, handler: EventMixin):
+        self.on("click", handler)
         return self
 
-    def on_drag_end(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "drag-end",
-            handler,
-            params=params,
-        )
+    def on_drag_end(self, handler: EventMixin):
+        self.on("drag-end", handler)
         return self
 
-    def on_drag_leave(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "drag-leave",
-            handler,
-            params=params,
-        )
+    def on_drag_leave(self, handler: EventMixin):
+        self.on("drag-leave", handler)
         return self
 
-    def on_drag_over(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "drag-over",
-            handler,
-            params=params,
-        )
+    def on_drag_over(self, handler: EventMixin):
+        self.on("drag-over", handler)
         return self
 
-    def on_drag_start(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "drag-start",
-            handler,
-            params=params,
-        )
+    def on_drag_start(self, handler: EventMixin):
+        self.on("drag-start", handler)
         return self
 
-    def on_drop(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "drop",
-            handler,
-            params=params,
-        )
+    def on_drop(self, handler: EventMixin):
+        self.on("drop", handler)
         return self
 
-    def on_expand(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "expand",
-            handler,
-            params=params,
-        )
+    def on_expand(self, handler: EventMixin):
+        self.on("expand", handler)
         return self
 
-    def on_load(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "load",
-            handler,
-            params=params,
-        )
+    def on_load(self, handler: EventMixin):
+        self.on("load", handler)
         return self
 
-    def on_scroll(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "scroll",
-            handler,
-            params=params,
-        )
+    def on_scroll(self, handler: EventMixin):
+        self.on("scroll", handler)
         return self
 
 

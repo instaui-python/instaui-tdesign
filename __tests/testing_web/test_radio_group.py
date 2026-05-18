@@ -1,7 +1,8 @@
-from __tests.testing_web.context import Context
-from instaui_tdesign import td
 from instaui import ui
+
+from __tests.testing_web.context import Context
 from __tests.utils.radio_group_utils import use_radio_group_controls
+from instaui_tdesign import td
 
 
 def test_list_options(context: Context):

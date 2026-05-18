@@ -1,6 +1,5 @@
 from __tests.screen import BaseContext
 
-
 NOTIFICATION_LIST_SELECTOR = ".t-notification-list__show"
 NOTIFICATION_SELECTOR = ".t-notification"
 CLOSE_BTN_SELECTOR = ".t-message__close"

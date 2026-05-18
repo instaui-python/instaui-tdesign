@@ -1,10 +1,14 @@
 from __future__ import annotations
+
 from typing import Literal, Optional
+
 from instaui.internal.ui.event import EventMixin
-from instaui_tdesign.components._icon_param_utils import make_icon_for_str
 from typing_extensions import TypedDict, Unpack
+
+from instaui_tdesign.components._icon_param_utils import make_icon_for_str
+
 from ._base_element import BaseElement
-from ._utils import handle_props, handle_event_from_props
+from ._utils import handle_event_from_props, handle_props
 
 
 class Breadcrumb(BaseElement):
@@ -31,17 +35,8 @@ class BreadcrumbItem(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: Optional[list] = None,
-    ):
-        self.on(
-            "click",
-            handler,
-            params=params,
-        )
+    def on_click(self, handler: EventMixin):
+        self.on("click", handler)
         return self
 
 

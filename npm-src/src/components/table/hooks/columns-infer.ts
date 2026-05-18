@@ -1,6 +1,8 @@
-import type { SetupContext } from "vue";
 import type { TableProps } from "tdesign-vue-next";
+import type { SetupContext } from "vue";
+
 import { computed } from "vue";
+
 import type {
   TRequiredTableColumns,
   TTableColumnHandler,
@@ -44,7 +46,7 @@ export function useTableColumnsWithInfer(options: {
 
     const tryInferColumns = needInferColumns
       ? inferColumns(tableData.value)
-      : (attrs.columns as TTableColumns) ?? [];
+      : ((attrs.columns as TTableColumns) ?? []);
 
     let result = [...tryInferColumns, ...extraColumns] as TTableColumns;
     result = combineColumnsByKey(result);
@@ -64,7 +66,7 @@ export function useTableColumnsWithInfer(options: {
 
   return [columnsWithInfer, registerHandler] as [
     TTableColumnsWithInfer,
-    (handler: TTableColumnHandler) => void
+    (handler: TTableColumnHandler) => void,
   ];
 }
 
@@ -82,9 +84,7 @@ function inferColumns(data: any[]): TRequiredTableColumns {
   });
 }
 
-function normalizeTableColumnRecord(
-  column: Record<string, any>
-): Record<string, any> {
+function normalizeTableColumnRecord(column: Record<string, any>): Record<string, any> {
   const colName = column.name ?? column.colKey;
   const title = `header-cell-${colName}`;
   const cell = `body-cell-${colName}`;

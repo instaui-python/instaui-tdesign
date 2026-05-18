@@ -1,6 +1,7 @@
+from instaui import ui
+
 from __tests.testing_web.context import Context
 from instaui_tdesign import td
-from instaui import ui
 
 
 def test_options(context: Context):

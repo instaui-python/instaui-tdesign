@@ -1,9 +1,12 @@
 from __future__ import annotations
+
 import typing
-from ._base_element import BaseElement
+
 from typing_extensions import TypedDict, Unpack
+
+from ._base_element import BaseElement
 from ._utils import handle_props
-from .popup import TPopupProps, TPopupPlacementValue
+from .popup import TPopupPlacementValue, TPopupProps
 
 
 class Tooltip(BaseElement):

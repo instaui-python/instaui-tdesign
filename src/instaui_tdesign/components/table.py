@@ -1,17 +1,20 @@
 from __future__ import annotations
+
 import typing
+
+from instaui import custom
+from instaui.internal.ui.bindable import is_bindable
+from instaui.internal.ui.event import EventMixin
 from instaui.internal.ui.slot import Slot
+from typing_extensions import Self, TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import (
     make_icon_for_bool_or_str,
     make_icon_for_str,
 )
-from ._base_element import BaseElement
-from instaui.internal.ui.event import EventMixin
-from instaui.internal.ui.bindable import is_bindable
-from typing_extensions import TypedDict, Unpack, Self
-from ._utils import handle_props, handle_event_from_props
 
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props
 
 # region pandas protocol
 
@@ -66,199 +69,69 @@ class BaseTable(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_active_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "active-change",
-            handler,
-            params=params,
-        )
+    def props(self, add: str | dict[str, typing.Any]) -> Self:
+        if isinstance(add, dict) and "data" in add:
+            add = {**add, "data": custom.shallow_expr((add["data"]))}
+        return super().props(add)
+
+    def on_active_change(self, handler: EventMixin):
+        self.on("active-change", handler)
         return self
 
-    def on_active_row_action(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "active-row-action",
-            handler,
-            params=params,
-        )
+    def on_active_row_action(self, handler: EventMixin):
+        self.on("active-row-action", handler)
         return self
 
-    def on_cell_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "cell-click",
-            handler,
-            params=params,
-        )
+    def on_cell_click(self, handler: EventMixin):
+        self.on("cell-click", handler)
         return self
 
-    def on_column_resize_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "column-resize-change",
-            handler,
-            params=params,
-        )
+    def on_column_resize_change(self, handler: EventMixin):
+        self.on("column-resize-change", handler)
         return self
 
-    def on_page_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "page-change",
-            handler,
-            params=params,
-        )
+    def on_page_change(self, handler: EventMixin):
+        self.on("page-change", handler)
         return self
 
-    def on_row_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "row-click",
-            handler,
-            params=params,
-        )
+    def on_row_click(self, handler: EventMixin):
+        self.on("row-click", handler)
         return self
 
-    def on_row_dblclick(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "row-dblclick",
-            handler,
-            params=params,
-        )
+    def on_row_dblclick(self, handler: EventMixin):
+        self.on("row-dblclick", handler)
         return self
 
-    def on_row_mousedown(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "row-mousedown",
-            handler,
-            params=params,
-        )
+    def on_row_mousedown(self, handler: EventMixin):
+        self.on("row-mousedown", handler)
         return self
 
-    def on_row_mouseenter(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "row-mouseenter",
-            handler,
-            params=params,
-        )
+    def on_row_mouseenter(self, handler: EventMixin):
+        self.on("row-mouseenter", handler)
         return self
 
-    def on_row_mouseleave(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "row-mouseleave",
-            handler,
-            params=params,
-        )
+    def on_row_mouseleave(self, handler: EventMixin):
+        self.on("row-mouseleave", handler)
         return self
 
-    def on_row_mouseover(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "row-mouseover",
-            handler,
-            params=params,
-        )
+    def on_row_mouseover(self, handler: EventMixin):
+        self.on("row-mouseover", handler)
         return self
 
-    def on_row_mouseup(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "row-mouseup",
-            handler,
-            params=params,
-        )
+    def on_row_mouseup(self, handler: EventMixin):
+        self.on("row-mouseup", handler)
         return self
 
-    def on_scroll(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "scroll",
-            handler,
-            params=params,
-        )
+    def on_scroll(self, handler: EventMixin):
+        self.on("scroll", handler)
         return self
 
-    def on_scroll_x(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "scroll-x",
-            handler,
-            params=params,
-        )
+    def on_scroll_x(self, handler: EventMixin):
+        self.on("scroll-x", handler)
         return self
 
-    def on_scroll_y(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "scroll-y",
-            handler,
-            params=params,
-        )
+    def on_scroll_y(self, handler: EventMixin):
+        self.on("scroll-y", handler)
         return self
 
 
@@ -365,17 +238,8 @@ class Table(BaseElement):
         """
         return TableCellSlot(self.add_slot(f"body-cell-{name}"))
 
-    def on_async_loading_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "async-loading-click",
-            handler,
-            params=params,
-        )
+    def on_async_loading_click(self, handler: EventMixin):
+        self.on("async-loading-click", handler)
         return self
 
     @classmethod
@@ -432,186 +296,60 @@ class Table(BaseElement):
 
         raise ValueError("Unsupported data type")
 
-    def on_cell_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "cell-click",
-            handler,
-            params=params,
-        )
+    def on_cell_click(self, handler: EventMixin):
+        self.on("cell-click", handler)
         return self
 
-    def on_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "change",
-            handler,
-            params=params,
-        )
+    def on_change(self, handler: EventMixin):
+        self.on("change", handler)
         return self
 
-    def on_column_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "column-change",
-            handler,
-            params=params,
-        )
+    def on_column_change(self, handler: EventMixin):
+        self.on("column-change", handler)
         return self
 
-    def on_column_controller_visible_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "column-controller-visible-change",
-            handler,
-            params=params,
-        )
+    def on_column_controller_visible_change(self, handler: EventMixin):
+        self.on("column-controller-visible-change", handler)
         return self
 
-    def on_data_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "data-change",
-            handler,
-            params=params,
-        )
+    def on_data_change(self, handler: EventMixin):
+        self.on("data-change", handler)
         return self
 
-    def on_display_columns_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "display-columns-change",
-            handler,
-            params=params,
-        )
+    def on_display_columns_change(self, handler: EventMixin):
+        self.on("display-columns-change", handler)
         return self
 
-    def on_drag_sort(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "drag-sort",
-            handler,
-            params=params,
-        )
+    def on_drag_sort(self, handler: EventMixin):
+        self.on("drag-sort", handler)
         return self
 
-    def on_expand_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "expand-change",
-            handler,
-            params=params,
-        )
+    def on_expand_change(self, handler: EventMixin):
+        self.on("expand-change", handler)
         return self
 
-    def on_filter_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "filter-change",
-            handler,
-            params=params,
-        )
+    def on_filter_change(self, handler: EventMixin):
+        self.on("filter-change", handler)
         return self
 
-    def on_row_edit(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "row-edit",
-            handler,
-            params=params,
-        )
+    def on_row_edit(self, handler: EventMixin):
+        self.on("row-edit", handler)
         return self
 
-    def on_row_validate(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "row-validate",
-            handler,
-            params=params,
-        )
+    def on_row_validate(self, handler: EventMixin):
+        self.on("row-validate", handler)
         return self
 
-    def on_select_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "select-change",
-            handler,
-            params=params,
-        )
+    def on_select_change(self, handler: EventMixin):
+        self.on("select-change", handler)
         return self
 
-    def on_sort_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "sort-change",
-            handler,
-            params=params,
-        )
+    def on_sort_change(self, handler: EventMixin):
+        self.on("sort-change", handler)
         return self
 
-    def on_validate(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "validate",
-            handler,
-            params=params,
-        )
+    def on_validate(self, handler: EventMixin):
+        self.on("validate", handler)
         return self
 
 

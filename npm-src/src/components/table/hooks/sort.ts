@@ -1,12 +1,10 @@
-import type { SetupContext } from "vue";
 import type { TableProps } from "tdesign-vue-next";
-import { computed, ref } from "vue";
+import type { SetupContext } from "vue";
+
 import { orderBy as _orderBy } from "lodash-es";
-import type {
-  TTableColumnHandler,
-  TTableColumnsWithInfer,
-  TTableRowsHandler,
-} from "../types";
+import { computed, ref } from "vue";
+
+import type { TTableColumnHandler, TTableColumnsWithInfer, TTableRowsHandler } from "../types";
 
 export function useTableSort(options: {
   registerRowsHandler: (handler: TTableRowsHandler) => void;
@@ -19,9 +17,7 @@ export function useTableSort(options: {
 
   const needSort = computed(() => columns.value?.some((col) => col.sorter));
 
-  const multipleSort = computed(
-    () => columns.value.filter((col) => col.sorter).length > 1
-  );
+  const multipleSort = computed(() => columns.value.filter((col) => col.sorter).length > 1);
 
   registerRowsHandler((rows) => {
     if (!sort.value) {
@@ -36,9 +32,7 @@ export function useTableSort(options: {
         }[]);
 
     const sortFields = sortInfos.map((item) => item.sortBy);
-    const sortOrders = sortInfos.map((item) =>
-      item.descending ? "desc" : "asc"
-    );
+    const sortOrders = sortInfos.map((item) => (item.descending ? "desc" : "asc"));
 
     return _orderBy(rows, sortFields, sortOrders);
   });

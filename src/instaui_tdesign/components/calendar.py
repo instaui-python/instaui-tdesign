@@ -1,9 +1,12 @@
 from __future__ import annotations
+
 import typing
-from ._base_element import BaseElement
+
 from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
-from ._utils import handle_props, handle_event_from_props
+
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props
 
 
 class Calendar(BaseElement):
@@ -18,69 +21,24 @@ class Calendar(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_cell_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "cell-click",
-            handler,
-            params=params,
-        )
+    def on_cell_click(self, handler: EventMixin):
+        self.on("cell-click", handler)
         return self
 
-    def on_cell_double_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "cell-double-click",
-            handler,
-            params=params,
-        )
+    def on_cell_double_click(self, handler: EventMixin):
+        self.on("cell-double-click", handler)
         return self
 
-    def on_cell_right_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "cell-right-click",
-            handler,
-            params=params,
-        )
+    def on_cell_right_click(self, handler: EventMixin):
+        self.on("cell-right-click", handler)
         return self
 
-    def on_controller_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "controller-change",
-            handler,
-            params=params,
-        )
+    def on_controller_change(self, handler: EventMixin):
+        self.on("controller-change", handler)
         return self
 
-    def on_month_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "month-change",
-            handler,
-            params=params,
-        )
+    def on_month_change(self, handler: EventMixin):
+        self.on("month-change", handler)
         return self
 
 

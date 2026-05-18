@@ -1,7 +1,7 @@
 import re
 from typing import Optional
-from __tests.screen import BaseContext
 
+from __tests.screen import BaseContext
 
 GRAIO_GROUP_SELECTOR = ".t-radio-group"
 

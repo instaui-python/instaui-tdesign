@@ -1,6 +1,8 @@
-import type { SetupContext } from "vue";
 import type { TableProps } from "tdesign-vue-next";
+import type { SetupContext } from "vue";
+
 import { computed, ref } from "vue";
+
 import type { TTableRowsHandler } from "../types";
 
 export function useTableData(attrs: SetupContext["attrs"]) {

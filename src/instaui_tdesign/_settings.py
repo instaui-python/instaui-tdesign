@@ -1,8 +1,10 @@
 from typing import Union, cast
+
 from instaui import ui
-from instaui_tdesign.types import TLocale, TCustomizeLocale
+
 from instaui_tdesign.components.config_provider import ConfigProvider
 from instaui_tdesign.locales import get_locale
+from instaui_tdesign.types import TCustomizeLocale, TLocale
 
 
 def configure(*, locale: Union[TLocale, TCustomizeLocale]):

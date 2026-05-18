@@ -1,6 +1,7 @@
-from typing import Any, Literal, Optional
-from instaui import custom
 import copy
+from typing import Any, Literal, Optional
+
+from instaui import custom
 
 
 def remove_none_entries(data: dict) -> dict:

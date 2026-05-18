@@ -1,12 +1,14 @@
 from __future__ import annotations
+
 import typing
 
-from instaui_tdesign.components._icon_param_utils import make_icon_for_str
-from ._base_element import BaseElement
 from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 
-from ._utils import handle_props, handle_event_from_props
+from instaui_tdesign.components._icon_param_utils import make_icon_for_str
+
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props
 
 
 class StickyTool(BaseElement):
@@ -21,30 +23,12 @@ class StickyTool(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "click",
-            handler,
-            params=params,
-        )
+    def on_click(self, handler: EventMixin):
+        self.on("click", handler)
         return self
 
-    def on_hover(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "hover",
-            handler,
-            params=params,
-        )
+    def on_hover(self, handler: EventMixin):
+        self.on("hover", handler)
         return self
 
 

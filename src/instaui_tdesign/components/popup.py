@@ -1,9 +1,12 @@
 from __future__ import annotations
+
 import typing
-from ._base_element import BaseElement
+
 from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
-from ._utils import handle_props, handle_event_from_props
+
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props
 
 
 class Popup(BaseElement):
@@ -17,56 +20,20 @@ class Popup(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_overlay_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "overlay-click",
-            handler,
-            params=params,
-        )
+    def on_overlay_click(self, handler: EventMixin):
+        self.on("overlay-click", handler)
         return self
 
-    def on_scroll(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "scroll",
-            handler,
-            params=params,
-        )
+    def on_scroll(self, handler: EventMixin):
+        self.on("scroll", handler)
         return self
 
-    def on_scroll_to_bottom(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "scroll-to-bottom",
-            handler,
-            params=params,
-        )
+    def on_scroll_to_bottom(self, handler: EventMixin):
+        self.on("scroll-to-bottom", handler)
         return self
 
-    def on_visible_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "visible-change",
-            handler,
-            params=params,
-        )
+    def on_visible_change(self, handler: EventMixin):
+        self.on("visible-change", handler)
         return self
 
 

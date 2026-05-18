@@ -1,6 +1,6 @@
 import argparse
-from pathlib import Path
 import shutil
+from pathlib import Path
 
 PORJECT_ROOT = Path(__file__).parent.parent.resolve()
 PY_PROJECT_ROOT = PORJECT_ROOT.parent

@@ -1,15 +1,17 @@
 from __future__ import annotations
+
 import typing
+
+from instaui.internal.ui.event import EventMixin
+from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import (
     make_prefix_icon,
     make_suffix_icon,
 )
-from ._base_element import BaseElement
-from instaui.internal.ui.event import EventMixin
-from typing_extensions import TypedDict, Unpack
 
-from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props, try_setup_vmodel
 
 
 class Input(BaseElement):
@@ -48,212 +50,68 @@ class Input(BaseElement):
     def tips_slot(self):
         return self.add_slot("tips")
 
-    def on_blur(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "blur",
-            handler,
-            params=params,
-        )
+    def on_blur(self, handler: EventMixin):
+        self.on("blur", handler)
         return self
 
-    def on_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "change",
-            handler,
-            params=params,
-        )
+    def on_change(self, handler: EventMixin):
+        self.on("change", handler)
         return self
 
-    def on_clear(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "clear",
-            handler,
-            params=params,
-        )
+    def on_clear(self, handler: EventMixin):
+        self.on("clear", handler)
         return self
 
-    def on_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "click",
-            handler,
-            params=params,
-        )
+    def on_click(self, handler: EventMixin):
+        self.on("click", handler)
         return self
 
-    def on_compositionend(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "compositionend",
-            handler,
-            params=params,
-        )
+    def on_compositionend(self, handler: EventMixin):
+        self.on("compositionend", handler)
         return self
 
-    def on_compositionstart(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "compositionstart",
-            handler,
-            params=params,
-        )
+    def on_compositionstart(self, handler: EventMixin):
+        self.on("compositionstart", handler)
         return self
 
-    def on_enter(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "enter",
-            handler,
-            params=params,
-        )
+    def on_enter(self, handler: EventMixin):
+        self.on("enter", handler)
         return self
 
-    def on_focus(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "focus",
-            handler,
-            params=params,
-        )
+    def on_focus(self, handler: EventMixin):
+        self.on("focus", handler)
         return self
 
-    def on_keydown(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "keydown",
-            handler,
-            params=params,
-        )
+    def on_keydown(self, handler: EventMixin):
+        self.on("keydown", handler)
         return self
 
-    def on_keypress(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "keypress",
-            handler,
-            params=params,
-        )
+    def on_keypress(self, handler: EventMixin):
+        self.on("keypress", handler)
         return self
 
-    def on_keyup(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "keyup",
-            handler,
-            params=params,
-        )
+    def on_keyup(self, handler: EventMixin):
+        self.on("keyup", handler)
         return self
 
-    def on_mouseenter(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "mouseenter",
-            handler,
-            params=params,
-        )
+    def on_mouseenter(self, handler: EventMixin):
+        self.on("mouseenter", handler)
         return self
 
-    def on_mouseleave(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "mouseleave",
-            handler,
-            params=params,
-        )
+    def on_mouseleave(self, handler: EventMixin):
+        self.on("mouseleave", handler)
         return self
 
-    def on_paste(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "paste",
-            handler,
-            params=params,
-        )
+    def on_paste(self, handler: EventMixin):
+        self.on("paste", handler)
         return self
 
-    def on_validate(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "validate",
-            handler,
-            params=params,
-        )
+    def on_validate(self, handler: EventMixin):
+        self.on("validate", handler)
         return self
 
-    def on_wheel(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "wheel",
-            handler,
-            params=params,
-        )
+    def on_wheel(self, handler: EventMixin):
+        self.on("wheel", handler)
         return self
 
 

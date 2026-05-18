@@ -1,8 +1,9 @@
-from __tests.testing_web.context import Context
-from instaui_tdesign import td
 from instaui import ui
-from __tests.utils.switch_utils import use_switch_controls
+
+from __tests.testing_web.context import Context
 from __tests.utils.message_utils import use_message_plugin_controls
+from __tests.utils.switch_utils import use_switch_controls
+from instaui_tdesign import td
 
 
 def test_base(context: Context):

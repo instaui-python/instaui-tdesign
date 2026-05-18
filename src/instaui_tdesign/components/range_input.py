@@ -1,14 +1,17 @@
 from __future__ import annotations
+
 import typing
+
+from instaui.internal.ui.event import EventMixin
+from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import (
     make_prefix_icon,
     make_suffix_icon,
 )
+
 from ._base_element import BaseElement
-from instaui.internal.ui.event import EventMixin
-from typing_extensions import TypedDict, Unpack
-from ._utils import handle_props, handle_event_from_props, try_setup_vmodel
+from ._utils import handle_event_from_props, handle_props, try_setup_vmodel
 
 
 class RangeInput(BaseElement):
@@ -29,108 +32,36 @@ class RangeInput(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_blur(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "blur",
-            handler,
-            params=params,
-        )
+    def on_blur(self, handler: EventMixin):
+        self.on("blur", handler)
         return self
 
-    def on_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "change",
-            handler,
-            params=params,
-        )
+    def on_change(self, handler: EventMixin):
+        self.on("change", handler)
         return self
 
-    def on_clear(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "clear",
-            handler,
-            params=params,
-        )
+    def on_clear(self, handler: EventMixin):
+        self.on("clear", handler)
         return self
 
-    def on_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "click",
-            handler,
-            params=params,
-        )
+    def on_click(self, handler: EventMixin):
+        self.on("click", handler)
         return self
 
-    def on_enter(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "enter",
-            handler,
-            params=params,
-        )
+    def on_enter(self, handler: EventMixin):
+        self.on("enter", handler)
         return self
 
-    def on_focus(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "focus",
-            handler,
-            params=params,
-        )
+    def on_focus(self, handler: EventMixin):
+        self.on("focus", handler)
         return self
 
-    def on_mouseenter(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "mouseenter",
-            handler,
-            params=params,
-        )
+    def on_mouseenter(self, handler: EventMixin):
+        self.on("mouseenter", handler)
         return self
 
-    def on_mouseleave(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "mouseleave",
-            handler,
-            params=params,
-        )
+    def on_mouseleave(self, handler: EventMixin):
+        self.on("mouseleave", handler)
         return self
 
 

@@ -1,11 +1,14 @@
 from __future__ import annotations
+
 from typing import Literal, Optional, Sequence, Union
 
-from instaui_tdesign.components._icon_param_utils import make_prefix_icon
-from ._base_element import BaseElement
 from instaui.internal.ui.event import EventMixin
-from typing_extensions import TypedDict, Unpack, Required
-from ._utils import handle_props, handle_event_from_props
+from typing_extensions import Required, TypedDict, Unpack
+
+from instaui_tdesign.components._icon_param_utils import make_prefix_icon
+
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props
 
 
 class Dropdown(BaseElement):
@@ -66,17 +69,8 @@ class Dropdown(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: Optional[list] = None,
-    ):
-        self.on(
-            "click",
-            handler,
-            params=params,
-        )
+    def on_click(self, handler: EventMixin):
+        self.on("click", handler)
         return self
 
 
@@ -99,17 +93,8 @@ class DropdownItem(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_click(
-        self,
-        handler: EventMixin,
-        *,
-        params: Optional[list] = None,
-    ):
-        self.on(
-            "click",
-            handler,
-            params=params,
-        )
+    def on_click(self, handler: EventMixin):
+        self.on("click", handler)
         return self
 
 

@@ -1,8 +1,6 @@
 import { type UploadProps } from "tdesign-vue-next";
 
-export function useFormatRequest(
-  props: UploadProps
-): UploadProps["formatRequest"] {
+export function useFormatRequest(props: UploadProps): UploadProps["formatRequest"] {
   return (data) => {
     if (data.length && data.length < 1) {
       return data;

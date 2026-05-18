@@ -1,9 +1,12 @@
 from __future__ import annotations
+
 import typing
-from ._base_element import BaseElement
+
 from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
-from ._utils import handle_props, handle_event_from_props
+
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props
 
 
 class Image(BaseElement):
@@ -17,30 +20,12 @@ class Image(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_error(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "error",
-            handler,
-            params=params,
-        )
+    def on_error(self, handler: EventMixin):
+        self.on("error", handler)
         return self
 
-    def on_load(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "load",
-            handler,
-            params=params,
-        )
+    def on_load(self, handler: EventMixin):
+        self.on("load", handler)
         return self
 
 

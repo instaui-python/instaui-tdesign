@@ -1,11 +1,14 @@
 from __future__ import annotations
+
 import typing
 
-from instaui_tdesign.components._icon_param_utils import make_icon_for_str
-from ._base_element import BaseElement
 from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
-from ._utils import handle_props, handle_event_from_props
+
+from instaui_tdesign.components._icon_param_utils import make_icon_for_str
+
+from ._base_element import BaseElement
+from ._utils import handle_event_from_props, handle_props
 
 
 class Popconfirm(BaseElement):
@@ -23,43 +26,16 @@ class Popconfirm(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_cancel(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "cancel",
-            handler,
-            params=params,
-        )
+    def on_cancel(self, handler: EventMixin):
+        self.on("cancel", handler)
         return self
 
-    def on_confirm(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "confirm",
-            handler,
-            params=params,
-        )
+    def on_confirm(self, handler: EventMixin):
+        self.on("confirm", handler)
         return self
 
-    def on_visible_change(
-        self,
-        handler: EventMixin,
-        *,
-        params: typing.Optional[list] = None,
-    ):
-        self.on(
-            "visible-change",
-            handler,
-            params=params,
-        )
+    def on_visible_change(self, handler: EventMixin):
+        self.on("visible-change", handler)
         return self
 
 

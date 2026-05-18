@@ -2,14 +2,15 @@
 import * as TDesign from "tdesign-vue-next";
 import { useConfig } from "tdesign-vue-next";
 import { useAttrs, useSlots } from "vue";
-import { useTableData } from "./hooks/table-data";
+
+import { withCellSlotPropConverter } from "./hooks/cell-slot";
 import { useTableColumnsWithInfer } from "./hooks/columns-infer";
+import { withDefaultAttrs } from "./hooks/default-attrs";
+import { useTableFilter } from "./hooks/filter";
+import { defaultHeaderSlotInfos } from "./hooks/header-slot";
 import { usePagination } from "./hooks/pagination";
 import { useTableSort } from "./hooks/sort";
-import { useTableFilter } from "./hooks/filter";
-import { withDefaultAttrs } from "./hooks/default-attrs";
-import { defaultHeaderSlotInfos } from "./hooks/header-slot";
-import { withCellSlotPropConverter } from "./hooks/cell-slot";
+import { useTableData } from "./hooks/table-data";
 
 defineOptions({ inheritAttrs: false });
 
@@ -17,8 +18,7 @@ const attrs = useAttrs();
 const slots = useSlots();
 const { t, globalConfig } = useConfig("table");
 
-const { tableData, orgData, registerRowsHandler, notifyTableDataChange } =
-  useTableData(attrs);
+const { tableData, orgData, registerRowsHandler, notifyTableDataChange } = useTableData(attrs);
 const [columnsWithInfer, registerColumnsHandler] = useTableColumnsWithInfer({
   tableData,
   attrs,
@@ -32,17 +32,16 @@ const { sort, onSortChange, multipleSort } = useTableSort({
   columns: columnsWithInfer,
 });
 
-const { onFilterChange, filterValue, resetFilters, filterResultText } =
-  useTableFilter({
-    tableData: orgData,
-    registerRowsHandler,
-    attrs,
-    registerColumnsHandler,
-    columns: columnsWithInfer,
-    tdesignGlobalConfig: globalConfig.value,
-    notifyTableDataChange,
-    slots,
-  });
+const { onFilterChange, filterValue, resetFilters, filterResultText } = useTableFilter({
+  tableData: orgData,
+  registerRowsHandler,
+  attrs,
+  registerColumnsHandler,
+  columns: columnsWithInfer,
+  tdesignGlobalConfig: globalConfig.value,
+  notifyTableDataChange,
+  slots,
+});
 
 const bindAttrs = withDefaultAttrs({ attrs });
 
@@ -63,11 +62,7 @@ const cellSlotPropConverter = withCellSlotPropConverter(columnsWithInfer);
     :multiple-sort="multipleSort"
   >
     <!-- column title slot -->
-    <template
-      v-for="info in headerSlotInfos"
-      v-slot:[info.slotName]
-      :key="info.slotName"
-    >
+    <template v-for="info in headerSlotInfos" v-slot:[info.slotName] :key="info.slotName">
       {{ info.content }}
     </template>
 

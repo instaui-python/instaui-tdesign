@@ -1,12 +1,11 @@
-import type { SetupContext } from "vue";
 import type { PaginationProps } from "tdesign-vue-next";
+import type { SetupContext } from "vue";
+
 import { computed } from "vue";
+
 import type { TTableData } from "../types";
 
-export function usePagination(options: {
-  tableData: TTableData;
-  attrs: SetupContext["attrs"];
-}) {
+export function usePagination(options: { tableData: TTableData; attrs: SetupContext["attrs"] }) {
   const { tableData, attrs } = options;
 
   return computed(() => {
