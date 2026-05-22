@@ -486,16 +486,16 @@ wheels = [
 [[package]]
 name = "instaui"
 version = "0.10.0"
-source = { registry = "https://pypi.tuna.tsinghua.edu.cn/simple" }
+source = { registry = "https://mirrors.aliyun.com/pypi/simple" }
 dependencies = [
     { name = "jinja2" },
     { name = "orjson" },
     { name = "pydantic" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/c3/a2/bb9d1087c6afeec00bef53d6611eb0515ecbb6207f77ff02c22725c6adba/instaui-0.10.0.tar.gz", hash = "sha256:194305797bd02220bc93ee03968289d03f0b4bab1c06f005ac065446a7f208f6", size = 385669, upload-time = "2026-05-18T15:21:00.28Z" }
+sdist = { url = "https://mirrors.aliyun.com/pypi/packages/c3/a2/bb9d1087c6afeec00bef53d6611eb0515ecbb6207f77ff02c22725c6adba/instaui-0.10.0.tar.gz", hash = "sha256:194305797bd02220bc93ee03968289d03f0b4bab1c06f005ac065446a7f208f6" }
 wheels = [
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/07/ef/17cf11ac97b525fac52914519a479a67a87ca49e562c6adeebc770654f64/instaui-0.10.0-py3-none-any.whl", hash = "sha256:f9c17476007cce9484cd3bfb22373f162414dadd7d4345d45545b4131e7c4f28", size = 517540, upload-time = "2026-05-18T15:21:01.724Z" },
+    { url = "https://mirrors.aliyun.com/pypi/packages/07/ef/17cf11ac97b525fac52914519a479a67a87ca49e562c6adeebc770654f64/instaui-0.10.0-py3-none-any.whl", hash = "sha256:f9c17476007cce9484cd3bfb22373f162414dadd7d4345d45545b4131e7c4f28" },
 ]
 
 [package.optional-dependencies]
@@ -514,7 +514,7 @@ webview = [
 
 [[package]]
 name = "instaui-tdesign"
-version = "0.9.0"
+version = "0.9.1"
 source = { editable = "." }
 dependencies = [
     { name = "instaui" },
