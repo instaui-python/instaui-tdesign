@@ -20,7 +20,7 @@ class Slider(BaseElement):
         range: typing.Optional[bool] = None,
         **kwargs: Unpack[TSliderProps],
     ):
-        super().__init__("t-select")
+        super().__init__("t-slider")
 
         self.props(
             {

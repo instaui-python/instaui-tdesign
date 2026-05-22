@@ -64,7 +64,13 @@ class BaseTable(BaseElement):
         elif isinstance(data, PandasDataFrameProtocol):
             data = _pandas_to_data(data)
 
-        self.props({"data": data, "columns": columns, "row-key": row_key})
+        self.props(
+            {
+                "data": data,
+                "columns": ColumnConfigConverter.convert_keys(columns),
+                "row-key": row_key,
+            }
+        )
 
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
@@ -209,9 +215,9 @@ class Table(BaseElement):
         self.props(
             {
                 "data": data,
-                "columns": columns,
+                "columns": ColumnConfigConverter.convert_keys(columns),
                 "row-key": row_key,
-                "extraColumns": extra_columns,
+                "extraColumns": ColumnConfigConverter.convert_keys(extra_columns),
             }
         )
         make_icon_for_bool_or_str(self, "expandIcon", expand_icon)
@@ -512,12 +518,12 @@ class TPrimaryTableCol(TBaseTableCol):
     cell: str
     check_props: typing.Union[str, dict]
     children: list
-    colKey: str
+    col_key: str
     disabled: str
     edit: dict
     filter: dict
     # render: str
-    sortType: typing.Literal["desc", "asc", "all"]
+    sort_type: typing.Literal["desc", "asc", "all"]
     sorter: typing.Union[bool, str]
     title: str
     type: typing.Literal["single", "multiple"]
@@ -594,3 +600,74 @@ def _pandas_to_data(dataframe: PandasDataFrameProtocol) -> list:
 
 def _polars_to_data(dataframe: PolarsDataFrameProtocol) -> list:
     return dataframe.to_dicts()
+
+
+class ColumnConfigConverter:
+    """Utility class for converting table column configuration keys."""
+
+    @staticmethod
+    def _snake_to_camel(key: str) -> str:
+        """Convert snake_case to camelCase. Example: class_name -> className
+
+        Special handling:
+            - Keep first letter lowercase
+            - Remove all underscores, capitalize subsequent words
+            - Treat multiple consecutive underscores as single separator
+            - Ignore leading/trailing underscores
+
+        Examples:
+            >>> ColumnConfigConverter._snake_to_camel("_leading")
+            'leading'
+            >>> ColumnConfigConverter._snake_to_camel("trailing_")
+            'trailing'
+            >>> ColumnConfigConverter._snake_to_camel("__double")
+            'double'
+            >>> ColumnConfigConverter._snake_to_camel("my_url_key")
+            'myUrlKey'
+        """
+        if not key:
+            return key
+
+        parts = [part for part in key.split("_") if part]
+
+        if not parts:
+            return ""
+
+        return parts[0] + "".join(part.capitalize() for part in parts[1:])
+
+    @staticmethod
+    def convert_keys(
+        columns: typing.Sequence[typing.Mapping] | None,
+    ) -> list[typing.Mapping] | None:
+        """
+        Convert first-level dictionary keys from snake_case to camelCase.
+
+        Args:
+            columns: List of column configuration dictionaries.
+
+        Returns:
+            Converted list of column configurations.
+
+        Example:
+            >>> columns = [
+            ...     {"class_name": "test", "col_key": "id"},
+            ...     {"th_class_name": "header", "stop_propagation": True}
+            ... ]
+            >>> ColumnConfigConverter.convert_keys(columns)
+            [
+                {"className": "test", "colKey": "id"},
+                {"thClassName": "header", "stopPropagation": True}
+            ]
+        """
+        if not columns:
+            return None
+
+        converted = []
+        for col in columns:
+            new_col = {}
+            for key, value in col.items():
+                new_key = ColumnConfigConverter._snake_to_camel(key)
+                new_col[new_key] = value
+            converted.append(new_col)
+
+        return converted
