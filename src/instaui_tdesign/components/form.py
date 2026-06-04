@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import make_icon_for_bool_or_str
@@ -23,15 +23,15 @@ class Form(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_reset(self, handler: EventMixin):
+    def on_reset(self, handler: ui.TEvent):
         self.on("reset", handler)
         return self
 
-    def on_submit(self, handler: EventMixin):
+    def on_submit(self, handler: ui.TEvent):
         self.on("submit", handler)
         return self
 
-    def on_validate(self, handler: EventMixin):
+    def on_validate(self, handler: ui.TEvent):
         self.on("validate", handler)
         return self
 
@@ -67,9 +67,9 @@ class TFormProps(TypedDict, total=False):
     scroll_to_first_error: str
     show_error_message: bool
     submit_with_warning_message: bool
-    on_reset: EventMixin
-    on_submit: EventMixin
-    on_validate: EventMixin
+    on_reset: ui.TEvent
+    on_submit: ui.TEvent
+    on_validate: ui.TEvent
 
 
 class TFormItemProps(TypedDict, total=False):

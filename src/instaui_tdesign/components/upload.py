@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -21,63 +21,63 @@ class Upload(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_cancel_upload(self, handler: EventMixin):
+    def on_cancel_upload(self, handler: ui.TEvent):
         self.on("cancel-upload", handler)
         return self
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_dragenter(self, handler: EventMixin):
+    def on_dragenter(self, handler: ui.TEvent):
         self.on("dragenter", handler)
         return self
 
-    def on_dragleave(self, handler: EventMixin):
+    def on_dragleave(self, handler: ui.TEvent):
         self.on("dragleave", handler)
         return self
 
-    def on_drop(self, handler: EventMixin):
+    def on_drop(self, handler: ui.TEvent):
         self.on("drop", handler)
         return self
 
-    def on_fail(self, handler: EventMixin):
+    def on_fail(self, handler: ui.TEvent):
         self.on("fail", handler)
         return self
 
-    def on_one_file_fail(self, handler: EventMixin):
+    def on_one_file_fail(self, handler: ui.TEvent):
         self.on("one-file-fail", handler)
         return self
 
-    def on_one_file_success(self, handler: EventMixin):
+    def on_one_file_success(self, handler: ui.TEvent):
         self.on("one-file-success", handler)
         return self
 
-    def on_preview(self, handler: EventMixin):
+    def on_preview(self, handler: ui.TEvent):
         self.on("preview", handler)
         return self
 
-    def on_progress(self, handler: EventMixin):
+    def on_progress(self, handler: ui.TEvent):
         self.on("progress", handler)
         return self
 
-    def on_remove(self, handler: EventMixin):
+    def on_remove(self, handler: ui.TEvent):
         self.on("remove", handler)
         return self
 
-    def on_select_change(self, handler: EventMixin):
+    def on_select_change(self, handler: ui.TEvent):
         self.on("select-change", handler)
         return self
 
-    def on_success(self, handler: EventMixin):
+    def on_success(self, handler: ui.TEvent):
         self.on("success", handler)
         return self
 
-    def on_validate(self, handler: EventMixin):
+    def on_validate(self, handler: ui.TEvent):
         self.on("validate", handler)
         return self
 
-    def on_waiting_upload_files_change(self, handler: EventMixin):
+    def on_waiting_upload_files_change(self, handler: ui.TEvent):
         self.on("waiting_upload-files-change", handler)
         return self
 
@@ -148,18 +148,18 @@ class TUploadProps(TypedDict, total=False):
     value: list
     default_value: list
     with_credentials: bool
-    on_cancel_upload: EventMixin
-    on_change: EventMixin
-    on_dragenter: EventMixin
-    on_dragleave: EventMixin
-    on_drop: EventMixin
-    on_fail: EventMixin
-    on_one_file_fail: EventMixin
-    on_one_file_success: EventMixin
-    on_preview: EventMixin
-    on_progress: EventMixin
-    on_remove: EventMixin
-    on_select_change: EventMixin
-    on_success: EventMixin
-    on_validate: EventMixin
-    on_waiting_upload_files_change: EventMixin
+    on_cancel_upload: ui.TEvent
+    on_change: ui.TEvent
+    on_dragenter: ui.TEvent
+    on_dragleave: ui.TEvent
+    on_drop: ui.TEvent
+    on_fail: ui.TEvent
+    on_one_file_fail: ui.TEvent
+    on_one_file_success: ui.TEvent
+    on_preview: ui.TEvent
+    on_progress: ui.TEvent
+    on_remove: ui.TEvent
+    on_select_change: ui.TEvent
+    on_success: ui.TEvent
+    on_validate: ui.TEvent
+    on_waiting_upload_files_change: ui.TEvent

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import (
@@ -50,67 +50,67 @@ class Input(BaseElement):
     def tips_slot(self):
         return self.add_slot("tips")
 
-    def on_blur(self, handler: EventMixin):
+    def on_blur(self, handler: ui.TEvent):
         self.on("blur", handler)
         return self
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_clear(self, handler: EventMixin):
+    def on_clear(self, handler: ui.TEvent):
         self.on("clear", handler)
         return self
 
-    def on_click(self, handler: EventMixin):
+    def on_click(self, handler: ui.TEvent):
         self.on("click", handler)
         return self
 
-    def on_compositionend(self, handler: EventMixin):
+    def on_compositionend(self, handler: ui.TEvent):
         self.on("compositionend", handler)
         return self
 
-    def on_compositionstart(self, handler: EventMixin):
+    def on_compositionstart(self, handler: ui.TEvent):
         self.on("compositionstart", handler)
         return self
 
-    def on_enter(self, handler: EventMixin):
+    def on_enter(self, handler: ui.TEvent):
         self.on("enter", handler)
         return self
 
-    def on_focus(self, handler: EventMixin):
+    def on_focus(self, handler: ui.TEvent):
         self.on("focus", handler)
         return self
 
-    def on_keydown(self, handler: EventMixin):
+    def on_keydown(self, handler: ui.TEvent):
         self.on("keydown", handler)
         return self
 
-    def on_keypress(self, handler: EventMixin):
+    def on_keypress(self, handler: ui.TEvent):
         self.on("keypress", handler)
         return self
 
-    def on_keyup(self, handler: EventMixin):
+    def on_keyup(self, handler: ui.TEvent):
         self.on("keyup", handler)
         return self
 
-    def on_mouseenter(self, handler: EventMixin):
+    def on_mouseenter(self, handler: ui.TEvent):
         self.on("mouseenter", handler)
         return self
 
-    def on_mouseleave(self, handler: EventMixin):
+    def on_mouseleave(self, handler: ui.TEvent):
         self.on("mouseleave", handler)
         return self
 
-    def on_paste(self, handler: EventMixin):
+    def on_paste(self, handler: ui.TEvent):
         self.on("paste", handler)
         return self
 
-    def on_validate(self, handler: EventMixin):
+    def on_validate(self, handler: ui.TEvent):
         self.on("validate", handler)
         return self
 
-    def on_wheel(self, handler: EventMixin):
+    def on_wheel(self, handler: ui.TEvent):
         self.on("wheel", handler)
         return self
 
@@ -157,19 +157,19 @@ class TInputProps(TypedDict, total=False):
         "text", "number", "url", "tel", "password", "search", "submit", "hidden"
     ]
     default_value: typing.Union[str, int, float]
-    on_blur: EventMixin
-    on_change: EventMixin
-    on_clear: EventMixin
-    on_click: EventMixin
-    on_compositionend: EventMixin
-    on_compositionstart: EventMixin
-    on_enter: EventMixin
-    on_focus: EventMixin
-    on_keydown: EventMixin
-    on_keypress: EventMixin
-    on_keyup: EventMixin
-    on_mouseenter: EventMixin
-    on_mouseleave: EventMixin
-    on_paste: EventMixin
-    on_validate: EventMixin
-    on_wheel: EventMixin
+    on_blur: ui.TEvent
+    on_change: ui.TEvent
+    on_clear: ui.TEvent
+    on_click: ui.TEvent
+    on_compositionend: ui.TEvent
+    on_compositionstart: ui.TEvent
+    on_enter: ui.TEvent
+    on_focus: ui.TEvent
+    on_keydown: ui.TEvent
+    on_keypress: ui.TEvent
+    on_keyup: ui.TEvent
+    on_mouseenter: ui.TEvent
+    on_mouseleave: ui.TEvent
+    on_paste: ui.TEvent
+    on_validate: ui.TEvent
+    on_wheel: ui.TEvent

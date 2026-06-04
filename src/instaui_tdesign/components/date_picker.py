@@ -3,7 +3,7 @@ from __future__ import annotations
 import typing
 from datetime import date
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import (
@@ -34,27 +34,27 @@ class DatePicker(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_blur(self, handler: EventMixin):
+    def on_blur(self, handler: ui.TEvent):
         self.on("blur", handler)
         return self
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_confirm(self, handler: EventMixin):
+    def on_confirm(self, handler: ui.TEvent):
         self.on("confirm", handler)
         return self
 
-    def on_focus(self, handler: EventMixin):
+    def on_focus(self, handler: ui.TEvent):
         self.on("focus", handler)
         return self
 
-    def on_pick(self, handler: EventMixin):
+    def on_pick(self, handler: ui.TEvent):
         self.on("pick", handler)
         return self
 
-    def on_preset_click(self, handler: EventMixin):
+    def on_preset_click(self, handler: ui.TEvent):
         self.on("preset-click", handler)
         return self
 
@@ -77,31 +77,31 @@ class DateRangePicker(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_blur(self, handler: EventMixin):
+    def on_blur(self, handler: ui.TEvent):
         self.on("blur", handler)
         return self
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_confirm(self, handler: EventMixin):
+    def on_confirm(self, handler: ui.TEvent):
         self.on("confirm", handler)
         return self
 
-    def on_focus(self, handler: EventMixin):
+    def on_focus(self, handler: ui.TEvent):
         self.on("focus", handler)
         return self
 
-    def on_input(self, handler: EventMixin):
+    def on_input(self, handler: ui.TEvent):
         self.on("input", handler)
         return self
 
-    def on_pick(self, handler: EventMixin):
+    def on_pick(self, handler: ui.TEvent):
         self.on("pick", handler)
         return self
 
-    def on_preset_click(self, handler: EventMixin):
+    def on_preset_click(self, handler: ui.TEvent):
         self.on("preset-click", handler)
         return self
 
@@ -121,35 +121,35 @@ class DatePickerPanel(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_cell_click(self, handler: EventMixin):
+    def on_cell_click(self, handler: ui.TEvent):
         self.on("cell-click", handler)
         return self
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_confirm(self, handler: EventMixin):
+    def on_confirm(self, handler: ui.TEvent):
         self.on("confirm", handler)
         return self
 
-    def on_month_change(self, handler: EventMixin):
+    def on_month_change(self, handler: ui.TEvent):
         self.on("month-change", handler)
         return self
 
-    def on_panel_click(self, handler: EventMixin):
+    def on_panel_click(self, handler: ui.TEvent):
         self.on("panel-click", handler)
         return self
 
-    def on_preset_click(self, handler: EventMixin):
+    def on_preset_click(self, handler: ui.TEvent):
         self.on("preset-click", handler)
         return self
 
-    def on_time_change(self, handler: EventMixin):
+    def on_time_change(self, handler: ui.TEvent):
         self.on("time-change", handler)
         return self
 
-    def on_year_change(self, handler: EventMixin):
+    def on_year_change(self, handler: ui.TEvent):
         self.on("year-change", handler)
         return self
 
@@ -169,35 +169,35 @@ class DateRangePickerPanel(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_cell_click(self, handler: EventMixin):
+    def on_cell_click(self, handler: ui.TEvent):
         self.on("cell-click", handler)
         return self
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_confirm(self, handler: EventMixin):
+    def on_confirm(self, handler: ui.TEvent):
         self.on("confirm", handler)
         return self
 
-    def on_month_change(self, handler: EventMixin):
+    def on_month_change(self, handler: ui.TEvent):
         self.on("month-change", handler)
         return self
 
-    def on_panel_click(self, handler: EventMixin):
+    def on_panel_click(self, handler: ui.TEvent):
         self.on("panel-click", handler)
         return self
 
-    def on_preset_click(self, handler: EventMixin):
+    def on_preset_click(self, handler: ui.TEvent):
         self.on("preset-click", handler)
         return self
 
-    def on_time_change(self, handler: EventMixin):
+    def on_time_change(self, handler: ui.TEvent):
         self.on("time-change", handler)
         return self
 
-    def on_year_change(self, handler: EventMixin):
+    def on_year_change(self, handler: ui.TEvent):
         self.on("year-change", handler)
         return self
 
@@ -235,12 +235,12 @@ class TDatePickerProps(TypedDict, total=False):
     default_value: TDateMultipleValue
     value_display: str
     value_type: str
-    on_blur: EventMixin
-    on_change: EventMixin
-    on_confirm: EventMixin
-    on_focus: EventMixin
-    on_pick: EventMixin
-    on_preset_click: EventMixin
+    on_blur: ui.TEvent
+    on_change: ui.TEvent
+    on_confirm: ui.TEvent
+    on_focus: ui.TEvent
+    on_pick: ui.TEvent
+    on_preset_click: ui.TEvent
 
 
 class TDateRangePickerProps(TypedDict, total=False):
@@ -280,13 +280,13 @@ class TDateRangePickerProps(TypedDict, total=False):
         "YYYY-MM-DD HH",
         "YYYY-MM-DD HH",
     ]
-    on_blur: EventMixin
-    on_change: EventMixin
-    on_confirm: EventMixin
-    on_focus: EventMixin
-    on_input: EventMixin
-    on_pick: EventMixin
-    on_preset_click: EventMixin
+    on_blur: ui.TEvent
+    on_change: ui.TEvent
+    on_confirm: ui.TEvent
+    on_focus: ui.TEvent
+    on_input: ui.TEvent
+    on_pick: ui.TEvent
+    on_preset_click: ui.TEvent
 
 
 class TDatePickerPanelProps(TypedDict, total=False):
@@ -300,14 +300,14 @@ class TDatePickerPanelProps(TypedDict, total=False):
     presets: dict
     presets_placement: typing.Literal["left", "top", "right", "bottom"]
     time_picker_props: dict
-    on_cell_click: EventMixin
-    on_change: EventMixin
-    on_confirm: EventMixin
-    on_month_change: EventMixin
-    on_panel_click: EventMixin
-    on_preset_click: EventMixin
-    on_time_change: EventMixin
-    on_year_change: EventMixin
+    on_cell_click: ui.TEvent
+    on_change: ui.TEvent
+    on_confirm: ui.TEvent
+    on_month_change: ui.TEvent
+    on_panel_click: ui.TEvent
+    on_preset_click: ui.TEvent
+    on_time_change: ui.TEvent
+    on_year_change: ui.TEvent
 
 
 class TDateRangePickerPanelProps(TypedDict, total=False):
@@ -322,11 +322,11 @@ class TDateRangePickerPanelProps(TypedDict, total=False):
     presets: dict
     presets_placement: typing.Literal["left", "top", "right", "bottom"]
     time_picker_props: dict
-    on_cell_click: EventMixin
-    on_change: EventMixin
-    on_confirm: EventMixin
-    on_month_change: EventMixin
-    on_panel_click: EventMixin
-    on_preset_click: EventMixin
-    on_time_change: EventMixin
-    on_year_change: EventMixin
+    on_cell_click: ui.TEvent
+    on_change: ui.TEvent
+    on_confirm: ui.TEvent
+    on_month_change: ui.TEvent
+    on_panel_click: ui.TEvent
+    on_preset_click: ui.TEvent
+    on_time_change: ui.TEvent
+    on_year_change: ui.TEvent

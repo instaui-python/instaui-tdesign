@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import (
@@ -32,51 +32,51 @@ class TagInput(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_blur(self, handler: EventMixin):
+    def on_blur(self, handler: ui.TEvent):
         self.on("blur", handler)
         return self
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_clear(self, handler: EventMixin):
+    def on_clear(self, handler: ui.TEvent):
         self.on("clear", handler)
         return self
 
-    def on_click(self, handler: EventMixin):
+    def on_click(self, handler: ui.TEvent):
         self.on("click", handler)
         return self
 
-    def on_drag_sort(self, handler: EventMixin):
+    def on_drag_sort(self, handler: ui.TEvent):
         self.on("drag-sort", handler)
         return self
 
-    def on_enter(self, handler: EventMixin):
+    def on_enter(self, handler: ui.TEvent):
         self.on("enter", handler)
         return self
 
-    def on_focus(self, handler: EventMixin):
+    def on_focus(self, handler: ui.TEvent):
         self.on("focus", handler)
         return self
 
-    def on_input_change(self, handler: EventMixin):
+    def on_input_change(self, handler: ui.TEvent):
         self.on("input-change", handler)
         return self
 
-    def on_mouseenter(self, handler: EventMixin):
+    def on_mouseenter(self, handler: ui.TEvent):
         self.on("mouseenter", handler)
         return self
 
-    def on_mouseleave(self, handler: EventMixin):
+    def on_mouseleave(self, handler: ui.TEvent):
         self.on("mouseleave", handler)
         return self
 
-    def on_paste(self, handler: EventMixin):
+    def on_paste(self, handler: ui.TEvent):
         self.on("paste", handler)
         return self
 
-    def on_remove(self, handler: EventMixin):
+    def on_remove(self, handler: ui.TEvent):
         self.on("remove", handler)
         return self
 
@@ -105,15 +105,15 @@ class TTagInputProps(TypedDict, total=False):
     tips: str
     default_value: list[str]
     value_display: str
-    on_blur: EventMixin
-    on_change: EventMixin
-    on_clear: EventMixin
-    on_click: EventMixin
-    on_drag_sort: EventMixin
-    on_enter: EventMixin
-    on_focus: EventMixin
-    on_input_change: EventMixin
-    on_mouseenter: EventMixin
-    on_mouseleave: EventMixin
-    on_paste: EventMixin
-    on_remove: EventMixin
+    on_blur: ui.TEvent
+    on_change: ui.TEvent
+    on_clear: ui.TEvent
+    on_click: ui.TEvent
+    on_drag_sort: ui.TEvent
+    on_enter: ui.TEvent
+    on_focus: ui.TEvent
+    on_input_change: ui.TEvent
+    on_mouseenter: ui.TEvent
+    on_mouseleave: ui.TEvent
+    on_paste: ui.TEvent
+    on_remove: ui.TEvent

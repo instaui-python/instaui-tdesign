@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import make_icon_for_str
@@ -26,11 +26,11 @@ class Tag(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_click(self, handler: EventMixin):
+    def on_click(self, handler: ui.TEvent):
         self.on("click", handler)
         return self
 
-    def on_close(self, handler: EventMixin):
+    def on_close(self, handler: ui.TEvent):
         self.on("close", handler)
         return self
 
@@ -45,8 +45,8 @@ class TTagProps(TypedDict, total=False):
     theme: typing.Literal["default", "primary", "warning", "danger", "success"]
     title: str
     variant: typing.Literal["dark", "light", "outline", "light-outline"]
-    on_click: EventMixin
-    on_close: EventMixin
+    on_click: ui.TEvent
+    on_close: ui.TEvent
 
 
 class TCheckTagProps(TypedDict, total=False):
@@ -59,8 +59,8 @@ class TCheckTagProps(TypedDict, total=False):
     size: typing.Literal["small", "medium", "large"]
     unchecked_props: dict
     value: float | str
-    on_change: EventMixin
-    on_click: EventMixin
+    on_change: ui.TEvent
+    on_click: ui.TEvent
 
 
 class TCheckTagGroupProps(TypedDict, total=False):
@@ -70,4 +70,4 @@ class TCheckTagGroupProps(TypedDict, total=False):
     unchecked_props: dict
     value: list
     default_value: list
-    on_change: EventMixin
+    on_change: ui.TEvent

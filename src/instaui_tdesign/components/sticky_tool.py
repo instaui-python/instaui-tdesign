@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import make_icon_for_str
@@ -23,11 +23,11 @@ class StickyTool(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_click(self, handler: EventMixin):
+    def on_click(self, handler: ui.TEvent):
         self.on("click", handler)
         return self
 
-    def on_hover(self, handler: EventMixin):
+    def on_hover(self, handler: ui.TEvent):
         self.on("hover", handler)
         return self
 
@@ -62,8 +62,8 @@ class TStickyToolProps(TypedDict, total=False):
     shape: typing.Literal["square", "round"]
     type: typing.Literal["normal", "compact"]
     width: typing.Union[float, str]
-    on_click: EventMixin
-    on_hover: EventMixin
+    on_click: ui.TEvent
+    on_hover: ui.TEvent
 
 
 class TStickyItemProps(TypedDict, total=False):

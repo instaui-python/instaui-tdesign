@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import make_icon_for_str
@@ -22,7 +22,7 @@ class Avatar(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_error(self, handler: EventMixin):
+    def on_error(self, handler: ui.TEvent):
         self.on("error", handler)
         return self
 
@@ -46,7 +46,7 @@ class TAvatarProps(TypedDict, total=False):
     image_props: dict
     shape: typing.Literal["circle", "round"]
     size: typing.Literal["small", "medium", "large", "24px", "38px"]
-    on_error: EventMixin
+    on_error: ui.TEvent
 
 
 class TAvatarGroupProps(TypedDict, total=False):

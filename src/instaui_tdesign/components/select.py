@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import typing
 
+from instaui import ui
 from instaui.internal.ui.components.content import Content
-from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import (
@@ -35,43 +35,43 @@ class Select(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_blur(self, handler: EventMixin):
+    def on_blur(self, handler: ui.TEvent):
         self.on("blur", handler)
         return self
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_clear(self, handler: EventMixin):
+    def on_clear(self, handler: ui.TEvent):
         self.on("clear", handler)
         return self
 
-    def on_create(self, handler: EventMixin):
+    def on_create(self, handler: ui.TEvent):
         self.on("create", handler)
         return self
 
-    def on_enter(self, handler: EventMixin):
+    def on_enter(self, handler: ui.TEvent):
         self.on("enter", handler)
         return self
 
-    def on_focus(self, handler: EventMixin):
+    def on_focus(self, handler: ui.TEvent):
         self.on("focus", handler)
         return self
 
-    def on_input_change(self, handler: EventMixin):
+    def on_input_change(self, handler: ui.TEvent):
         self.on("input-change", handler)
         return self
 
-    def on_popup_visible_change(self, handler: EventMixin):
+    def on_popup_visible_change(self, handler: ui.TEvent):
         self.on("popup-visible-change", handler)
         return self
 
-    def on_remove(self, handler: EventMixin):
+    def on_remove(self, handler: ui.TEvent):
         self.on("remove", handler)
         return self
 
-    def on_search(self, handler: EventMixin):
+    def on_search(self, handler: ui.TEvent):
         self.on("search", handler)
         return self
 
@@ -133,16 +133,16 @@ class TSelectProps(TypedDict, total=False):
     default_value: typing.Literal["number"]
     value_display: str
     value_type: typing.Literal["value", "object"]
-    on_blur: EventMixin
-    on_change: EventMixin
-    on_clear: EventMixin
-    on_create: EventMixin
-    on_enter: EventMixin
-    on_focus: EventMixin
-    on_input_change: EventMixin
-    on_popup_visible_change: EventMixin
-    on_remove: EventMixin
-    on_search: EventMixin
+    on_blur: ui.TEvent
+    on_change: ui.TEvent
+    on_clear: ui.TEvent
+    on_create: ui.TEvent
+    on_enter: ui.TEvent
+    on_focus: ui.TEvent
+    on_input_change: ui.TEvent
+    on_popup_visible_change: ui.TEvent
+    on_remove: ui.TEvent
+    on_search: ui.TEvent
 
 
 class TOptionProps(TypedDict, total=False):

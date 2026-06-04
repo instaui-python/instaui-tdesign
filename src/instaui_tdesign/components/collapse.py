@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import make_icon_for_bool_or_str
@@ -27,7 +27,7 @@ class Collapse(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
@@ -58,7 +58,7 @@ class TCollapseProps(TypedDict, total=False):
     expand_mutex: bool
     expand_on_row_click: bool
     default_value: list
-    on_change: EventMixin
+    on_change: ui.TEvent
 
 
 class TCollapsePanelProps(TypedDict, total=False):

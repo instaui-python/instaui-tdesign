@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -24,39 +24,39 @@ class Drawer(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_before_close(self, handler: EventMixin):
+    def on_before_close(self, handler: ui.TEvent):
         self.on("before-close", handler)
         return self
 
-    def on_before_open(self, handler: EventMixin):
+    def on_before_open(self, handler: ui.TEvent):
         self.on("before-open", handler)
         return self
 
-    def on_cancel(self, handler: EventMixin):
+    def on_cancel(self, handler: ui.TEvent):
         self.on("cancel", handler)
         return self
 
-    def on_close(self, handler: EventMixin):
+    def on_close(self, handler: ui.TEvent):
         self.on("close", handler)
         return self
 
-    def on_close_btn_click(self, handler: EventMixin):
+    def on_close_btn_click(self, handler: ui.TEvent):
         self.on("close-btn-click", handler)
         return self
 
-    def on_confirm(self, handler: EventMixin):
+    def on_confirm(self, handler: ui.TEvent):
         self.on("confirm", handler)
         return self
 
-    def on_esc_keydown(self, handler: EventMixin):
+    def on_esc_keydown(self, handler: ui.TEvent):
         self.on("esc-keydown", handler)
         return self
 
-    def on_overlay_click(self, handler: EventMixin):
+    def on_overlay_click(self, handler: ui.TEvent):
         self.on("overlay-click", handler)
         return self
 
-    def on_size_drag_end(self, handler: EventMixin):
+    def on_size_drag_end(self, handler: ui.TEvent):
         self.on("size-drag-end", handler)
         return self
 
@@ -80,12 +80,12 @@ class TDrawerProps(TypedDict, total=False):
     size: str
     size_draggable: typing.Union[bool, dict]
     z_index: float
-    on_before_close: EventMixin
-    on_before_open: EventMixin
-    on_cancel: EventMixin
-    on_close: EventMixin
-    on_close_btn_click: EventMixin
-    on_confirm: EventMixin
-    on_esc_keydown: EventMixin
-    on_overlay_click: EventMixin
-    on_size_drag_end: EventMixin
+    on_before_close: ui.TEvent
+    on_before_open: ui.TEvent
+    on_cancel: ui.TEvent
+    on_close: ui.TEvent
+    on_close_btn_click: ui.TEvent
+    on_confirm: ui.TEvent
+    on_esc_keydown: ui.TEvent
+    on_overlay_click: ui.TEvent
+    on_size_drag_end: ui.TEvent

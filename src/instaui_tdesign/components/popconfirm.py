@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import make_icon_for_str
@@ -26,15 +26,15 @@ class Popconfirm(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_cancel(self, handler: EventMixin):
+    def on_cancel(self, handler: ui.TEvent):
         self.on("cancel", handler)
         return self
 
-    def on_confirm(self, handler: EventMixin):
+    def on_confirm(self, handler: ui.TEvent):
         self.on("confirm", handler)
         return self
 
-    def on_visible_change(self, handler: EventMixin):
+    def on_visible_change(self, handler: ui.TEvent):
         self.on("visible-change", handler)
         return self
 
@@ -62,6 +62,6 @@ class TPopconfirmProps(TypedDict, total=False):
     trigger_element: str
     visible: bool
     default_visible: bool
-    on_cancel: EventMixin
-    on_confirm: EventMixin
-    on_visible_change: EventMixin
+    on_cancel: ui.TEvent
+    on_confirm: ui.TEvent
+    on_visible_change: ui.TEvent

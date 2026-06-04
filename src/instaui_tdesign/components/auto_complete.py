@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -26,35 +26,35 @@ class AutoComplete(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_blur(self, handler: EventMixin):
+    def on_blur(self, handler: ui.TEvent):
         self.on("blur", handler)
         return self
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_clear(self, handler: EventMixin):
+    def on_clear(self, handler: ui.TEvent):
         self.on("clear", handler)
         return self
 
-    def on_compositionend(self, handler: EventMixin):
+    def on_compositionend(self, handler: ui.TEvent):
         self.on("compositionend", handler)
         return self
 
-    def on_compositionstart(self, handler: EventMixin):
+    def on_compositionstart(self, handler: ui.TEvent):
         self.on("compositionstart", handler)
         return self
 
-    def on_enter(self, handler: EventMixin):
+    def on_enter(self, handler: ui.TEvent):
         self.on("enter", handler)
         return self
 
-    def on_focus(self, handler: EventMixin):
+    def on_focus(self, handler: ui.TEvent):
         self.on("focus", handler)
         return self
 
-    def on_select(self, handler: EventMixin):
+    def on_select(self, handler: ui.TEvent):
         self.on("select", handler)
         return self
 
@@ -80,11 +80,11 @@ class TAutoCompleteProps(TypedDict, total=False):
     tips: str
     trigger_element: str
     default_value: str
-    on_blur: EventMixin
-    on_change: EventMixin
-    on_clear: EventMixin
-    on_compositionend: EventMixin
-    on_compositionstart: EventMixin
-    on_enter: EventMixin
-    on_focus: EventMixin
-    on_select: EventMixin
+    on_blur: ui.TEvent
+    on_change: ui.TEvent
+    on_clear: ui.TEvent
+    on_compositionend: ui.TEvent
+    on_compositionstart: ui.TEvent
+    on_enter: ui.TEvent
+    on_focus: ui.TEvent
+    on_select: ui.TEvent

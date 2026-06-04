@@ -1,13 +1,10 @@
-from instaui.internal.ui.bindable import is_bindable
+from instaui import ui
 from instaui.internal.ui.element import Element
-from instaui.internal.ui.event import EventMixin
 
 
 def handle_props(props: dict, *, model_value=None):
     props = {
-        k.replace("_", "-"): v
-        for k, v in props.items()
-        if not isinstance(v, EventMixin)
+        k.replace("_", "-"): v for k, v in props.items() if not isinstance(v, ui.TEvent)
     }
     if model_value is not None:
         props["modelValue"] = model_value
@@ -16,7 +13,7 @@ def handle_props(props: dict, *, model_value=None):
 
 def handle_event_from_props(element: Element, props: dict):
     for k, v in props.items():
-        if isinstance(v, EventMixin):
+        if isinstance(v, ui.TEvent):
             # 'on_click' -> 'click'
             element.on(k.replace("on_", ""), v)
 
@@ -29,7 +26,7 @@ def try_setup_vmodel(
 ):
     if value is None:
         return
-    if is_bindable(value):
+    if ui.is_expression(value):
         element.vmodel(value, prop_name=prop_name)
         return
 

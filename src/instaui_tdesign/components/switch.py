@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from instaui.internal.ui.slot import Slot
 from typing_extensions import TypedDict, Unpack
 
@@ -35,7 +35,7 @@ class Switch(BaseElement):
         """
         return _LabelSlot(self.add_slot("label"))
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
@@ -65,4 +65,4 @@ class TSwitchProps(TypedDict, total=False):
     loading: bool
     size: typing.Literal["small", "medium", "large"]
     default_value: typing.Literal["number"]
-    on_change: EventMixin
+    on_change: ui.TEvent

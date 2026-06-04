@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -24,23 +24,23 @@ class Transfer(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_checked_change(self, handler: EventMixin):
+    def on_checked_change(self, handler: ui.TEvent):
         self.on("checked-change", handler)
         return self
 
-    def on_page_change(self, handler: EventMixin):
+    def on_page_change(self, handler: ui.TEvent):
         self.on("page-change", handler)
         return self
 
-    def on_scroll(self, handler: EventMixin):
+    def on_scroll(self, handler: ui.TEvent):
         self.on("scroll", handler)
         return self
 
-    def on_search(self, handler: EventMixin):
+    def on_search(self, handler: ui.TEvent):
         self.on("search", handler)
         return self
 
@@ -64,8 +64,8 @@ class TTransferProps(TypedDict, total=False):
     transfer_item: str
     tree: str
     default_value: list
-    on_change: EventMixin
-    on_checked_change: EventMixin
-    on_page_change: EventMixin
-    on_scroll: EventMixin
-    on_search: EventMixin
+    on_change: ui.TEvent
+    on_checked_change: ui.TEvent
+    on_page_change: ui.TEvent
+    on_scroll: ui.TEvent
+    on_search: ui.TEvent

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Literal, Optional, Sequence, Union
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import Required, TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import make_prefix_icon
@@ -69,7 +69,7 @@ class Dropdown(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_click(self, handler: EventMixin):
+    def on_click(self, handler: ui.TEvent):
         self.on("click", handler)
         return self
 
@@ -93,7 +93,7 @@ class DropdownItem(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_click(self, handler: EventMixin):
+    def on_click(self, handler: ui.TEvent):
         self.on("click", handler)
         return self
 
@@ -134,7 +134,7 @@ class TDropdownProps(TypedDict, total=False):
     ]
     popup_props: dict
     trigger: Literal["hover", "click", "focus", "context-menu"]
-    on_click: EventMixin
+    on_click: ui.TEvent
 
 
 class TDropdownItemProps(TypedDict, total=False):
@@ -144,4 +144,4 @@ class TDropdownItemProps(TypedDict, total=False):
     divider: bool
     theme: Literal["default", "success", "warning", "error"]
     value: int
-    on_click: EventMixin
+    on_click: ui.TEvent

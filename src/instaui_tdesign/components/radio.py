@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -25,11 +25,11 @@ class Radio(BaseElement):
         self.props(handle_props(kwargs, model_value=checked_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_click(self, handler: EventMixin):
+    def on_click(self, handler: ui.TEvent):
         self.on("click", handler)
         return self
 
@@ -50,7 +50,7 @@ class RadioGroup(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
@@ -64,8 +64,8 @@ class TRadioProps(TypedDict, total=False):
     name: str
     readonly: bool
     value: typing.Union[bool, float, str]
-    on_change: EventMixin
-    on_click: EventMixin
+    on_change: ui.TEvent
+    on_click: ui.TEvent
 
 
 class TRadioGroupProps(TypedDict, total=False):
@@ -78,4 +78,4 @@ class TRadioGroupProps(TypedDict, total=False):
     theme: typing.Literal["radio", "button"]
     default_value: typing.Union[bool, int, str]
     variant: typing.Literal["outline", "primary-filled", "default-filled"]
-    on_change: EventMixin
+    on_change: ui.TEvent

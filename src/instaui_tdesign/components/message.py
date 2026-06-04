@@ -4,7 +4,6 @@ import copy
 import typing
 
 from instaui import ui
-from instaui.internal.ui.event import EventMixin
 from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import make_icon_for_bool_or_str
@@ -50,15 +49,15 @@ class Message(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_close(self, handler: EventMixin):
+    def on_close(self, handler: ui.TEvent):
         self.on("close", handler)
         return self
 
-    def on_close_btn_click(self, handler: EventMixin):
+    def on_close_btn_click(self, handler: ui.TEvent):
         self.on("close-btn-click", handler)
         return self
 
-    def on_duration_end(self, handler: EventMixin):
+    def on_duration_end(self, handler: ui.TEvent):
         self.on("duration-end", handler)
         return self
 
@@ -259,9 +258,9 @@ class TMessageProps(TypedDict, total=False):
     close_btn: typing.Union[str, bool]
     duration: float
     theme: typing.Literal["info", "success", "warning", "error", "question", "loading"]
-    on_close: EventMixin
-    on_close_btn_click: EventMixin
-    on_duration_end: EventMixin
+    on_close: ui.TEvent
+    on_close_btn_click: ui.TEvent
+    on_duration_end: ui.TEvent
 
 
 class TMessageOptions(TypedDict, total=False):

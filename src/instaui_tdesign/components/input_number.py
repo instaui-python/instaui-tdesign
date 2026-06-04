@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -24,35 +24,35 @@ class InputNumber(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_blur(self, handler: EventMixin):
+    def on_blur(self, handler: ui.TEvent):
         self.on("blur", handler)
         return self
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_enter(self, handler: EventMixin):
+    def on_enter(self, handler: ui.TEvent):
         self.on("enter", handler)
         return self
 
-    def on_focus(self, handler: EventMixin):
+    def on_focus(self, handler: ui.TEvent):
         self.on("focus", handler)
         return self
 
-    def on_keydown(self, handler: EventMixin):
+    def on_keydown(self, handler: ui.TEvent):
         self.on("keydown", handler)
         return self
 
-    def on_keypress(self, handler: EventMixin):
+    def on_keypress(self, handler: ui.TEvent):
         self.on("keypress", handler)
         return self
 
-    def on_keyup(self, handler: EventMixin):
+    def on_keyup(self, handler: ui.TEvent):
         self.on("keyup", handler)
         return self
 
-    def on_validate(self, handler: EventMixin):
+    def on_validate(self, handler: ui.TEvent):
         self.on("validate", handler)
         return self
 
@@ -78,11 +78,11 @@ class TInputNumberProps(TypedDict, total=False):
     theme: typing.Literal["column", "row", "normal"]
     tips: str
     default_value: typing.Union[str, int, float]
-    on_blur: EventMixin
-    on_change: EventMixin
-    on_enter: EventMixin
-    on_focus: EventMixin
-    on_keydown: EventMixin
-    on_keypress: EventMixin
-    on_keyup: EventMixin
-    on_validate: EventMixin
+    on_blur: ui.TEvent
+    on_change: ui.TEvent
+    on_enter: ui.TEvent
+    on_focus: ui.TEvent
+    on_keydown: ui.TEvent
+    on_keypress: ui.TEvent
+    on_keyup: ui.TEvent
+    on_validate: ui.TEvent

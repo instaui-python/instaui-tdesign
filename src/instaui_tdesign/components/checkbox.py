@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -25,7 +25,7 @@ class Checkbox(BaseElement):
         self.props(handle_props(kwargs, model_value=checked_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
@@ -46,7 +46,7 @@ class CheckboxGroup(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
@@ -61,7 +61,7 @@ class TCheckboxProps(TypedDict, total=False):
     readonly: bool
     title: str
     value: typing.Union[int, str, bool]
-    on_change: EventMixin
+    on_change: ui.TEvent
 
 
 class TCheckboxGroupProps(TypedDict, total=False):
@@ -71,7 +71,7 @@ class TCheckboxGroupProps(TypedDict, total=False):
     name: str
     readonly: bool
     default_value: list
-    on_change: EventMixin
+    on_change: ui.TEvent
 
 
 class TCheckboxOption(TypedDict, total=False):
