@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -23,23 +23,23 @@ class Guide(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_finish(self, handler: EventMixin):
+    def on_finish(self, handler: ui.TEvent):
         self.on("finish", handler)
         return self
 
-    def on_next_step_click(self, handler: EventMixin):
+    def on_next_step_click(self, handler: ui.TEvent):
         self.on("next-step-click", handler)
         return self
 
-    def on_prev_step_click(self, handler: EventMixin):
+    def on_prev_step_click(self, handler: ui.TEvent):
         self.on("prev-step-click", handler)
         return self
 
-    def on_skip(self, handler: EventMixin):
+    def on_skip(self, handler: ui.TEvent):
         self.on("skip", handler)
         return self
 
@@ -58,11 +58,11 @@ class TGuideProps(TypedDict, total=False):
     show_overlay: bool
     skip_button_props: dict
     z_index: float
-    on_change: EventMixin
-    on_finish: EventMixin
-    on_next_step_click: EventMixin
-    on_prev_step_click: EventMixin
-    on_skip: EventMixin
+    on_change: ui.TEvent
+    on_finish: ui.TEvent
+    on_next_step_click: ui.TEvent
+    on_prev_step_click: ui.TEvent
+    on_skip: ui.TEvent
 
 
 class TGuideStepValue(TypedDict, total=False):

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -20,19 +20,19 @@ class Tabs(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_add(self, handler: EventMixin):
+    def on_add(self, handler: ui.TEvent):
         self.on("add", handler)
         return self
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_drag_sort(self, handler: EventMixin):
+    def on_drag_sort(self, handler: ui.TEvent):
         self.on("drag-sort", handler)
         return self
 
-    def on_remove(self, handler: EventMixin):
+    def on_remove(self, handler: ui.TEvent):
         self.on("remove", handler)
         return self
 
@@ -46,7 +46,7 @@ class TabPanel(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_remove(self, handler: EventMixin):
+    def on_remove(self, handler: ui.TEvent):
         self.on("remove", handler)
         return self
 
@@ -62,10 +62,10 @@ class TTabsProps(TypedDict, total=False):
     size: typing.Literal["medium", "large"]
     theme: typing.Literal["normal", "card"]
     default_value: str
-    on_add: EventMixin
-    on_change: EventMixin
-    on_drag_sort: EventMixin
-    on_remove: EventMixin
+    on_add: ui.TEvent
+    on_change: ui.TEvent
+    on_drag_sort: ui.TEvent
+    on_remove: ui.TEvent
 
 
 class TTabPanelProps(TypedDict, total=False):
@@ -78,4 +78,4 @@ class TTabPanelProps(TypedDict, total=False):
     panel: str
     removable: bool
     value: str
-    on_remove: EventMixin
+    on_remove: ui.TEvent

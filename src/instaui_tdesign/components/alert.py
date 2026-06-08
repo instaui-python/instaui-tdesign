@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import make_icon_for_str
@@ -26,11 +26,11 @@ class Alert(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_close(self, handler: EventMixin):
+    def on_close(self, handler: ui.TEvent):
         self.on("close", handler)
         return self
 
-    def on_closed(self, handler: EventMixin):
+    def on_closed(self, handler: ui.TEvent):
         self.on("closed", handler)
         return self
 
@@ -42,5 +42,5 @@ class TAlertProps(TypedDict, total=False):
     operation: str
     theme: typing.Literal["success", "info", "warning", "error"]
     title: str
-    on_close: EventMixin
-    on_closed: EventMixin
+    on_close: ui.TEvent
+    on_closed: ui.TEvent

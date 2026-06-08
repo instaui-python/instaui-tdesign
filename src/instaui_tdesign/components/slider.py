@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -34,11 +34,11 @@ class Slider(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_change_end(self, handler: EventMixin):
+    def on_change_end(self, handler: ui.TEvent):
         self.on("change-end", handler)
         return self
 
@@ -53,5 +53,5 @@ class TSliderProps(TypedDict, total=False):
     step: float
     tooltip_props: dict
     default_value: typing.Union[float, list]
-    on_change: EventMixin
-    on_change_end: EventMixin
+    on_change: ui.TEvent
+    on_change_end: ui.TEvent

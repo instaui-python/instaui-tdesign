@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -18,11 +18,11 @@ class List(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_load_more(self, handler: EventMixin):
+    def on_load_more(self, handler: ui.TEvent):
         self.on("load-more", handler)
         return self
 
-    def on_scroll(self, handler: EventMixin):
+    def on_scroll(self, handler: ui.TEvent):
         self.on("scroll", handler)
         return self
 
@@ -54,8 +54,8 @@ class TListProps(TypedDict, total=False):
     size: typing.Literal["small", "medium", "large"]
     split: bool
     stripe: bool
-    on_load_more: EventMixin
-    on_scroll: EventMixin
+    on_load_more: ui.TEvent
+    on_scroll: ui.TEvent
 
 
 class TListItemProps(TypedDict, total=False):

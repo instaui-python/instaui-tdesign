@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -26,19 +26,19 @@ class ColorPicker(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_clear(self, handler: EventMixin):
+    def on_clear(self, handler: ui.TEvent):
         self.on("clear", handler)
         return self
 
-    def on_palette_bar_change(self, handler: EventMixin):
+    def on_palette_bar_change(self, handler: ui.TEvent):
         self.on("palette-bar-change", handler)
         return self
 
-    def on_recent_colors_change(self, handler: EventMixin):
+    def on_recent_colors_change(self, handler: ui.TEvent):
         self.on("recent-colors-change", handler)
         return self
 
@@ -60,15 +60,15 @@ class ColorPickerPanel(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_palette_bar_change(self, handler: EventMixin):
+    def on_palette_bar_change(self, handler: ui.TEvent):
         self.on("palette-bar-change", handler)
         return self
 
-    def on_recent_colors_change(self, handler: EventMixin):
+    def on_recent_colors_change(self, handler: ui.TEvent):
         self.on("recent-colors-change", handler)
         return self
 
@@ -91,10 +91,10 @@ class TColorPickerProps(TypedDict, total=False):
     size: typing.Literal["small", "medium", "large"]
     swatch_colors: list
     default_value: str
-    on_change: EventMixin
-    on_clear: EventMixin
-    on_palette_bar_change: EventMixin
-    on_recent_colors_change: EventMixin
+    on_change: ui.TEvent
+    on_clear: ui.TEvent
+    on_palette_bar_change: ui.TEvent
+    on_recent_colors_change: ui.TEvent
 
 
 class TColorPickerPanelProps(TypedDict, total=False):
@@ -109,6 +109,6 @@ class TColorPickerPanelProps(TypedDict, total=False):
     show_primary_color_preview: bool
     swatch_colors: list
     default_value: str
-    on_change: EventMixin
-    on_palette_bar_change: EventMixin
-    on_recent_colors_change: EventMixin
+    on_change: ui.TEvent
+    on_palette_bar_change: ui.TEvent
+    on_recent_colors_change: ui.TEvent

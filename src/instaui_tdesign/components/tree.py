@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import make_icon_for_bool_or_str
@@ -35,47 +35,47 @@ class Tree(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_active(self, handler: EventMixin):
+    def on_active(self, handler: ui.TEvent):
         self.on("active", handler)
         return self
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_click(self, handler: EventMixin):
+    def on_click(self, handler: ui.TEvent):
         self.on("click", handler)
         return self
 
-    def on_drag_end(self, handler: EventMixin):
+    def on_drag_end(self, handler: ui.TEvent):
         self.on("drag-end", handler)
         return self
 
-    def on_drag_leave(self, handler: EventMixin):
+    def on_drag_leave(self, handler: ui.TEvent):
         self.on("drag-leave", handler)
         return self
 
-    def on_drag_over(self, handler: EventMixin):
+    def on_drag_over(self, handler: ui.TEvent):
         self.on("drag-over", handler)
         return self
 
-    def on_drag_start(self, handler: EventMixin):
+    def on_drag_start(self, handler: ui.TEvent):
         self.on("drag-start", handler)
         return self
 
-    def on_drop(self, handler: EventMixin):
+    def on_drop(self, handler: ui.TEvent):
         self.on("drop", handler)
         return self
 
-    def on_expand(self, handler: EventMixin):
+    def on_expand(self, handler: ui.TEvent):
         self.on("expand", handler)
         return self
 
-    def on_load(self, handler: EventMixin):
+    def on_load(self, handler: ui.TEvent):
         self.on("load", handler)
         return self
 
-    def on_scroll(self, handler: EventMixin):
+    def on_scroll(self, handler: ui.TEvent):
         self.on("scroll", handler)
         return self
 
@@ -111,14 +111,14 @@ class TTreeProps(TypedDict, total=False):
     value: list
     default_value: list
     value_mode: typing.Literal["onlyLeaf", "parentFirst", "all"]
-    on_active: EventMixin
-    on_change: EventMixin
-    on_click: EventMixin
-    on_drag_end: EventMixin
-    on_drag_leave: EventMixin
-    on_drag_over: EventMixin
-    on_drag_start: EventMixin
-    on_drop: EventMixin
-    on_expand: EventMixin
-    on_load: EventMixin
-    on_scroll: EventMixin
+    on_active: ui.TEvent
+    on_change: ui.TEvent
+    on_click: ui.TEvent
+    on_drag_end: ui.TEvent
+    on_drag_leave: ui.TEvent
+    on_drag_over: ui.TEvent
+    on_drag_start: ui.TEvent
+    on_drop: ui.TEvent
+    on_expand: ui.TEvent
+    on_load: ui.TEvent
+    on_scroll: ui.TEvent

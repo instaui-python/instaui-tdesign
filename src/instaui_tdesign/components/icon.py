@@ -2,8 +2,7 @@ from __future__ import annotations
 
 from typing import Optional
 
-from instaui import custom
-from instaui.internal.ui.event import EventMixin
+from instaui import custom, ui
 
 _prefix: Optional[str] = None
 
@@ -26,7 +25,7 @@ class Icon(custom.element):
             }
         )
 
-    def on_click(self, handler: EventMixin):
+    def on_click(self, handler: ui.TEvent):
         self.on("click", handler)
         return self
 

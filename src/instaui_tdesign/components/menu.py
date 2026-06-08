@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import make_icon_for_str
@@ -25,11 +25,11 @@ class Menu(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_expand(self, handler: EventMixin):
+    def on_expand(self, handler: ui.TEvent):
         self.on("expand", handler)
         return self
 
@@ -48,11 +48,11 @@ class HeadMenu(BaseElement):
         self.props(handle_props(kwargs, model_value=model_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_expand(self, handler: EventMixin):
+    def on_expand(self, handler: ui.TEvent):
         self.on("expand", handler)
         return self
 
@@ -88,7 +88,7 @@ class MenuItem(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_click(self, handler: EventMixin):
+    def on_click(self, handler: ui.TEvent):
         self.on("click", handler)
         return self
 
@@ -111,8 +111,8 @@ class TMenuProps(TypedDict, total=False):
     theme: typing.Literal["light", "dark", "global", "system"]
     default_value: typing.Union[float, str]
     width: typing.Union[float, str, list[typing.Union[float, str]]]
-    on_change: EventMixin
-    on_expand: EventMixin
+    on_change: ui.TEvent
+    on_expand: ui.TEvent
 
 
 class THeadMenuProps(TypedDict, total=False):
@@ -122,8 +122,8 @@ class THeadMenuProps(TypedDict, total=False):
     logo: str
     operations: str
     theme: typing.Literal["light", "dark"]
-    on_change: EventMixin
-    on_expand: EventMixin
+    on_change: ui.TEvent
+    on_expand: ui.TEvent
 
 
 class TSubMenuProps(TypedDict, total=False):
@@ -142,4 +142,4 @@ class TMenuItemProps(TypedDict, total=False):
     target: typing.Literal["_blank", "_self", "_parent", "_top"]
     to: str
     value: typing.Union[int, str]
-    on_click: EventMixin
+    on_click: ui.TEvent

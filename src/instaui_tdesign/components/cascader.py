@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from instaui_tdesign.components._icon_param_utils import (
@@ -34,23 +34,23 @@ class Cascader(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_blur(self, handler: EventMixin):
+    def on_blur(self, handler: ui.TEvent):
         self.on("blur", handler)
         return self
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_focus(self, handler: EventMixin):
+    def on_focus(self, handler: ui.TEvent):
         self.on("focus", handler)
         return self
 
-    def on_popup_visible_change(self, handler: EventMixin):
+    def on_popup_visible_change(self, handler: ui.TEvent):
         self.on("popup-visible-change", handler)
         return self
 
-    def on_remove(self, handler: EventMixin):
+    def on_remove(self, handler: ui.TEvent):
         self.on("remove", handler)
         return self
 
@@ -98,8 +98,8 @@ class TCascaderProps(TypedDict, total=False):
     value_display: str
     value_mode: typing.Literal["onlyLeaf", "parentFirst", "all"]
     value_type: typing.Literal["single", "full"]
-    on_blur: EventMixin
-    on_change: EventMixin
-    on_focus: EventMixin
-    on_popup_visible_change: EventMixin
-    on_remove: EventMixin
+    on_blur: ui.TEvent
+    on_change: ui.TEvent
+    on_focus: ui.TEvent
+    on_popup_visible_change: ui.TEvent
+    on_remove: ui.TEvent

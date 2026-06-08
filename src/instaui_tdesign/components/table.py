@@ -2,9 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui import custom
-from instaui.internal.ui.bindable import is_bindable
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from instaui.internal.ui.slot import Slot
 from typing_extensions import Self, TypedDict, Unpack
 
@@ -77,66 +75,66 @@ class BaseTable(BaseElement):
 
     def props(self, add: str | dict[str, typing.Any]) -> Self:
         if isinstance(add, dict) and "data" in add:
-            add = {**add, "data": custom.shallow_expr((add["data"]))}
+            add = {**add, "data": ui.data(add["data"])}
         return super().props(add)
 
-    def on_active_change(self, handler: EventMixin):
+    def on_active_change(self, handler: ui.TEvent):
         self.on("active-change", handler)
         return self
 
-    def on_active_row_action(self, handler: EventMixin):
+    def on_active_row_action(self, handler: ui.TEvent):
         self.on("active-row-action", handler)
         return self
 
-    def on_cell_click(self, handler: EventMixin):
+    def on_cell_click(self, handler: ui.TEvent):
         self.on("cell-click", handler)
         return self
 
-    def on_column_resize_change(self, handler: EventMixin):
+    def on_column_resize_change(self, handler: ui.TEvent):
         self.on("column-resize-change", handler)
         return self
 
-    def on_page_change(self, handler: EventMixin):
+    def on_page_change(self, handler: ui.TEvent):
         self.on("page-change", handler)
         return self
 
-    def on_row_click(self, handler: EventMixin):
+    def on_row_click(self, handler: ui.TEvent):
         self.on("row-click", handler)
         return self
 
-    def on_row_dblclick(self, handler: EventMixin):
+    def on_row_dblclick(self, handler: ui.TEvent):
         self.on("row-dblclick", handler)
         return self
 
-    def on_row_mousedown(self, handler: EventMixin):
+    def on_row_mousedown(self, handler: ui.TEvent):
         self.on("row-mousedown", handler)
         return self
 
-    def on_row_mouseenter(self, handler: EventMixin):
+    def on_row_mouseenter(self, handler: ui.TEvent):
         self.on("row-mouseenter", handler)
         return self
 
-    def on_row_mouseleave(self, handler: EventMixin):
+    def on_row_mouseleave(self, handler: ui.TEvent):
         self.on("row-mouseleave", handler)
         return self
 
-    def on_row_mouseover(self, handler: EventMixin):
+    def on_row_mouseover(self, handler: ui.TEvent):
         self.on("row-mouseover", handler)
         return self
 
-    def on_row_mouseup(self, handler: EventMixin):
+    def on_row_mouseup(self, handler: ui.TEvent):
         self.on("row-mouseup", handler)
         return self
 
-    def on_scroll(self, handler: EventMixin):
+    def on_scroll(self, handler: ui.TEvent):
         self.on("scroll", handler)
         return self
 
-    def on_scroll_x(self, handler: EventMixin):
+    def on_scroll_x(self, handler: ui.TEvent):
         self.on("scroll-x", handler)
         return self
 
-    def on_scroll_y(self, handler: EventMixin):
+    def on_scroll_y(self, handler: ui.TEvent):
         self.on("scroll-y", handler)
         return self
 
@@ -244,7 +242,7 @@ class Table(BaseElement):
         """
         return TableCellSlot(self.add_slot(f"body-cell-{name}"))
 
-    def on_async_loading_click(self, handler: EventMixin):
+    def on_async_loading_click(self, handler: ui.TEvent):
         self.on("async-loading-click", handler)
         return self
 
@@ -270,7 +268,7 @@ class Table(BaseElement):
 
             return cls(data=data.to_dict(orient="records"), columns=columns, **kwargs)  # type: ignore
 
-        if is_bindable(data) or isinstance(data, dict):
+        if ui.is_expression(data) or isinstance(data, dict):
             return cls(data=data["data"], columns=data["columns"], **kwargs)
 
         raise ValueError("Unsupported data type")
@@ -297,64 +295,64 @@ class Table(BaseElement):
 
             return cls(data=data.to_dicts(), columns=columns, **kwargs)  # type: ignore
 
-        if is_bindable(data) or isinstance(data, dict):
+        if ui.is_expression(data) or isinstance(data, dict):
             return cls(data=data["data"], columns=data["columns"], **kwargs)
 
         raise ValueError("Unsupported data type")
 
-    def on_cell_click(self, handler: EventMixin):
+    def on_cell_click(self, handler: ui.TEvent):
         self.on("cell-click", handler)
         return self
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_column_change(self, handler: EventMixin):
+    def on_column_change(self, handler: ui.TEvent):
         self.on("column-change", handler)
         return self
 
-    def on_column_controller_visible_change(self, handler: EventMixin):
+    def on_column_controller_visible_change(self, handler: ui.TEvent):
         self.on("column-controller-visible-change", handler)
         return self
 
-    def on_data_change(self, handler: EventMixin):
+    def on_data_change(self, handler: ui.TEvent):
         self.on("data-change", handler)
         return self
 
-    def on_display_columns_change(self, handler: EventMixin):
+    def on_display_columns_change(self, handler: ui.TEvent):
         self.on("display-columns-change", handler)
         return self
 
-    def on_drag_sort(self, handler: EventMixin):
+    def on_drag_sort(self, handler: ui.TEvent):
         self.on("drag-sort", handler)
         return self
 
-    def on_expand_change(self, handler: EventMixin):
+    def on_expand_change(self, handler: ui.TEvent):
         self.on("expand-change", handler)
         return self
 
-    def on_filter_change(self, handler: EventMixin):
+    def on_filter_change(self, handler: ui.TEvent):
         self.on("filter-change", handler)
         return self
 
-    def on_row_edit(self, handler: EventMixin):
+    def on_row_edit(self, handler: ui.TEvent):
         self.on("row-edit", handler)
         return self
 
-    def on_row_validate(self, handler: EventMixin):
+    def on_row_validate(self, handler: ui.TEvent):
         self.on("row-validate", handler)
         return self
 
-    def on_select_change(self, handler: EventMixin):
+    def on_select_change(self, handler: ui.TEvent):
         self.on("select-change", handler)
         return self
 
-    def on_sort_change(self, handler: EventMixin):
+    def on_sort_change(self, handler: ui.TEvent):
         self.on("sort-change", handler)
         return self
 
-    def on_validate(self, handler: EventMixin):
+    def on_validate(self, handler: ui.TEvent):
         self.on("validate", handler)
         return self
 
@@ -423,21 +421,21 @@ class TBaseTableProps(TypedDict, total=False):
     table_layout: typing.Literal["auto", "fixed"]
     top_content: typing.Literal["TNode"]
     vertical_align: typing.Literal["top", "middle", "bottom"]
-    on_active_change: EventMixin
-    on_active_row_action: EventMixin
-    on_cell_click: EventMixin
-    on_column_resize_change: EventMixin
-    on_page_change: EventMixin
-    on_row_click: EventMixin
-    on_row_dblclick: EventMixin
-    on_row_mousedown: EventMixin
-    on_row_mouseenter: EventMixin
-    on_row_mouseleave: EventMixin
-    on_row_mouseover: EventMixin
-    on_row_mouseup: EventMixin
-    on_scroll: EventMixin
-    on_scroll_x: EventMixin
-    on_scroll_y: EventMixin
+    on_active_change: ui.TEvent
+    on_active_row_action: ui.TEvent
+    on_cell_click: ui.TEvent
+    on_column_resize_change: ui.TEvent
+    on_page_change: ui.TEvent
+    on_row_click: ui.TEvent
+    on_row_dblclick: ui.TEvent
+    on_row_mousedown: ui.TEvent
+    on_row_mouseenter: ui.TEvent
+    on_row_mouseleave: ui.TEvent
+    on_row_mouseover: ui.TEvent
+    on_row_mouseup: ui.TEvent
+    on_scroll: ui.TEvent
+    on_scroll_x: ui.TEvent
+    on_scroll_y: ui.TEvent
 
 
 class TBaseTableCol(TypedDict, total=False):
@@ -497,21 +495,21 @@ class TPrimaryTableProps(TBaseTableProps, total=False):
     sort: typing.Union[dict, list]
     default_sort: typing.Union[dict, list]
     sort_on_row_draggable: bool
-    on_async_loading_click: EventMixin
-    on_cell_click: EventMixin
-    on_change: EventMixin
-    on_column_change: EventMixin
-    on_column_controller_visible_change: EventMixin
-    on_data_change: EventMixin
-    on_display_columns_change: EventMixin
-    on_drag_sort: EventMixin
-    on_expand_change: EventMixin
-    on_filter_change: EventMixin
-    on_row_edit: EventMixin
-    on_row_validate: EventMixin
-    on_select_change: EventMixin
-    on_sort_change: EventMixin
-    on_validate: EventMixin
+    on_async_loading_click: ui.TEvent
+    on_cell_click: ui.TEvent
+    on_change: ui.TEvent
+    on_column_change: ui.TEvent
+    on_column_controller_visible_change: ui.TEvent
+    on_data_change: ui.TEvent
+    on_display_columns_change: ui.TEvent
+    on_drag_sort: ui.TEvent
+    on_expand_change: ui.TEvent
+    on_filter_change: ui.TEvent
+    on_row_edit: ui.TEvent
+    on_row_validate: ui.TEvent
+    on_select_change: ui.TEvent
+    on_sort_change: ui.TEvent
+    on_validate: ui.TEvent
 
 
 class TPrimaryTableCol(TBaseTableCol):
@@ -534,9 +532,9 @@ class TEnhancedTableProps(TPrimaryTableCol):
     expanded_tree_nodes: list
     default_expanded_tree_nodes: list
     tree: dict
-    on_abnormal_drag_sort: EventMixin
-    on_expanded_tree_nodes_change: EventMixin
-    on_tree_expand_change: EventMixin
+    on_abnormal_drag_sort: ui.TEvent
+    on_expanded_tree_nodes_change: ui.TEvent
+    on_tree_expand_change: ui.TEvent
 
 
 class TableCellSlot:

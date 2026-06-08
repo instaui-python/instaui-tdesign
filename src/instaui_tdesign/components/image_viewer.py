@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -20,15 +20,15 @@ class ImageViewer(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_close(self, handler: EventMixin):
+    def on_close(self, handler: ui.TEvent):
         self.on("close", handler)
         return self
 
-    def on_download(self, handler: EventMixin):
+    def on_download(self, handler: ui.TEvent):
         self.on("download", handler)
         return self
 
-    def on_index_change(self, handler: EventMixin):
+    def on_index_change(self, handler: ui.TEvent):
         self.on("index-change", handler)
         return self
 
@@ -61,6 +61,6 @@ class TImageViewerProps(TypedDict, total=False):
     visible: bool
     default_visible: bool
     z_index: float
-    on_close: EventMixin
-    on_download: EventMixin
-    on_index_change: EventMixin
+    on_close: ui.TEvent
+    on_download: ui.TEvent
+    on_index_change: ui.TEvent

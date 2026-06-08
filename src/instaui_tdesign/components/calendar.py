@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -21,23 +21,23 @@ class Calendar(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_cell_click(self, handler: EventMixin):
+    def on_cell_click(self, handler: ui.TEvent):
         self.on("cell-click", handler)
         return self
 
-    def on_cell_double_click(self, handler: EventMixin):
+    def on_cell_double_click(self, handler: ui.TEvent):
         self.on("cell-double-click", handler)
         return self
 
-    def on_cell_right_click(self, handler: EventMixin):
+    def on_cell_right_click(self, handler: ui.TEvent):
         self.on("cell-right-click", handler)
         return self
 
-    def on_controller_change(self, handler: EventMixin):
+    def on_controller_change(self, handler: ui.TEvent):
         self.on("controller-change", handler)
         return self
 
-    def on_month_change(self, handler: EventMixin):
+    def on_month_change(self, handler: ui.TEvent):
         self.on("month-change", handler)
         return self
 
@@ -59,8 +59,8 @@ class TCalendarProps(TypedDict, total=False):
     theme: typing.Literal["full", "card"]
     week: typing.Union[str, list]
     year: typing.Union[float, str]
-    on_cell_click: EventMixin
-    on_cell_double_click: EventMixin
-    on_cell_right_click: EventMixin
-    on_controller_change: EventMixin
-    on_month_change: EventMixin
+    on_cell_click: ui.TEvent
+    on_cell_double_click: ui.TEvent
+    on_cell_right_click: ui.TEvent
+    on_controller_change: ui.TEvent
+    on_month_change: ui.TEvent

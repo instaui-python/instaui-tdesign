@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -33,15 +33,15 @@ class Pagination(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
-    def on_current_change(self, handler: EventMixin):
+    def on_current_change(self, handler: ui.TEvent):
         self.on("current-change", handler)
         return self
 
-    def on_page_size_change(self, handler: EventMixin):
+    def on_page_size_change(self, handler: ui.TEvent):
         self.on("page-size-change", handler)
         return self
 
@@ -61,7 +61,7 @@ class PaginationMini(BaseElement):
         self.props(handle_props(kwargs, model_value=current_value))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_change(self, handler: EventMixin):
+    def on_change(self, handler: ui.TEvent):
         self.on("change", handler)
         return self
 
@@ -84,9 +84,9 @@ class TPaginationProps(TypedDict, total=False):
     theme: typing.Literal["default", "simple"]
     total: int
     total_content: typing.Union[bool, str]
-    on_change: EventMixin
-    on_current_change: EventMixin
-    on_page_size_change: EventMixin
+    on_change: ui.TEvent
+    on_current_change: ui.TEvent
+    on_page_size_change: ui.TEvent
 
 
 class TPaginationMiniProps(TypedDict, total=False):
@@ -96,4 +96,4 @@ class TPaginationMiniProps(TypedDict, total=False):
     size: typing.Literal["small", "medium", "large"]
     tips: dict
     variant: typing.Literal["text", "outline"]
-    on_change: EventMixin
+    on_change: ui.TEvent

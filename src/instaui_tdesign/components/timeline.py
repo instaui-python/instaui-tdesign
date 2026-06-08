@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -34,7 +34,7 @@ class TimelineItem(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_click(self, handler: EventMixin):
+    def on_click(self, handler: ui.TEvent):
         self.on("click", handler)
         return self
 
@@ -51,4 +51,4 @@ class TTimelineItemProps(TypedDict, total=False):
     dot: str
     dot_color: str
     loading: bool
-    on_click: EventMixin
+    on_click: ui.TEvent

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from instaui.internal.ui.event import EventMixin
+from instaui import ui
 from typing_extensions import TypedDict, Unpack
 
 from ._base_element import BaseElement
@@ -20,11 +20,11 @@ class Image(BaseElement):
         self.props(handle_props(kwargs))  # type: ignore
         handle_event_from_props(self, kwargs)  # type: ignore
 
-    def on_error(self, handler: EventMixin):
+    def on_error(self, handler: ui.TEvent):
         self.on("error", handler)
         return self
 
-    def on_load(self, handler: EventMixin):
+    def on_load(self, handler: ui.TEvent):
         self.on("load", handler)
         return self
 
@@ -53,5 +53,5 @@ class TImageProps(TypedDict, total=False):
     ]
     shape: typing.Literal["circle", "round", "square"]
     srcset: dict
-    on_error: EventMixin
-    on_load: EventMixin
+    on_error: ui.TEvent
+    on_load: ui.TEvent
